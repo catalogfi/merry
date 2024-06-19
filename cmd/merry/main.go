@@ -58,7 +58,7 @@ func main() {
 		panic(fmt.Errorf("failed to provision resources: %v", err))
 	}
 
-	cmd.AddCommand(Faucet(&state), Logs(state), Start(&state), Stop(&state))
+	cmd.AddCommand(Start(&state), Stop(&state), Faucet(&state), Logs(state), RPC(state), Update(), Version())
 	if err := cmd.Execute(); err != nil {
 		panic(err)
 	}
