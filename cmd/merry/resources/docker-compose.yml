@@ -1,39 +1,4 @@
 services:
-  redis:
-    image: redis:latest
-    container_name: redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - ./volumes/redis-data:/data
-
-  postgres:
-    image: postgres:latest
-    container_name: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: garden
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./volumes/postgres_data:/var/lib/postgresql/data
-
-  orderbook:
-    image: ghcr.io/catalogfi/orderbook:0.0.2
-    container_name: orderbook
-    depends_on:
-      - postgres
-    ports:
-      - "8080:8080"
-
-  cobi:
-    image: ghcr.io/catalogfi/cobi:0.0.2
-    container_name: cobi
-    depends_on:
-      - orderbook
-      - redis
-
   # RPC daemon
   bitcoin:
     image: lncm/bitcoind:v24.0.1

@@ -144,14 +144,16 @@ func GetServices(composeFile string) ([][]string, error) {
 	var services [][]string
 	for k, v := range serviceMap {
 		m := v.(map[string]interface{})
-		i := m["ports"].([]interface{})
+		i, ok := m["ports"].([]interface{})
+		if !ok {
+			continue
+		}
 		for _, j := range i {
 			port := j.(string)
 			exposedPorts := strings.Split(port, ":")
 			endpoint := "localhost:" + exposedPorts[0]
 			services = append(services, []string{k, endpoint})
 		}
-
 	}
 
 	return services, nil
