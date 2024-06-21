@@ -26,7 +26,7 @@ func Start(state *State) *cobra.Command {
 			}
 
 			composePath := filepath.Join(home, ".merry", DefaultCompose)
-			bashCmd := runDockerCompose(composePath, "up", "-d", "esplora")
+			bashCmd := runDockerCompose(composePath, "up", "-d", "orderbook")
 			bashCmd.Stdout = os.Stdout
 			bashCmd.Stderr = os.Stderr
 			if err := bashCmd.Run(); err != nil {

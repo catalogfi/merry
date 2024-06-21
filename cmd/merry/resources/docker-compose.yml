@@ -18,6 +18,7 @@ services:
 
   arbitrum:
     image: ghcr.io/catalogfi/garden_sol:0.0.3
+    container_name: arbitrum
     environment: 
       CHAIN_ID: 31338
       LIGHT: "false"
@@ -26,6 +27,7 @@ services:
 
   ethereum:
     image: ghcr.io/catalogfi/garden_sol:0.0.3
+    container_name: ethereum
     environment: 
       LIGHT: "true"
     ports:
@@ -95,7 +97,31 @@ services:
     ports:
       - 3000:3000
     restart: unless-stopped
-    
+  
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: garden
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./volumes/orderbook_data:/var/lib/postgresql/data
+
+  orderbook:
+    image: ghcr.io/catalogfi/orderbook:0.0.7
+    container_name: orderbook
+    depends_on:
+      - ethereum
+      - arbitrum
+      - esplora
+      - postgres
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
 networks:
   default:
     name: merry
