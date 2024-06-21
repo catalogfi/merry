@@ -16,6 +16,21 @@ services:
     volumes:
       - ./volumes/bitcoin:/root/.bitcoin
 
+  arbitrum:
+    image: ghcr.io/catalogfi/garden_sol:0.0.1
+    environment: 
+      CHAIN_ID: 31338
+      LIGHT: "false"
+    ports:
+      - 8546:8545
+
+  ethereum:
+    image: ghcr.io/catalogfi/garden_sol:0.0.1
+    environment: 
+      LIGHT: "true"
+    ports:
+      - 8545:8545
+
   # Block explorer server
   electrs:
     image: ghcr.io/vulpemventures/electrs:latest
@@ -83,4 +98,4 @@ services:
     
 networks:
   default:
-    name: nigiri
+    name: merry
