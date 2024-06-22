@@ -29,6 +29,7 @@ services:
     image: ghcr.io/catalogfi/garden_sol:0.0.3
     container_name: ethereum
     environment: 
+      CHAIN_ID: 31337
       LIGHT: "true"
     ports:
       - 8545:8545
@@ -110,8 +111,16 @@ services:
     volumes:
       - ./volumes/orderbook_data:/var/lib/postgresql/data
 
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./volumes/cobi_data:/data
+
   orderbook:
-    image: ghcr.io/catalogfi/orderbook:0.0.7
+    image: ghcr.io/catalogfi/orderbook:0.0.10
     container_name: orderbook
     depends_on:
       - ethereum
@@ -120,6 +129,14 @@ services:
       - postgres
     ports:
       - 8080:8080
+    restart: unless-stopped
+
+  cobi:
+    image: ghcr.io/catalogfi/cobi:0.0.3
+    container_name: cobi
+    depends_on:
+      - orderbook
+      - redis
     restart: unless-stopped
 
 networks:
