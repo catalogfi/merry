@@ -17,7 +17,7 @@ services:
       - ./volumes/bitcoin:/root/.bitcoin
 
   arbitrum:
-    image: ghcr.io/catalogfi/garden_sol:0.0.3
+    image: ghcr.io/catalogfi/garden_sol:latest
     container_name: arbitrum
     environment: 
       CHAIN_ID: 31338
@@ -26,7 +26,7 @@ services:
       - 8546:8545
 
   ethereum:
-    image: ghcr.io/catalogfi/garden_sol:0.0.3
+    image: ghcr.io/catalogfi/garden_sol:latest
     container_name: ethereum
     environment: 
       CHAIN_ID: 31337
@@ -107,7 +107,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: garden
     ports:
-      - "5432:5432"
+      - 5432:5432
     volumes:
       - ./volumes/orderbook_data:/var/lib/postgresql/data
 
@@ -115,12 +115,12 @@ services:
     image: redis:latest
     container_name: redis
     ports:
-      - "6379:6379"
+      - 6379:6379
     volumes:
       - ./volumes/cobi_data:/data
 
   orderbook:
-    image: ghcr.io/catalogfi/orderbook:0.0.10
+    image: ghcr.io/catalogfi/orderbook:latest
     container_name: orderbook
     depends_on:
       - ethereum
@@ -132,7 +132,7 @@ services:
     restart: unless-stopped
 
   cobi:
-    image: ghcr.io/catalogfi/cobi:0.0.3
+    image: ghcr.io/catalogfi/cobi:latest
     container_name: cobi
     depends_on:
       - orderbook

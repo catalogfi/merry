@@ -17,6 +17,9 @@ function remove_images() {
     ghcr.io/vulpemventures/electrs:latest
     ghcr.io/vulpemventures/esplora:latest
     ghcr.io/vulpemventures/nigiri-chopsticks:latest
+    ghcr.io/catalogfi/garden_sol:latest
+    ghcr.io/catalogfi/orderbook:latest
+    ghcr.io/catalogfi/cobi:latest
   )
   for image in ${images[*]}; do
     if [ "$(docker images -q $image)" != "" ]; then
