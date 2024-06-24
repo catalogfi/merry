@@ -75,7 +75,7 @@ services:
     environment:
       API_URL: http://localhost:3000
     ports:
-      - 5000:5000
+      - 5000:5050
     restart: unless-stopped
 
   # Chopsticks
@@ -100,7 +100,7 @@ services:
     restart: unless-stopped
   
   postgres:
-    image: postgres:latest
+    image: postgres:alpine
     container_name: postgres
     environment:
       POSTGRES_USER: postgres
@@ -112,7 +112,7 @@ services:
       - ./volumes/orderbook_data:/var/lib/postgresql/data
 
   redis:
-    image: redis:latest
+    image: redis:alpine
     container_name: redis
     ports:
       - 6379:6379
