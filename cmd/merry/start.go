@@ -22,8 +22,8 @@ func Start(state *State) *cobra.Command {
 			return startMerry(state)
 		},
 	}
-	cmd.Flags().BoolVarP(&isHeadless, "headless", "h", false, "do not run UI services")
-	cmd.Flags().BoolVarP(&isBare, "bare", "b", false, "deploy only blockchains")
+	cmd.Flags().BoolVar(&isHeadless, "headless", false, "do not run UI services")
+	cmd.Flags().BoolVar(&isBare, "bare", false, "deploy only blockchains")
 	return cmd
 }
 
