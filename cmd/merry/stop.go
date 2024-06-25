@@ -17,43 +17,47 @@ func Stop(state *State) *cobra.Command {
 		Use:   "stop",
 		Short: "stop merry",
 		RunE: func(c *cobra.Command, args []string) error {
-			home, err := os.UserHomeDir()
-			if err != nil {
-				return fmt.Errorf("failed to get user's home directory: %v", err)
-			}
-			composePath := filepath.Join(home, ".merry", DefaultCompose)
-			bashCmd := runDockerCompose(composePath, "stop")
-			if delete {
-				bashCmd = runDockerCompose(composePath, "down", "--volumes")
-			}
-			bashCmd.Stdout = os.Stdout
-			bashCmd.Stderr = os.Stderr
-			if err := bashCmd.Run(); err != nil {
-				return err
-			}
-			if delete {
-				fmt.Println("Removing data from volumes...")
-				if err := os.RemoveAll(filepath.Join(home, ".merry")); err != nil {
-					return err
-				}
-
-				if err := provisionResourcesToDatadir(state, filepath.Join(home, ".merry")); err != nil {
-					return err
-				}
-				fmt.Println("Nigiri has been cleaned up successfully.")
-			}
-			state.Running = false
-			data, err := json.Marshal(state)
-			if err != nil {
-				return err
-			}
-			if err := os.WriteFile(filepath.Join(home, ".merry", "merry.config.json"), data, 0777); err != nil {
-				return err
-			}
-			return nil
+			return stopMerry(state, delete)
 		},
 	}
 	cmd.Flags().BoolVarP(&delete, "delete", "d", false, "reset the blockchain data")
-
 	return cmd
+}
+
+func stopMerry(state *State, isDelete bool) error {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return fmt.Errorf("failed to get user's home directory: %v", err)
+	}
+	composePath := filepath.Join(home, ".merry", DefaultCompose)
+	bashCmd := runDockerCompose(composePath, "stop")
+	if isDelete {
+		bashCmd = runDockerCompose(composePath, "down", "--volumes")
+	}
+	bashCmd.Stdout = os.Stdout
+	bashCmd.Stderr = os.Stderr
+	if err := bashCmd.Run(); err != nil {
+		return err
+	}
+	if isDelete {
+		fmt.Println("Removing data from volumes...")
+		if err := os.RemoveAll(filepath.Join(home, ".merry")); err != nil {
+			return err
+		}
+
+		if err := provisionResourcesToDatadir(state, filepath.Join(home, ".merry")); err != nil {
+			return err
+		}
+		fmt.Println("Merry has been cleaned up successfully.")
+	} else {
+		state.Running = false
+		data, err := json.Marshal(state)
+		if err != nil {
+			return err
+		}
+		if err := os.WriteFile(filepath.Join(home, ".merry", "merry.config.json"), data, 0777); err != nil {
+			return err
+		}
+	}
+	return nil
 }
