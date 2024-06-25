@@ -11,13 +11,19 @@ import (
 )
 
 func Start(state *State) *cobra.Command {
+	var isHeadless bool
+	var isBare bool
 	var cmd = &cobra.Command{
 		Use:   "go",
 		Short: "going merry",
 		RunE: func(c *cobra.Command, args []string) error {
+			state.IsBare = isBare
+			state.IsHeadless = isHeadless
 			return startMerry(state)
 		},
 	}
+	cmd.Flags().BoolVarP(&isHeadless, "headless", "h", false, "do not run UI services")
+	cmd.Flags().BoolVarP(&isBare, "bare", "b", false, "deploy only blockchains")
 	return cmd
 }
 
@@ -45,7 +51,14 @@ func startMerry(state *State) error {
 	}
 
 	composePath := filepath.Join(home, ".merry", DefaultCompose)
-	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi")
+
+	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora")
+	if state.IsHeadless {
+		bashCmd = runDockerCompose(composePath, "up", "-d", "cobi")
+	}
+	if state.IsBare {
+		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks")
+	}
 	bashCmd.Stdout = os.Stdout
 	bashCmd.Stderr = os.Stderr
 	if err := bashCmd.Run(); err != nil {

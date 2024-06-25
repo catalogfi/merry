@@ -18,8 +18,10 @@ import (
 var f embed.FS
 
 type State struct {
-	Running bool `json:"running"`
-	Ready   bool `json:"ready"`
+	Running    bool `json:"running"`
+	Ready      bool `json:"ready"`
+	IsBare     bool `json:"isBare"`
+	IsHeadless bool `json:"isHeadless"`
 }
 
 var (

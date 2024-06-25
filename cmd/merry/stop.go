@@ -51,6 +51,8 @@ func stopMerry(state *State, isDelete bool) error {
 		fmt.Println("Merry has been cleaned up successfully.")
 	} else {
 		state.Running = false
+		state.IsBare = false
+		state.IsHeadless = false
 		data, err := json.Marshal(state)
 		if err != nil {
 			return err
