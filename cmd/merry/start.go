@@ -57,7 +57,7 @@ func startMerry(state *State) error {
 		bashCmd = runDockerCompose(composePath, "up", "-d", "cobi")
 	}
 	if state.IsBare {
-		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks")
+		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum")
 	}
 	bashCmd.Stdout = os.Stdout
 	bashCmd.Stderr = os.Stderr
