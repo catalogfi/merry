@@ -153,7 +153,7 @@ func GetServices(composeFile string) ([][]string, error) {
 		for _, j := range i {
 			port := j.(string)
 			exposedPorts := strings.Split(port, ":")
-			endpoint := "localhost:" + exposedPorts[1]
+			endpoint := "localhost:" + exposedPorts[0]
 			services = append(services, []string{k, endpoint})
 		}
 	}

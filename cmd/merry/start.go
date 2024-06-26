@@ -1,13 +1,17 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
+	"math/big"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"time"
 
+	"github.com/catalogfi/blockchain/localnet"
+	"github.com/ethereum/go-ethereum/common"
 	"github.com/spf13/cobra"
 )
 
@@ -91,6 +95,7 @@ func startMerry(state *State) error {
 		return err
 	}
 	retry(func() error { return fundBTC("bcrt1q5428vq2uzwhm3taey9sr9x5vm6tk78ew8pf2xw") })
+	retry(func() error { return hasEVMClientStarted() })
 	return nil
 }
 
@@ -103,4 +108,23 @@ func retry(f func() error) {
 		fmt.Printf("failed with %v, retrying after 5 seconds\n", err)
 		time.Sleep(5 * time.Second)
 	}
+}
+
+func hasEVMClientStarted() error {
+	bal1, err := localnet.EVMClient().Balance(context.Background(), localnet.WBTC(), common.HexToAddress("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"), nil)
+	if err != nil {
+		return err
+	}
+	bal2, err := localnet.EVMClient().Balance(context.Background(), localnet.ArbitrumWBTC(), common.HexToAddress("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"), nil)
+	if err != nil {
+		return err
+	}
+	bal, ok := new(big.Int).SetString("2100000000000000", 10)
+	if !ok {
+		return fmt.Errorf("constraint violation")
+	}
+	if bal1.Cmp(bal) != 0 || bal2.Cmp(bal) != 0 {
+		return fmt.Errorf("wbtc tokens have not been deployed yet")
+	}
+	return nil
 }
