@@ -115,8 +115,6 @@ git clone https://github.com/catalogfi/merry.git
 
 ```bash
 cd cmd/merry
-# build the binary
-go build
-# move the binary to /usr/local/bin such it can be accessed from anywhere
-sudo mv merry /usr/local/bin
+# build and install the binary
+go install
 ```
