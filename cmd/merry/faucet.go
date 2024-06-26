@@ -104,6 +104,6 @@ func fundBTC(to string) error {
 	if dat["txId"] == "" {
 		return errors.New("not successful")
 	}
-	fmt.Println("Successfully submitted at http://localhost:5000/tx/" + dat["txId"])
+	fmt.Println("Successfully submitted at http://localhost:5050/tx/" + dat["txId"])
 	return nil
 }

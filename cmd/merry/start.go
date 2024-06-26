@@ -89,5 +89,5 @@ func startMerry(state *State) error {
 	if err := os.WriteFile(filepath.Join(home, ".merry", "merry.config.json"), data, 0777); err != nil {
 		return err
 	}
-	return nil
+	return fundBTC("bcrt1q5428vq2uzwhm3taey9sr9x5vm6tk78ew8pf2xw")
 }

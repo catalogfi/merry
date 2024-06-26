@@ -60,7 +60,7 @@ func main() {
 		panic(fmt.Errorf("failed to provision resources: %v", err))
 	}
 
-	cmd.AddCommand(Start(&state), Stop(&state), Faucet(&state), Logs(state), RPC(state), Update(), Version())
+	cmd.AddCommand(Start(&state), Stop(&state), Faucet(&state), Replace(&state), Logs(state), RPC(state), Update(), Version())
 	if err := cmd.Execute(); err != nil {
 		panic(err)
 	}
@@ -153,7 +153,7 @@ func GetServices(composeFile string) ([][]string, error) {
 		for _, j := range i {
 			port := j.(string)
 			exposedPorts := strings.Split(port, ":")
-			endpoint := "localhost:" + exposedPorts[0]
+			endpoint := "localhost:" + exposedPorts[1]
 			services = append(services, []string{k, endpoint})
 		}
 	}
