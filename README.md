@@ -1,5 +1,6 @@
 <h1 align=center> <img src="./logo.png"/> </h1>
 <h1 align=center><code>merry</code></h1>
+<h1 align=center>[![goreleaser](https://github.com/catalogfi/merry/actions/workflows/release.yml/badge.svg)](https://github.com/catalogfi/merry/actions/workflows/release.yml)</h1>
 
 Streamline Garden component testing with a user-friendly CLI tool that quickly sets up isolated testing environment.
 
