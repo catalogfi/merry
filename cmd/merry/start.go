@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"time"
 
 	"github.com/spf13/cobra"
 )
@@ -89,5 +90,17 @@ func startMerry(state *State) error {
 	if err := os.WriteFile(filepath.Join(home, ".merry", "merry.config.json"), data, 0777); err != nil {
 		return err
 	}
-	return fundBTC("bcrt1q5428vq2uzwhm3taey9sr9x5vm6tk78ew8pf2xw")
+	retry(func() error { return fundBTC("bcrt1q5428vq2uzwhm3taey9sr9x5vm6tk78ew8pf2xw") })
+	return nil
+}
+
+func retry(f func() error) {
+	for {
+		err := f()
+		if err == nil {
+			return
+		}
+		fmt.Printf("failed with %v, retrying after 5 seconds\n", err)
+		time.Sleep(5 * time.Second)
+	}
 }
