@@ -57,7 +57,7 @@ func startMerry(state *State) error {
 
 	composePath := filepath.Join(home, ".merry", DefaultCompose)
 
-	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora")
+	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora", "ethereum-explorer", "arbitrum-explorer")
 	if state.IsHeadless {
 		bashCmd = runDockerCompose(composePath, "up", "-d", "cobi")
 	}
