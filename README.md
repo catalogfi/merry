@@ -1,6 +1,6 @@
 ![GitHub Release](https://img.shields.io/github/v/release/catalogfi/merry)
 
-<h1 style="display:flex;align-items:center;gap:0.5rem;" > <img height="32" src="./logo.png">  <span>Merry</span> </h1>
+<h1 > <img height="36px" src="./logo.png">  <span>Merry</span> </h1>
 
 Streamline your multi-chain testing with `merry`!
 
