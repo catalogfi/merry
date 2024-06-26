@@ -11,7 +11,7 @@ import (
 func Replace(state *State) *cobra.Command {
 	var cmd = &cobra.Command{
 		Use:   "replace",
-		Short: "replace a specific docker image with a local one",
+		Short: "Replace a specific service with a local one",
 		RunE: func(c *cobra.Command, args []string) error {
 			fmt.Println("replace any service")
 			fmt.Println(formatVersion())
@@ -26,7 +26,7 @@ func Orderbook(state *State) *cobra.Command {
 	var path string
 	var cmd = &cobra.Command{
 		Use:   "orderbook",
-		Short: "replace orderbook service",
+		Short: "Replace orderbook service",
 		RunE: func(c *cobra.Command, args []string) error {
 			return replaceImage(state, path, "ghcr.io/catalogfi/orderbook:latest")
 		},
@@ -39,7 +39,7 @@ func COBI(state *State) *cobra.Command {
 	var path string
 	var cmd = &cobra.Command{
 		Use:   "cobi",
-		Short: "replace cobi service",
+		Short: "Replace cobi service",
 		RunE: func(c *cobra.Command, args []string) error {
 			return replaceImage(state, path, "ghcr.io/catalogfi/cobi:latest")
 		},
@@ -52,7 +52,7 @@ func EVM(state *State) *cobra.Command {
 	var path string
 	var cmd = &cobra.Command{
 		Use:   "evm",
-		Short: "replace evm chain services",
+		Short: "Replace evm chain services",
 		RunE: func(c *cobra.Command, args []string) error {
 			return replaceImage(state, path, "ghcr.io/catalogfi/garden_sol:latest")
 		},

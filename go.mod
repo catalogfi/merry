@@ -7,7 +7,7 @@ toolchain go1.22.0
 require (
 	github.com/btcsuite/btcd v0.24.0
 	github.com/btcsuite/btcd/btcutil v1.1.5
-	github.com/catalogfi/blockchain v0.1.1
+	github.com/catalogfi/blockchain v0.1.2
 	github.com/compose-spec/compose-go v0.0.0-20210729195839-de56f4f0cb3c
 	github.com/ethereum/go-ethereum v1.14.5
 	github.com/logrusorgru/aurora v2.0.3+incompatible

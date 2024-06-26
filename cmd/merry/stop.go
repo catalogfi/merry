@@ -15,7 +15,7 @@ func Stop(state *State) *cobra.Command {
 	)
 	var cmd = &cobra.Command{
 		Use:   "stop",
-		Short: "stop merry",
+		Short: "Stop merry",
 		RunE: func(c *cobra.Command, args []string) error {
 			return stopMerry(state, delete)
 		},

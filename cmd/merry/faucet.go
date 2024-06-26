@@ -24,7 +24,7 @@ func Faucet(state *State) *cobra.Command {
 	)
 	var cmd = &cobra.Command{
 		Use:   "faucet",
-		Short: "Generate and send bitcoin to given address",
+		Short: "Generate and send supported assets to the given address",
 		RunE: func(c *cobra.Command, args []string) error {
 			if !state.Running {
 				return fmt.Errorf("merry is not running")

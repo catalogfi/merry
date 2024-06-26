@@ -20,8 +20,8 @@ func RPC(state State) *cobra.Command {
 		rpcwallet string
 	)
 	var cmd = &cobra.Command{
-		Use:   "logs",
-		Short: "check Service logs",
+		Use:   "rpc",
+		Short: "Invoke bitcoin-cli commands",
 		RunE: func(c *cobra.Command, args []string) error {
 			if !state.Running {
 				return fmt.Errorf("merry is not running")

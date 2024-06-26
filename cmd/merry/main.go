@@ -32,7 +32,7 @@ var (
 
 func main() {
 	var cmd = &cobra.Command{
-		Use: "Merry - catalog localnet",
+		Use: "merry - catalog localnet",
 		Run: func(c *cobra.Command, args []string) {
 			c.HelpFunc()(c, args)
 		},

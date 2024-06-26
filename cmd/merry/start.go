@@ -20,7 +20,7 @@ func Start(state *State) *cobra.Command {
 	var isBare bool
 	var cmd = &cobra.Command{
 		Use:   "go",
-		Short: "going merry",
+		Short: "Start merry",
 		RunE: func(c *cobra.Command, args []string) error {
 			state.IsBare = isBare
 			state.IsHeadless = isHeadless
