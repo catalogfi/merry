@@ -1,51 +1,122 @@
-<h1 align=center> <img src="./logo.png"/> </h1>
-<h1 align=center><code>merry</code></h1>
+![GitHub Release](https://img.shields.io/github/v/release/catalogfi/merry)
 
-[![goreleaser](https://github.com/catalogfi/merry/actions/workflows/release.yml/badge.svg)](https://github.com/catalogfi/merry/actions/workflows/release.yml)
+# merry
 
-Streamline Garden component testing with a user-friendly CLI tool that quickly sets up isolated testing environment.
+Streamline your multi-chain testing with `merry`!
 
-## Features
+This CLI tool leverages Docker to effortlessly set up a multi-chain testing environment in a single command. Merry includes Bitcoin regtest node, Ethereum localnet node, and essential Garden components, providing a self-contained space to test your applications independently of external services.
 
-- **Quick Setup**: Set up a testing environment with a single command.
-- **Isolated Environment**: Test your application in an isolated environment without depending on external services.
-- **Orderbook**: Fully functional orderbook along with COBI to get you started with cross-chain swapping.
-- **Bitcoin regtest**: Get a bitcoin regtest node to test your Bitcoin specific logic.
-- **Ethereum testnet**: Get an Ethereum testnet node to test your Ethereum specific logic.
+It supports a variety of features, including a faucet, electrum services and an orderbook with COBI.
+
+## Prerequisites
+
+Before using merry, ensure you have Docker installed and running on your system. If not, you'll need to download and install Docker from the official [website](https://www.docker.com).
 
 ## Installation
 
-You can install `merry` using the following command.
+You can install merry using the following command.
 
 ```bash
 curl https://get.merry.dev | bash
 ```
 
-## Quickstart
+merry stores its configuration files and other data in a directory on your system. This directory is typically named `.merry/volumes/`.
 
-To get started, run the following command.
+See the [Install from scratch](#install-from-scratch) section to install merry from scratch.
+
+## Commands
+
+merry provides a variety of commands to manage your testing environment:
+
+### Starting merry
+
+To start merry, run the following command:
 
 ```bash
 merry go
 ```
 
-This command will pull docker images (if they do not exist already) of various garden components and launches a testing environment.
-
-When you're finished testing, simply stop the `merry` with this command:
+### Stopping merry
 
 ```bash
 merry stop
 ```
 
-## Documentation
+Stops all running services
 
-The documentation for `merry` is available [here](https://docs.garden.finance/developers/merry).
+### Getting logs
 
-## Testing
+```bash
+merry logs -s <service>
 
-Once you have the environment set up, you can connect to orderbook by providing the orderbook URL in your client.
-With `merry`, you also get bitcoin regtest and ethereum testnet nodes to test your application.
+# getting logs of evm service
+merry logs -s evm
+```
 
-## Contributing
+Replace <service> with the specific service (e.g., cobi, orderbook, evm) to view its logs.
 
-If you're interested in contributing to `merry`, there are no special requirements. Just fork the repository, make your changes, and submit a pull request. Happy coding!
+### Replacing a service with a local one
+
+```bash
+merry replace <service>
+```
+
+This command allows you to replace a service with your local development version. Make sure you're in the directory containing the local service's Dockerfile. Supported services include cobi, orderbook, and evm.
+
+### Calling bitcoin rpc methods
+
+```bash
+merry rpc <method> <params>
+
+# example: get blockchain info
+merry rpc getblockchaininfo
+```
+
+Interact with the Bitcoin regtest node directly using RPC methods.
+
+### Updating docker images
+
+```bash
+merry update
+```
+
+Keep your testing environment up-to-date by updating all docker images.
+
+### Fund accounts
+
+```bash
+merry faucet <address>
+```
+
+Fund any EVM or Bitcoin address for testing purposes. Replace <address> with the address you want to fund. It could be a Bitcoin or Ethereum address.
+
+## Testing with merry
+
+Once your environment is set up:
+
+- Connect to the orderbook using its provided URL within your client application.
+- Leverage the built-in Bitcoin regtest and Ethereum testnet nodes to test your multi-chain functionalities.
+
+Contributing
+
+We welcome contributions to merry! No special requirements are needed. Simply fork the repository, make your changes, and submit a pull request.
+
+Let merry simplify your multi-chain testing journey!
+
+## Install from scratch
+
+- Clone the repository
+
+```bash
+git clone https://github.com/catalogfi/merry.git
+```
+
+- Building and installing
+
+```bash
+cd cmd/merry
+# build the binary
+go build
+# move the binary to /usr/local/bin such it can be accessed from anywhere
+sudo mv merry /usr/local/bin
+```
