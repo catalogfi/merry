@@ -97,6 +97,12 @@ merry faucet <address>
 
 Fund any EVM or Bitcoin address for testing purposes. Replace <address> with the address you want to fund. It could be a Bitcoin or Ethereum address.
 
+### List all commands
+
+```bash
+merry --help
+```
+
 ## Testing with merry
 
 Once your environment is set up:
