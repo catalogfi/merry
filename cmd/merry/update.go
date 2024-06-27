@@ -11,7 +11,7 @@ import (
 func Update() *cobra.Command {
 	var cmd = &cobra.Command{
 		Use:   "update",
-		Short: "check for updates and pull new docker images",
+		Short: "Check for updates and pull new docker images",
 		RunE: func(c *cobra.Command, args []string) error {
 			home, err := os.UserHomeDir()
 			if err != nil {

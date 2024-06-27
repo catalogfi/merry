@@ -24,6 +24,16 @@ services:
       LIGHT: "false"
     ports:
       - 8546:8545
+  
+  arbitrum-explorer:
+    image: otterscan/otterscan:latest
+    container_name: arbitrum-explorer
+    depends_on:
+      - arbitrum
+    environment:
+      ERIGON_URL: http://localhost:8546
+    ports:
+      - 5101:80
 
   ethereum:
     image: ghcr.io/catalogfi/garden_sol:latest
@@ -33,6 +43,14 @@ services:
       LIGHT: "true"
     ports:
       - 8545:8545
+
+  ethereum-explorer:
+    image: otterscan/otterscan:latest
+    container_name: ethereum-explorer
+    depends_on:
+      - ethereum
+    ports:
+      - 5100:80
 
   # Block explorer server
   electrs:
@@ -75,7 +93,7 @@ services:
     environment:
       API_URL: http://localhost:3000
     ports:
-      - 5000:5050
+      - 5050:5000
     restart: unless-stopped
 
   # Chopsticks

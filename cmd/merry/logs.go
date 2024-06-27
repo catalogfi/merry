@@ -14,7 +14,7 @@ func Logs(state State) *cobra.Command {
 	)
 	var cmd = &cobra.Command{
 		Use:   "logs",
-		Short: "check Service logs",
+		Short: "Check specific service logs",
 		RunE: func(c *cobra.Command, args []string) error {
 			if !state.Running {
 				return fmt.Errorf("merry is not running")

@@ -24,7 +24,7 @@ func Faucet(state *State) *cobra.Command {
 	)
 	var cmd = &cobra.Command{
 		Use:   "faucet",
-		Short: "Generate and send bitcoin to given address",
+		Short: "Generate and send supported assets to the given address",
 		RunE: func(c *cobra.Command, args []string) error {
 			if !state.Running {
 				return fmt.Errorf("merry is not running")
@@ -59,22 +59,22 @@ func fundEVM(to string) error {
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
-	fmt.Printf("Successfully sent %v ETH on Ethereum Localnet at: %s\n", ethAmount, tx.Hash().Hex())
+	fmt.Printf("Successfully sent %v ETH on Ethereum Localnet at: http://localhost:5100/tx/%s\n", ethAmount, tx.Hash().Hex())
 	tx2, err := localnet.EVMWallet().Send(context.Background(), localnet.WBTC(), common.HexToAddress(to), wbtcAmount)
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
-	fmt.Printf("Successfully sent %v WBTC on Ethereum Localnet at: %s\n", wbtcAmount, tx2.Hash().Hex())
+	fmt.Printf("Successfully sent %v WBTC on Ethereum Localnet at: http://localhost:5100/tx/%s\n", wbtcAmount, tx2.Hash().Hex())
 	tx3, err := localnet.EVMWallet().Send(context.Background(), localnet.ArbitrumETH(), common.HexToAddress(to), ethAmount)
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
-	fmt.Printf("Successfully sent %v ETH on Arbitrum Localnet at: %s\n", wbtcAmount, tx3.Hash().Hex())
+	fmt.Printf("Successfully sent %v ETH on Arbitrum Localnet at: http://localhost:5101/tx/%s\n", wbtcAmount, tx3.Hash().Hex())
 	tx4, err := localnet.EVMWallet().Send(context.Background(), localnet.ArbitrumWBTC(), common.HexToAddress(to), wbtcAmount)
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
-	fmt.Printf("Successfully sent %v WBTC on Arbitrum Localnet at: %s\n", wbtcAmount, tx4.Hash().Hex())
+	fmt.Printf("Successfully sent %v WBTC on Arbitrum Localnet at: http://localhost:5101/tx/%s\n", wbtcAmount, tx4.Hash().Hex())
 	return nil
 }
 
@@ -104,6 +104,6 @@ func fundBTC(to string) error {
 	if dat["txId"] == "" {
 		return errors.New("not successful")
 	}
-	fmt.Println("Successfully submitted at http://localhost:5000/tx/" + dat["txId"])
+	fmt.Println("Successfully submitted at http://localhost:5050/tx/" + dat["txId"])
 	return nil
 }

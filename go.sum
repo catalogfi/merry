@@ -62,8 +62,8 @@ github.com/btcsuite/winsvc v1.0.0/go.mod h1:jsenWakMcC0zFBFurPLEAyrnc/teJEM1O46f
 github.com/bugsnag/bugsnag-go v0.0.0-20141110184014-b1d153021fcd/go.mod h1:2oa8nejYd4cQ/b0hMIopN0lCRxU0bueqREvZLWFrtK8=
 github.com/bugsnag/osext v0.0.0-20130617224835-0dd3f918b21b/go.mod h1:obH5gd0BsqsP2LwDJ9aOkm/6J86V6lyAXCoQWGw3K50=
 github.com/bugsnag/panicwrap v0.0.0-20151223152923-e2c28503fcd0/go.mod h1:D/8v3kj0zr8ZAKg1AQ6crr+5VwKN5eIywRkfhyM/+dE=
-github.com/catalogfi/blockchain v0.1.1 h1:BQKEmgFHKOZUFXvqF7FU+umt4cF3bq+Hf8+nHgwq9RE=
-github.com/catalogfi/blockchain v0.1.1/go.mod h1:YMfkazVyOqaDqzRCtNwZeS/kAPwDmnjFmrddxrCbwtg=
+github.com/catalogfi/blockchain v0.1.2 h1:gg0vmV+Lv1VZ0XD+lWcnwJULouEuEA2lN4Rs72zuxHQ=
+github.com/catalogfi/blockchain v0.1.2/go.mod h1:YMfkazVyOqaDqzRCtNwZeS/kAPwDmnjFmrddxrCbwtg=
 github.com/cespare/cp v0.1.0 h1:SE+dxFebS7Iik5LK0tsi1k9ZCxEaFX4AjQmoyA+1dJk=
 github.com/cespare/cp v0.1.0/go.mod h1:SOGHArjBr4JWaSDEVpWpo/hNg6RoKrls6Oh40hiwW+s=
 github.com/cespare/xxhash/v2 v2.3.0 h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UFvs=

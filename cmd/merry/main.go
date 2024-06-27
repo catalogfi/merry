@@ -32,7 +32,7 @@ var (
 
 func main() {
 	var cmd = &cobra.Command{
-		Use: "Merry - catalog localnet",
+		Use: "merry - catalog localnet",
 		Run: func(c *cobra.Command, args []string) {
 			c.HelpFunc()(c, args)
 		},
@@ -60,7 +60,7 @@ func main() {
 		panic(fmt.Errorf("failed to provision resources: %v", err))
 	}
 
-	cmd.AddCommand(Start(&state), Stop(&state), Faucet(&state), Logs(state), RPC(state), Update(), Version())
+	cmd.AddCommand(Start(&state), Stop(&state), Faucet(&state), Replace(&state), Logs(state), RPC(state), Update(), Version())
 	if err := cmd.Execute(); err != nil {
 		panic(err)
 	}
