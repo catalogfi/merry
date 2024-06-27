@@ -58,12 +58,14 @@ func startMerry(state *State) error {
 	composePath := filepath.Join(home, ".merry", DefaultCompose)
 
 	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora", "ethereum-explorer", "arbitrum-explorer")
-	if state.IsHeadless {
-		bashCmd = runDockerCompose(composePath, "up", "-d", "cobi")
-	}
-	if state.IsBare {
+	if state.IsHeadless && state.IsBare {
 		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum")
+	} else if state.IsHeadless {
+		bashCmd = runDockerCompose(composePath, "up", "-d", "cobi")
+	} else if state.IsBare {
+		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum-explorer", "arbitrum-explorer")
 	}
+
 	bashCmd.Stdout = os.Stdout
 	bashCmd.Stderr = os.Stderr
 	if err := bashCmd.Run(); err != nil {
@@ -82,7 +84,16 @@ func startMerry(state *State) error {
 	for _, nameAndEndpoint := range services {
 		name := nameAndEndpoint[0]
 		endpoint := nameAndEndpoint[1]
-
+		if state.IsBare {
+			if name == "cobi" || name == "redis" || name == "orderbook" || name == "postgres" {
+				continue
+			}
+		}
+		if state.IsHeadless {
+			if name == "esplora" || name == "ethereum-explorer" || name == "arbitrum-explorer" {
+				continue
+			}
+		}
 		fmt.Println(name + " " + endpoint)
 	}
 
