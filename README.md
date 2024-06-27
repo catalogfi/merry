@@ -1,6 +1,6 @@
 ![GitHub Release](https://img.shields.io/github/v/release/catalogfi/merry)
 
-<h1 > <img height="36px" src="./logo.png">  <span>Merry</span> </h1>
+<h1> <img height="36px" src="./logo.png">  <span>Merry</span> </h1>
 
 Streamline your multi-chain testing with `merry`!
 
@@ -26,23 +26,30 @@ See the [Install from scratch](#install-from-scratch) section to install merry f
 
 ## Commands
 
-merry provides a variety of commands to manage your testing environment:
+Merry provides a variety of commands to manage your testing environment:
 
 ### Starting merry
-
-To start merry, run the following command:
 
 ```bash
 merry go
 ```
 
+Starts all services, including the Bitcoin regtest node, Ethereum localnet node, explorers for the nodes and the Garden components.
+
+- `--bare` flag: Starts only the multi-chain services (Bitcoin and Ethereum nodes with explorers) and excludes Garden components. This option is useful if you don't need the additional functionalities provided by Garden.
+
+- `--headless` flag: Starts all services except for frontend interfaces. This can be helpful for running merry in headless environments (e.g., servers) where a graphical user interface is not required.
+
 ### Stopping merry
 
 ```bash
 merry stop
+
+# reset data
+merry stop -d
 ```
 
-Stops all running services
+Stops all running services. Use `--delete` or `-d` to remove data.
 
 ### Getting logs
 
