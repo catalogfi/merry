@@ -1,4 +1,4 @@
-package main
+package merry
 
 import (
 	"bytes"
@@ -15,62 +15,52 @@ import (
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/catalogfi/blockchain/localnet"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/spf13/cobra"
 )
 
-func Faucet(state *State) *cobra.Command {
-	var (
-		to string
-	)
-	var cmd = &cobra.Command{
-		Use:   "faucet",
-		Short: "Generate and send supported assets to the given address",
-		RunE: func(c *cobra.Command, args []string) error {
-			if !state.Running {
-				return fmt.Errorf("merry is not running")
-			}
-
-			_, err := btcutil.DecodeAddress(to, &chaincfg.RegressionNetParams)
+func (m *Merry) Fund(to string) error {
+	if !m.Running {
+		return fmt.Errorf("merry is not running")
+	}
+	_, err := btcutil.DecodeAddress(to, &chaincfg.RegressionNetParams)
+	if err != nil {
+		if len(to) == 42 {
+			to = to[2:]
+		}
+		if len(to) == 40 {
+			_, err := hex.DecodeString(to)
 			if err != nil {
-				if len(to) == 42 {
-					to = to[2:]
-				}
-				if len(to) == 40 {
-					_, err := hex.DecodeString(to)
-					if err != nil {
-						return fmt.Errorf("to is not an ethereum or a bitcoin regtest address: %s", to)
-					}
-					return fundEVM(to)
-				}
 				return fmt.Errorf("to is not an ethereum or a bitcoin regtest address: %s", to)
 			}
-
-			return fundBTC(to)
-		},
+			return fundEVM(to)
+		}
+		return fmt.Errorf("to is not an ethereum or a bitcoin regtest address: %s", to)
 	}
-	cmd.Flags().StringVar(&to, "to", "", "user should pass the address they needs to be funded")
-	return cmd
+	return fundBTC(to)
 }
 
 func fundEVM(to string) error {
 	ethAmount, _ := new(big.Int).SetString("1000000000000000000", 10)
 	wbtcAmount, _ := new(big.Int).SetString("100000000", 10)
-	tx, err := localnet.EVMWallet().Send(context.Background(), localnet.ETH(), common.HexToAddress(to), ethAmount)
+	wallet, err := localnet.EVMWallet(0)
+	if err != nil {
+		return err
+	}
+	tx, err := wallet.Send(context.Background(), localnet.ETH(), common.HexToAddress(to), ethAmount)
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
 	fmt.Printf("Successfully sent %v ETH on Ethereum Localnet at: http://localhost:5100/tx/%s\n", ethAmount, tx.Hash().Hex())
-	tx2, err := localnet.EVMWallet().Send(context.Background(), localnet.WBTC(), common.HexToAddress(to), wbtcAmount)
+	tx2, err := wallet.Send(context.Background(), localnet.WBTC(), common.HexToAddress(to), wbtcAmount)
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
 	fmt.Printf("Successfully sent %v WBTC on Ethereum Localnet at: http://localhost:5100/tx/%s\n", wbtcAmount, tx2.Hash().Hex())
-	tx3, err := localnet.EVMWallet().Send(context.Background(), localnet.ArbitrumETH(), common.HexToAddress(to), ethAmount)
+	tx3, err := wallet.Send(context.Background(), localnet.ArbitrumETH(), common.HexToAddress(to), ethAmount)
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
 	fmt.Printf("Successfully sent %v ETH on Arbitrum Localnet at: http://localhost:5101/tx/%s\n", wbtcAmount, tx3.Hash().Hex())
-	tx4, err := localnet.EVMWallet().Send(context.Background(), localnet.ArbitrumWBTC(), common.HexToAddress(to), wbtcAmount)
+	tx4, err := wallet.Send(context.Background(), localnet.ArbitrumWBTC(), common.HexToAddress(to), wbtcAmount)
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
