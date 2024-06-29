@@ -1,7 +1,6 @@
 package merry
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -39,13 +38,7 @@ func (m *Merry) Stop(isDelete bool) error {
 		m.Running = false
 		m.IsBare = false
 		m.IsHeadless = false
-		data, err := json.Marshal(m)
-		if err != nil {
-			return err
-		}
-		if err := os.WriteFile(filepath.Join(home, ".merry", "merry.config.json"), data, 0777); err != nil {
-			return err
-		}
+		m.Save()
 	}
 	return nil
 }

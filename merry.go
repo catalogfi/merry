@@ -1,6 +1,7 @@
 package merry
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -20,11 +21,13 @@ type Merry struct {
 }
 
 func Default() Merry {
-	merry := Merry{
-		Version: "dev",
-		Commit:  "none",
-		Date:    "unknown",
+	merry := Merry{}
+	if err := merry.Load(); err == nil {
+		return merry
 	}
+	merry.Version = "dev"
+	merry.Commit = "none"
+	merry.Date = "unknown"
 	home, err := os.UserHomeDir()
 	if err != nil {
 		panic(fmt.Errorf("failed to get user's home directory: %v", err))
@@ -38,4 +41,31 @@ func Default() Merry {
 	}
 	merry.Services = services
 	return merry
+}
+
+func (m *Merry) Load() error {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return err
+	}
+	data, err := os.ReadFile(filepath.Join(home, ".merry", "merry.config.json"))
+	if err != nil {
+		return err
+	}
+	return json.Unmarshal(data, m)
+}
+
+func (m *Merry) Save() error {
+	data, err := json.Marshal(m)
+	if err != nil {
+		return err
+	}
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return err
+	}
+	if err := os.WriteFile(filepath.Join(home, ".merry", "merry.config.json"), data, 0777); err != nil {
+		return err
+	}
+	return nil
 }
