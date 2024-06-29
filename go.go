@@ -57,8 +57,7 @@ func (m *Merry) Start() error {
 	}
 
 	retry(func() error {
-		_, err := localnet.FundBTC("bcrt1q5428vq2uzwhm3taey9sr9x5vm6tk78ew8pf2xw")
-		return err
+		return fundBTC("bcrt1q5428vq2uzwhm3taey9sr9x5vm6tk78ew8pf2xw")
 	})
 	retry(func() error {
 		// try establishing connection with the ethereum clients
