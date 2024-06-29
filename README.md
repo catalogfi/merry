@@ -20,7 +20,7 @@ You can install merry using the following command.
 curl https://get.merry.dev | bash
 ```
 
-merry stores its configuration files and other data in a directory on your system. This directory is typically named `.merry/volumes/`.
+merry stores its configuration files and other data in a directory on your system. This directory is typically named `~/.merry/`.
 
 See the [Install from scratch](#install-from-scratch) section to install merry from scratch.
 
