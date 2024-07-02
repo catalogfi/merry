@@ -148,6 +148,8 @@ services:
     ports:
       - 8080:8080
     restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   cobi:
     image: ghcr.io/catalogfi/cobi:latest
