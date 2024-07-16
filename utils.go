@@ -106,7 +106,7 @@ func (m *Merry) provisionResourcesToDatadir(datadir string) error {
 		return err
 	}
 
-	// copy bitcoin.conf into the Nigiri data directory
+	// copy bitcoin.conf into the Merry data directory
 	if err := copyFromResourcesToDatadir(
 		filepath.Join("resources", "bitcoin.conf"),
 		filepath.Join(datadir, "volumes", "bitcoin", "bitcoin.conf"),
