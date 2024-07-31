@@ -1,187 +1,188 @@
 services:
-    # RPC daemon
-    bitcoin:
-        image: lncm/bitcoind:v24.0.1
-        container_name: bitcoin
-        # wildcard user 0:0 to avoid permission problems
-        user: 0:0
-        restart: on-failure
-        stop_grace_period: 30s
-        ports:
-            - 18443:18443
-            - 18444:18444
-            # ZMQ
-            - 28332:28332
-            - 28333:28333
-        volumes:
-            - ./volumes/bitcoin:/root/.bitcoin
+  # RPC daemon
+  bitcoin:
+    image: lncm/bitcoind:v24.0.1
+    container_name: bitcoin
+    # wildcard user 0:0 to avoid permission problems
+    user: 0:0
+    restart: on-failure
+    stop_grace_period: 30s
+    ports:
+      - 18443:18443
+      - 18444:18444
+      # ZMQ
+      - 28332:28332
+      - 28333:28333
+    volumes:
+      - ./volumes/bitcoin:/root/.bitcoin
 
-    arbitrum:
-        image: ghcr.io/catalogfi/garden_sol:latest
-        container_name: arbitrum
-        environment:
-            CHAIN_ID: 31338
-            LIGHT: "false"
-        ports:
-            - 8546:8545
+  arbitrum:
+    image: ghcr.io/catalogfi/garden_sol:latest
+    container_name: arbitrum
+    environment: 
+      CHAIN_ID: 31338
+      LIGHT: "false"
+    ports:
+      - 8546:8545
+  
+  arbitrum-explorer:
+    image: otterscan/otterscan:latest
+    container_name: arbitrum-explorer
+    depends_on:
+      - arbitrum
+    environment:
+      ERIGON_URL: http://localhost:8546
+    ports:
+      - 5101:80
 
-    arbitrum-explorer:
-        image: otterscan/otterscan:latest
-        container_name: arbitrum-explorer
-        depends_on:
-            - arbitrum
-        environment:
-            ERIGON_URL: http://localhost:8546
-        ports:
-            - 5101:80
+  ethereum:
+    image: ghcr.io/catalogfi/garden_sol:latest
+    container_name: ethereum
+    environment: 
+      CHAIN_ID: 31337
+      LIGHT: "true"
+    ports:
+      - 8545:8545
 
-    ethereum:
-        image: ghcr.io/catalogfi/garden_sol:latest
-        container_name: ethereum
-        environment:
-            CHAIN_ID: 31337
-            LIGHT: "true"
-        ports:
-            - 8545:8545
+  ethereum-explorer:
+    image: otterscan/otterscan:latest
+    container_name: ethereum-explorer
+    depends_on:
+      - ethereum
+    ports:
+      - 5100:80
 
-    ethereum-explorer:
-        image: otterscan/otterscan:latest
-        container_name: ethereum-explorer
-        depends_on:
-            - ethereum
-        ports:
-            - 5100:80
+  # Block explorer server
+  electrs:
+    image: ghcr.io/vulpemventures/electrs:latest
+    container_name: electrs
+    entrypoint:
+      - /build/electrs
+    command:
+      - -vvvv
+      - --network
+      - regtest
+      - --daemon-dir
+      - /config
+      - --daemon-rpc-addr
+      - bitcoin:18443
+      - --cookie
+      - admin1:123
+      - --http-addr
+      - 0.0.0.0:30000
+      - --electrum-rpc-addr
+      - 0.0.0.0:50000
+      - --cors
+      - "*"
+      - --jsonrpc-import
+    depends_on:
+      - bitcoin
+    ports:
+      - 50000:50000
+      - 30000:30000
+    volumes:
+      - ./volumes/bitcoin/:/config
+    restart: unless-stopped
 
-    # Block explorer server
-    electrs:
-        image: ghcr.io/vulpemventures/electrs:latest
-        container_name: electrs
-        entrypoint:
-            - /build/electrs
-        command:
-            - -vvvv
-            - --network
-            - regtest
-            - --daemon-dir
-            - /config
-            - --daemon-rpc-addr
-            - bitcoin:18443
-            - --cookie
-            - admin1:123
-            - --http-addr
-            - 0.0.0.0:30000
-            - --electrum-rpc-addr
-            - 0.0.0.0:50000
-            - --cors
-            - "*"
-            - --jsonrpc-import
-        depends_on:
-            - bitcoin
-        ports:
-            - 50000:50000
-            - 30000:30000
-        volumes:
-            - ./volumes/bitcoin/:/config
-        restart: unless-stopped
+  # Block explorer frontend
+  esplora:
+    image: ghcr.io/vulpemventures/esplora:latest
+    container_name: esplora
+    depends_on:
+      - chopsticks
+    environment:
+      API_URL: http://localhost:3000
+    ports:
+      - 5050:5000
+    restart: unless-stopped
 
-    # Block explorer frontend
-    esplora:
-        image: ghcr.io/vulpemventures/esplora:latest
-        container_name: esplora
-        depends_on:
-            - chopsticks
-        environment:
-            API_URL: http://localhost:3000
-        ports:
-            - 5050:5000
-        restart: unless-stopped
+  # Chopsticks
+  chopsticks:
+    image: ghcr.io/vulpemventures/nigiri-chopsticks:latest
+    container_name: chopsticks
+    command:
+      - --use-faucet
+      - --use-mining
+      - --use-logger
+      - --rpc-addr
+      - bitcoin:18443
+      - --electrs-addr
+      - electrs:30000
+      - --addr
+      - 0.0.0.0:3000
+    depends_on:
+      - bitcoin
+      - electrs
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+  
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: garden
+    ports:
+      - 5432:5432
+    volumes:
+      - ./volumes/orderbook_data:/var/lib/postgresql/data
 
-    # Chopsticks
-    chopsticks:
-        image: ghcr.io/vulpemventures/nigiri-chopsticks:latest
-        container_name: chopsticks
-        command:
-            - --use-faucet
-            - --use-mining
-            - --use-logger
-            - --rpc-addr
-            - bitcoin:18443
-            - --electrs-addr
-            - electrs:30000
-            - --addr
-            - 0.0.0.0:3000
-        depends_on:
-            - bitcoin
-            - electrs
-        ports:
-            - 3000:3000
-        restart: unless-stopped
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ./volumes/cobi_data:/data
 
-    postgres:
-        image: postgres:alpine
-        container_name: postgres
-        environment:
-            POSTGRES_USER: postgres
-            POSTGRES_PASSWORD: postgres
-            POSTGRES_DB: garden
-        ports:
-            - 5432:5432
-        volumes:
-            - ./volumes/orderbook_data:/var/lib/postgresql/data
+  orderbook:
+    image: ghcr.io/catalogfi/orderbook:latest
+    container_name: orderbook
+    depends_on:
+      - ethereum
+      - arbitrum
+      - chopsticks
+      - postgres
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
-    redis:
-        image: redis:alpine
-        container_name: redis
-        ports:
-            - 6379:6379
-        volumes:
-            - ./volumes/cobi_data:/data
+  cobi:
+    image: ghcr.io/catalogfi/cobi:latest
+    container_name: cobi
+    depends_on:
+      - orderbook
+      - redis
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
-    orderbook:
-        image: ghcr.io/catalogfi/orderbook:latest
-        container_name: orderbook
-        depends_on:
-            - ethereum
-            - arbitrum
-            - chopsticks
-            - postgres
-        ports:
-            - 8080:8080
-        restart: unless-stopped
-        extra_hosts:
-            - "host.docker.internal:host-gateway"
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - bitcoin
+      - arbitrum
+      - arbitrum-explorer
+      - ethereum
+      - ethereum-explorer
+      - electrs
+      - esplora
+      - chopsticks
+      - postgres
+      - redis
+      - orderbook
+      - cobi
 
-    cobi:
-        image: ghcr.io/catalogfi/cobi:latest
-        container_name: cobi
-        depends_on:
-            - orderbook
-            - redis
-        restart: unless-stopped
-        extra_hosts:
-            - "host.docker.internal:host-gateway"
-
-    nginx:
-        image: nginx:latest
-        container_name: nginx
-        volumes:
-            - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-        ports:
-            - "80:80"
-        depends_on:
-            - bitcoin
-            - arbitrum
-            - arbitrum-explorer
-            - ethereum
-            - ethereum-explorer
-            - electrs
-            - esplora
-            - chopsticks
-            - postgres
-            - redis
-            - orderbook
-            - cobi
 
 networks:
-    default:
-        name: merry
+  default:
+    name: merry
