@@ -129,13 +129,13 @@ services:
     volumes:
       - ./volumes/orderbook_data:/var/lib/postgresql/data
 
-  ponder-db:
+  garden-db:
     image: postgres:alpine
-    container_name: ponder-db
+    container_name: garden-db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: ponder
+      POSTGRES_DB: garden
     ports:
       - 5433:5432
     volumes:
@@ -174,34 +174,23 @@ services:
       - "host.docker.internal:host-gateway"
   
   # following services will be part of gardenv2 stack
-  garden-watcher:
-    image: ghcr.io/catalogfi/garden-watcher:latest
-    container_name: garden-watcher
+  garden-evm-watcher:
+    image: ghcr.io/catalogfi/garden-evm-watcher:latest
+    container_name: garden-evm-watcher
     depends_on:
       - ethereum
       - arbitrum
       - chopsticks
-      - ponder-db
-    ports:
-      - 42069:42069
+      - garden-db
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    environment:
-      PONDER_RPC_URL_1: http://ethereum:8545
-      PONDER_RPC_URL_42161: http://arbitrum:8545
-      HTLC_MAINNET_ADDRESS: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
-      HTLC_ARBITRUM_ADDRESS: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9"
-      ORDERBOOK_ARBITRUM_ADDRESS: "0x0165878A594ca255338adfa4d48449f69242Eb8F"
-      MODE: v2
-      ENV: development
-      DATABASE_URL: http://postgres:postgres@ponder-db:5432/ponder
     
   matcher:
     image: ghcr.io/catalogfi/matcher:latest
     container_name: matcher
     depends_on:
-      - garden-watcher
+      - garden-evm-watcher
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
