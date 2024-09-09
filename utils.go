@@ -16,6 +16,7 @@ import (
 
 //go:embed resources/docker-compose.yml
 //go:embed resources/bitcoin.conf
+//go:embed resources/nginx/nginx.conf
 var f embed.FS
 
 var DefaultComposePath string
@@ -113,6 +114,18 @@ func (m *Merry) provisionResourcesToDatadir(datadir string) error {
 	); err != nil {
 		return err
 	}
+
+	if err := makeDirectoryIfNotExists(filepath.Join(datadir, "nginx")); err != nil {
+        return err
+    }
+
+    // copy nginx/nginx.conf into the Nigiri data directory
+    if err := copyFromResourcesToDatadir(
+        filepath.Join("resources", "nginx", "nginx.conf"),
+        filepath.Join(datadir, "nginx", "nginx.conf"),
+    ); err != nil {
+        return err
+    }
 
 	m.Ready = true
 	data, err := json.Marshal(m)
