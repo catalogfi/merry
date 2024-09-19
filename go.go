@@ -20,7 +20,7 @@ func (m *Merry) Start() error {
 	}
 	composePath := filepath.Join(home, ".merry", "docker-compose.yml")
 
-	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "matcher")
+	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "matcher", "bit-ponder")
 	if m.IsHeadless && m.IsBare {
 		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum")
 	} else if m.IsHeadless {
@@ -39,7 +39,7 @@ func (m *Merry) Start() error {
 	fmt.Println("ENDPOINTS")
 	for name, endpoint := range m.Services {
 		if m.IsBare {
-			if name == "cobi" || name == "redis" || name == "orderbook" || name == "postgres" || name == "garden-evm-watcher" || name == "garden-db" || name == "matcher" {
+			if name == "cobi" || name == "redis" || name == "orderbook" || name == "postgres" || name == "garden-evm-watcher" || name == "garden-db" || name == "matcher" || name == "bit-ponder" {
 				continue
 			}
 		}

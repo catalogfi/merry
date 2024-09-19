@@ -195,6 +195,16 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
+  bit-ponder:
+    image: ghcr.io/catalogfi/bit-ponder:latest
+    container_name: bit-ponder
+    depends_on:
+      - garden-evm-watcher
+      - matcher
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
   nginx:
     image: nginx:latest
     container_name: nginx
