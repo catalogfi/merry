@@ -19,12 +19,12 @@ services:
   arbitrum:
     image: ghcr.io/catalogfi/garden_sol:latest
     container_name: arbitrum
-    environment: 
+    environment:
       CHAIN_ID: 31338
       LIGHT: "false"
     ports:
       - 8546:8545
-  
+
   arbitrum-explorer:
     image: otterscan/otterscan:latest
     container_name: arbitrum-explorer
@@ -38,7 +38,7 @@ services:
   ethereum:
     image: ghcr.io/catalogfi/garden_sol:latest
     container_name: ethereum
-    environment: 
+    environment:
       CHAIN_ID: 31337
       LIGHT: "true"
     ports:
@@ -116,7 +116,7 @@ services:
     ports:
       - 3000:3000
     restart: unless-stopped
-  
+
   postgres:
     image: postgres:alpine
     container_name: postgres
@@ -172,7 +172,7 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
-  
+
   # following services will be part of gardenv2 stack
   garden-evm-watcher:
     image: ghcr.io/catalogfi/garden-evm-watcher:latest
@@ -185,7 +185,7 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    
+
   matcher:
     image: ghcr.io/catalogfi/matcher:latest
     container_name: matcher
@@ -201,6 +201,15 @@ services:
     depends_on:
       - garden-evm-watcher
       - matcher
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  cobiv2:
+    image: ghcr.io/catalogfi/cobiv2:latest
+    container_name: cobiv2
+    depends_on:
+      - garden-evm-watcher
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
@@ -225,7 +234,6 @@ services:
       - redis
       - orderbook
       - cobi
-
 
 networks:
   default:
