@@ -57,8 +57,15 @@ func (m *Merry) Start() error {
 	}
 
 	retry(func() error {
-		return fundBTC("bcrt1q5428vq2uzwhm3taey9sr9x5vm6tk78ew8pf2xw")
+		// cobi btc address
+		return fundBTC("bcrt1qgyf47wrtnr9gsr06gn62ft6m4lzylcnllrf9cf")
 	})
+
+	retry(func() error {
+		// cobi evm addresss
+		return fundEVM("0xa0Ee7A142d267C1f36714E4a8F75612F20a79720")
+	})
+
 	retry(func() error {
 		// try establishing connection with the ethereum clients
 		_, err := localnet.EVMClient()
