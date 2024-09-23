@@ -63,7 +63,7 @@ func (m *Merry) Start() error {
 
 	retry(func() error {
 		// cobi evm addresss
-		return fundEVM("0xa0Ee7A142d267C1f36714E4a8F75612F20a79720")
+		return fundEVM("0x70997970c51812dc3a010c7d01b50e0d17dc79c8")
 	})
 
 	retry(func() error {
