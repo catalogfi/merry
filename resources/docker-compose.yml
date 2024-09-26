@@ -35,6 +35,15 @@ services:
     ports:
       - 5101:80
 
+  relayer:
+    image: ghcr.io/catalogfi/relayer:latest
+    container_name: relayer
+    depends_on:
+      - garden-evm-watcher
+      - matcher
+    ports:
+      - 4426:4426
+
   ethereum:
     image: ghcr.io/catalogfi/garden_sol:latest
     container_name: ethereum
