@@ -38,6 +38,7 @@ services:
   relayer:
     image: ghcr.io/catalogfi/relayer:latest
     container_name: relayer
+    restart: unless-stopped
     depends_on:
       - garden-evm-watcher
       - matcher
