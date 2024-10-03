@@ -161,6 +161,13 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
+  cosigner:
+    image: ghcr.io/catalogfi/cosigner:latest
+    container_name: cosigner
+    ports:
+      - 11818:11818
+    restart: unless-stopped
+
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -181,6 +188,7 @@ services:
       - redis
       - orderbook
       - cobi
+      - cosigner
 
 
 networks:
