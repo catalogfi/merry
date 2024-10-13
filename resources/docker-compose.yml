@@ -45,6 +45,16 @@ services:
     ports:
       - 4426:4426
 
+  quote:
+    image: ghcr.io/catalogfi/quote:latest
+    container_name: quote
+    restart: unless-stopped
+    depends_on:
+      - garden-evm-watcher
+      - matcher
+    ports:
+      - 6969:6969
+
   ethereum:
     image: ghcr.io/catalogfi/garden_sol:latest
     container_name: ethereum
