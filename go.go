@@ -20,7 +20,7 @@ func (m *Merry) Start() error {
 	}
 	composePath := filepath.Join(home, ".merry", "docker-compose.yml")
 
-	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx")
+	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "quote", "bit-ponder", "cobiv2", "relayer")
 	if m.IsHeadless && m.IsBare {
 		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum", "cosigner")
 	} else if m.IsHeadless {
@@ -39,7 +39,7 @@ func (m *Merry) Start() error {
 	fmt.Println("ENDPOINTS")
 	for name, endpoint := range m.Services {
 		if m.IsBare {
-			if name == "cobi" || name == "redis" || name == "orderbook" || name == "postgres" {
+			if name == "cobi" || name == "redis" || name == "orderbook" || name == "postgres" || name == "garden-evm-watcher" || name == "garden-db" || name == "matcher" || name == "bit-ponder" {
 				continue
 			}
 		}
@@ -57,8 +57,15 @@ func (m *Merry) Start() error {
 	}
 
 	retry(func() error {
-		return fundBTC("bcrt1q5428vq2uzwhm3taey9sr9x5vm6tk78ew8pf2xw")
+		// cobi btc address
+		return fundBTC("bcrt1qgyf47wrtnr9gsr06gn62ft6m4lzylcnllrf9cf")
 	})
+
+	retry(func() error {
+		// cobi evm addresss
+		return fundEVM("0x70997970c51812dc3a010c7d01b50e0d17dc79c8")
+	})
+
 	retry(func() error {
 		// try establishing connection with the ethereum clients
 		_, err := localnet.EVMClient()
