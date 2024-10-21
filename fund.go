@@ -13,6 +13,7 @@ import (
 
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/catalogfi/blockchain"
 	"github.com/catalogfi/blockchain/localnet"
 	"github.com/ethereum/go-ethereum/common"
 )
@@ -40,6 +41,8 @@ func (m *Merry) Fund(to string) error {
 
 func fundEVM(to string) error {
 	ethAmount, _ := new(big.Int).SetString("1000000000000000000", 10)
+	seedAmount, _ := new(big.Int).SetString("1000000000000000000", 10)
+
 	wbtcAmount, _ := new(big.Int).SetString("100000000", 10)
 	wallet, err := localnet.EVMWallet(0)
 	if err != nil {
@@ -49,8 +52,11 @@ func fundEVM(to string) error {
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
+
+	ethereumWBTCAsset := blockchain.NewERC20(blockchain.NewEvmChain(blockchain.EthereumLocalnet), common.HexToAddress("0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"), common.HexToAddress("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"))
+
 	fmt.Printf("Successfully sent %v ETH on Ethereum Localnet at: http://localhost:5100/tx/%s\n", ethAmount, tx.Hash().Hex())
-	tx2, err := wallet.Send(context.Background(), localnet.WBTC(), common.HexToAddress(to), wbtcAmount)
+	tx2, err := wallet.Send(context.Background(), ethereumWBTCAsset, common.HexToAddress(to), wbtcAmount)
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
@@ -59,12 +65,22 @@ func fundEVM(to string) error {
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
+
 	fmt.Printf("Successfully sent %v ETH on Arbitrum Localnet at: http://localhost:5101/tx/%s\n", wbtcAmount, tx3.Hash().Hex())
-	tx4, err := wallet.Send(context.Background(), localnet.ArbitrumWBTC(), common.HexToAddress(to), wbtcAmount)
+	arbWBTCAsset := blockchain.NewERC20(blockchain.NewEvmChain(blockchain.ArbitrumLocalnet), common.HexToAddress("0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"), common.HexToAddress("0x0165878A594ca255338adfa4d48449f69242Eb8F"))
+	tx4, err := wallet.Send(context.Background(), arbWBTCAsset, common.HexToAddress(to), wbtcAmount)
 	if err != nil {
 		return fmt.Errorf("failed to send eth: %v", err)
 	}
 	fmt.Printf("Successfully sent %v WBTC on Arbitrum Localnet at: http://localhost:5101/tx/%s\n", wbtcAmount, tx4.Hash().Hex())
+
+	arbSeedAsset := blockchain.NewERC20(blockchain.NewEvmChain(blockchain.ArbitrumLocalnet), common.HexToAddress("0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"), common.HexToAddress("0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"))
+	tx5, err := wallet.Send(context.Background(), arbSeedAsset, common.HexToAddress(to), wbtcAmount)
+	if err != nil {
+		return fmt.Errorf("failed to send eth: %v", err)
+	}
+
+	fmt.Printf("Successfully sent %v SEED on Arbitrum Localnet at: http://localhost:5101/tx/%s\n", seedAmount, tx5.Hash().Hex())
 	return nil
 }
 
