@@ -169,6 +169,13 @@ services:
     volumes:
       - ./volumes/cobi_data:/data
 
+  solana-validator:
+    image: ghcr.io/catalogfi/solana-test-validator:latest 
+    container_name : solana-validator
+    ports:
+      - 8899:8899
+    restart: unless-stopped
+
   orderbook:
     image: ghcr.io/catalogfi/orderbook:latest
     container_name: orderbook
