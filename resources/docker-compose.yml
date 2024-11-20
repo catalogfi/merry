@@ -176,6 +176,36 @@ services:
       - 8899:8899
     restart: unless-stopped
 
+  solana-watcher:
+    image: ghcr.io/catalogfi/solana-watcher:latest
+    container_name : solana-watcher
+    depends_on:
+      - solana-validator
+    restart: unless-stopped
+
+  solana-executor:
+    image: ghcr.io/catalogfi/solana-executor:latest
+    container_name: solana-executor
+    depends_on:
+      - solana-watcher
+    restart: unless-stopped
+
+  solana-relayer:
+    image: ghcr.io/catalogfi/solana-relayer:latest
+    container_name: solana-relayer
+    command: ["--use-testkey"]
+    depends_on:
+      - solana-validator
+    restart: unless-stopped
+
+  virtual-balance:
+    image: ghcr.io/catalogfi/virtual-balance:latest
+    container_name: virtual-balance
+    depends_on:
+      - ethereum
+      - electrs
+    restart: unless-stopped
+
   orderbook:
     image: ghcr.io/catalogfi/orderbook:latest
     container_name: orderbook
