@@ -56,15 +56,17 @@ func (m *Merry) Start() error {
 		return err
 	}
 
-	retry(func() error {
-		// cobi btc address
-		return fundBTC("bcrt1qgyf47wrtnr9gsr06gn62ft6m4lzylcnllrf9cf")
-	})
+	// Funding
+	fundAddresses := []string{
+		"bcrt1qgyf47wrtnr9gsr06gn62ft6m4lzylcnllrf9cf", // cobi btc address
+		"0x70997970c51812dc3a010c7d01b50e0d17dc79c8",   // cobi evm address
+		"4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS", // cobi sol address
+		"AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9", // solana relayer
+	}
 
-	retry(func() error {
-		// cobi evm addresss
-		return fundEVM("0x70997970c51812dc3a010c7d01b50e0d17dc79c8")
-	})
+	for _, addr := range fundAddresses {
+		retry(func() error { return m.Fund(addr) })
+	}
 
 	retry(func() error {
 		// try establishing connection with the ethereum clients
