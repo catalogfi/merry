@@ -16,27 +16,43 @@ import (
 	"github.com/catalogfi/blockchain"
 	"github.com/catalogfi/blockchain/localnet"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/gagliardetto/solana-go"
+	"github.com/gagliardetto/solana-go/rpc"
 )
 
 func (m *Merry) Fund(to string) error {
 	if !m.Running {
 		return fmt.Errorf("merry is not running")
 	}
-	_, err := btcutil.DecodeAddress(to, &chaincfg.RegressionNetParams)
-	if err != nil {
-		if len(to) == 42 {
-			to = to[2:]
-		}
-		if len(to) == 40 {
-			_, err := hex.DecodeString(to)
-			if err != nil {
-				return fmt.Errorf("to is not an ethereum or a bitcoin regtest address: %s", to)
-			}
-			return fundEVM(to)
-		}
-		return fmt.Errorf("to is not an ethereum or a bitcoin regtest address: %s", to)
+
+	if _, err := btcutil.DecodeAddress(to, &chaincfg.RegressionNetParams); err == nil {
+		return fundBTC(to)
 	}
-	return fundBTC(to)
+
+	if solAddress, err := solana.PublicKeyFromBase58(to); err == nil {
+		return fundSolana(solAddress)
+	}
+
+	if len(to) == 42 {
+		to = to[2:]
+	}
+	if _, err := hex.DecodeString(to); err == nil {
+		return fundEVM(to)
+	}
+
+	return fmt.Errorf("Invalid address %s. Expected a valid ethereum, solana or bitcoin regtest address", to)
+}
+
+func fundSolana(to solana.PublicKey) error {
+	client := rpc.New(rpc.LocalNet_RPC)
+	amount := uint64(100)
+	amountLamports := solana.LAMPORTS_PER_SOL * amount
+
+	if _, err := client.RequestAirdrop(context.TODO(), to, amountLamports, rpc.CommitmentConfirmed); err != nil {
+		return fmt.Errorf("Failed to airdrop SOL: %v", err)
+	}
+	fmt.Printf("Successfully airdropped %d SOL to %s\n", amount, to.String())
+	return nil
 }
 
 func fundEVM(to string) error {
