@@ -149,6 +149,15 @@ services:
     volumes:
       - ./volumes/orderbook_data:/var/lib/postgresql/data
 
+  bit-indexer:
+    image: ghcr.io/catalogfi/bitindexer:latest
+    container_name: bit-indexer
+    restart: unless-stopped
+    depends_on:
+      - garden-evm-watcher
+      - matcher
+
+
   garden-db:
     image: postgres:alpine
     container_name: garden-db
