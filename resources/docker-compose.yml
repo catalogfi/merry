@@ -290,6 +290,13 @@ services:
       - 11818:11818
     restart: unless-stopped
 
+  starknet-devnet:
+    image: shardlabs/starknet-devnet-rs:latest
+    container_name: starknet-devnet
+    command: ["--seed", "1"]
+    ports:
+      - "8547:5050"
+
   nginx:
     image: nginx:latest
     container_name: nginx
