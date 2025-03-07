@@ -293,12 +293,37 @@ services:
   starknet-devnet:
     image: shardlabs/starknet-devnet-rs:latest
     container_name: starknet-devnet
-    command: ["--seed", "1", "--dump-on", "exit", "--dump-path", "/data/dump", "--load", "--load-path", "/data/dump"]
+    command: ["--seed", "1", "--dump-on", "exit", "--dump-path", "/data/dump.json"]
     ports:
       - "8547:5050"
     volumes:
-      - ./starknet-data:/data
+      - ./starknet/dump.json:/data/dump.json
+  
+  garden-starknet-watcher:
+    image: ghcr.io/catalogfi/garden-starknet-watcher:merry
+    container_name: starknet-watcher
+    depends_on:
+      - starknet-devnet
+    restart: unless-stopped
 
+  starknet-relayer:
+    image: ghcr.io/catalogfi/starknet-relayer:merry
+    container_name: starknet-relayer
+    depends_on:
+      - starknet-devnet
+      - garden-db
+    ports:
+      - "4436:4436"
+    restart: unless-stopped
+
+  starknet-executor:
+    image: ghcr.io/catalogfi/starknet-executor:merry
+    container_name: starknet-executor
+    depends_on:
+      - starknet-devnet
+      - garden-db
+    restart: unless-stopped
+  
   nginx:
     image: nginx:latest
     container_name: nginx
