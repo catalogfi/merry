@@ -304,6 +304,7 @@ services:
     container_name: starknet-watcher
     depends_on:
       - starknet-devnet
+      - garden-evm-watcher
     restart: unless-stopped
 
   starknet-relayer:
@@ -312,6 +313,7 @@ services:
     depends_on:
       - starknet-devnet
       - garden-db
+      - garden-evm-watcher
     ports:
       - "4436:4436"
     restart: unless-stopped
@@ -322,6 +324,7 @@ services:
     depends_on:
       - starknet-devnet
       - garden-db
+      - garden-evm-watcher
     restart: unless-stopped
   
   nginx:
