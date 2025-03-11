@@ -157,7 +157,6 @@ services:
       - garden-evm-watcher
       - matcher
 
-
   garden-db:
     image: postgres:alpine
     container_name: garden-db
@@ -179,8 +178,8 @@ services:
       - ./volumes/cobi_data:/data
 
   solana-validator:
-    image: ghcr.io/catalogfi/solana-test-validator:latest 
-    container_name : solana-validator
+    image: ghcr.io/catalogfi/solana-test-validator:latest
+    container_name: solana-validator
     ports:
       - 8899:8899
       - 8900:8900
@@ -188,7 +187,7 @@ services:
 
   solana-watcher:
     image: ghcr.io/catalogfi/solana-watcher:latest
-    container_name : solana-watcher
+    container_name: solana-watcher
     depends_on:
       - solana-validator
     restart: unless-stopped
@@ -282,7 +281,7 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
-  
+
   cosigner:
     image: ghcr.io/catalogfi/cosigner:latest
     container_name: cosigner
@@ -301,7 +300,7 @@ services:
     image: nginx:latest
     container_name: nginx
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./config/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - "80:80"
     depends_on:
