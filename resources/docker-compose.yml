@@ -331,7 +331,7 @@ services:
     image: nginx:latest
     container_name: nginx
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./config/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - "80:80"
     depends_on:
