@@ -41,7 +41,6 @@ services:
     restart: unless-stopped
     depends_on:
       - garden-evm-watcher
-      - matcher
     ports:
       - 4426:4426
 
@@ -51,7 +50,6 @@ services:
     restart: unless-stopped
     depends_on:
       - garden-evm-watcher
-      - matcher
     ports:
       - 6969:6969
 
@@ -155,7 +153,6 @@ services:
     restart: unless-stopped
     depends_on:
       - garden-evm-watcher
-      - matcher
 
 
   garden-db:
@@ -233,21 +230,11 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  matcher:
-    image: ghcr.io/catalogfi/matcher:latest
-    container_name: matcher
-    depends_on:
-      - garden-evm-watcher
-    restart: unless-stopped
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-
   bit-ponder:
     image: ghcr.io/catalogfi/bit-ponder:latest
     container_name: bit-ponder
     depends_on:
       - garden-evm-watcher
-      - matcher
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
