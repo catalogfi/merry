@@ -213,34 +213,12 @@ services:
   virtual-balance:
     image: ghcr.io/catalogfi/virtual-balance:latest
     container_name: virtual-balance
+    ports:
+      - 3008:3008
     depends_on:
       - ethereum
       - electrs
     restart: unless-stopped
-
-  orderbook:
-    image: ghcr.io/catalogfi/orderbook:latest
-    container_name: orderbook
-    depends_on:
-      - ethereum
-      - arbitrum
-      - chopsticks
-      - postgres
-    ports:
-      - 8080:8080
-    restart: unless-stopped
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-
-  cobi:
-    image: ghcr.io/catalogfi/cobi:latest
-    container_name: cobi
-    depends_on:
-      - orderbook
-      - redis
-    restart: unless-stopped
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
 
   # following services will be part of gardenv2 stack
   garden-evm-watcher:
@@ -345,8 +323,6 @@ services:
       - chopsticks
       - postgres
       - redis
-      - orderbook
-      - cobi
       - cosigner
 
 networks:
