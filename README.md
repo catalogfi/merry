@@ -11,7 +11,9 @@ It supports various features, including a faucet, electrum services, and an orde
 ## What's new?
 
 • Quote server support
+
 • COBI-V2
+
 • Solana and Starknet support
 
 
@@ -102,7 +104,7 @@ Keep your testing environment up-to-date by updating all Docker images.
 merry faucet <address>
 ```
 
-Fund any EVM, Bitcoin or Solana address for testing purposes. Replace <address> with the address you want to fund. It could be a Bitcoin, Ethereum or Solana address.
+Fund any EVM, Bitcoin or Solana address for testing purposes. Replace `<address>` with the address you want to fund. It could be a Bitcoin, Ethereum or Solana address.
 
 ### List active services
 
