@@ -8,6 +8,13 @@ This CLI tool leverages Docker to effortlessly set up a multi-chain testing envi
 
 It supports various features, including a faucet, electrum services, and an orderbook with COBI.
 
+## What's new?
+
+• Quote server support
+• COBI-V2
+• Solana and Starknet support
+
+
 ## Prerequisites
 
 Before using Merry, please ensure you have Docker installed and running on your system. If not, download and install Docker from the official [website](https://www.docker.com).
@@ -95,7 +102,15 @@ Keep your testing environment up-to-date by updating all Docker images.
 merry faucet <address>
 ```
 
-Fund any EVM or Bitcoin address for testing purposes. Replace <address> with the address you want to fund. It could be a Bitcoin or Ethereum address.
+Fund any EVM, Bitcoin or Solana address for testing purposes. Replace <address> with the address you want to fund. It could be a Bitcoin, Ethereum or Solana address.
+
+### List active services
+
+```bash
+merry status
+```
+
+Lists all currently running services with their respective ports and operational status.
 
 ### List all commands
 
@@ -131,3 +146,28 @@ cd cmd/merry
 # build and install the binary
 go install
 ```
+
+## Endpoints
+
+SERVICE NAME         | PORT             
+----------------------------------------
+arbitrum             | 8546             
+arbitrum-explorer    | 5101             
+bitcoin              | 8080/tcp         
+chopsticks           | 3000             
+cosigner             | 11818            
+electrs              | 30000            
+esplora              | 5050             
+ethereum             | 8545             
+ethereum-explorer    | 5100             
+garden-db            | 5433             
+postgres             | 5432             
+quote                | 6969             
+redis                | 6379             
+relayer              | 4426             
+solana-relayer       | 5014             
+solana-validator     | 8899-8900        
+starknet-devnet      | 8547             
+starknet-executor    | 3000/tcp         
+starknet-relayer     | 4436             
+virtual-balance      | 3008             
