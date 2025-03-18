@@ -40,7 +40,7 @@ func (m *Merry) Fund(to string) error {
 			return fundStarknet(to)
 		}
 	}
-	
+
 	if len(to) == 42 {
 		to = to[2:]
 	}
@@ -140,41 +140,31 @@ func fundBTC(to string) error {
 
 func fundStarknet(to string) error {
 	mintAmount, _ := new(big.Int).SetString("1000000000000000000", 10)
-	mintRequest := func(unit string) error {
-		payload, err := json.Marshal(map[string]any{
-			"address": to,
-			"amount": mintAmount,
-			"unit": unit,
-		})
-		if err != nil {
-			return fmt.Errorf("failed to marshal address: %v", err)
-		}
-		res, err := http.Post("http://localhost:8547/mint", "application/json", bytes.NewBuffer(payload))
-		data, err := io.ReadAll(res.Body)
-		if err != nil {
-			return err
-		}
-		if res.StatusCode != http.StatusOK {
-			return errors.New(string(data))
-		}
-		var dat map[string]string
-		if err := json.Unmarshal([]byte(data), &dat); err != nil {
-			return errors.New("internal error, please try again")
-		}
-		if dat["tx_hash"] == "" {
-			return errors.New("error funding address")
-		}
-		fmt.Printf("Successfully funded address. TxHash: %s. New Balance: %s %s.\n", dat["tx_hash"], dat["new_balance"], dat["unit"])
-		return nil
+
+	payload, err := json.Marshal(map[string]any{
+		"address": to,
+		"amount":  mintAmount,
+		"unit":    "FRI",
+	})
+	if err != nil {
+		return fmt.Errorf("failed to marshal address: %v", err)
 	}
-	
-	if err := mintRequest("FRI"); err != nil {
+	res, err := http.Post("http://localhost:8547/mint", "application/json", bytes.NewBuffer(payload))
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
 		return err
 	}
-	
-	if err := mintRequest("WEI"); err != nil {
-		return err
+	if res.StatusCode != http.StatusOK {
+		return errors.New(string(body))
 	}
-	
+	var data map[string]string
+	if err := json.Unmarshal([]byte(body), &data); err != nil {
+		return errors.New("internal error, please try again")
+	}
+	if data["tx_hash"] == "" {
+		return errors.New("error funding address")
+	}
+	fmt.Printf("Successfully funded address. TxHash: %s. New Balance: %s %s.\n", data["tx_hash"], data["new_balance"], data["unit"])
+
 	return nil
 }
