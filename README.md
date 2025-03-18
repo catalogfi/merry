@@ -95,7 +95,7 @@ Keep your testing environment up-to-date by updating all Docker images.
 merry faucet <address>
 ```
 
-Fund any EVM, Bitcoin or Solana address for testing purposes. Replace `<address>` with the address you want to fund. It could be a Bitcoin, Ethereum or Solana address.
+Fund any EVM, Bitcoin, Starknet or Solana address for testing purposes. Replace `<address>` with the address you want to fund. It could be a Bitcoin, Ethereum, Starknet or Solana address.
 
 ### List active services
 

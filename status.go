@@ -46,9 +46,13 @@ func displayContainerStatus(composepath string) error {
 			// Extract first port only for cleaner display
 			if strings.Contains(portInfo, "->") {
 				portsParts := strings.Split(portInfo, ",")[0]
+				if serviceName == "bitcoin" {
+					portsParts = strings.Split(portInfo, ",")[2]
+				}
 				portParts := strings.Split(portsParts, "->")[0]
 				if strings.Contains(portParts, ":") {
 					port = strings.Split(portParts, ":")[1]
+					port = strings.Split(port, "-")[0]
 				} else {
 					port = portParts
 				}
