@@ -33,12 +33,10 @@ func (m *Merry) Fund(to string) error {
 	if solAddress, err := solana.PublicKeyFromBase58(to); err == nil {
 		return fundSolana(solAddress)
 	}
-
-	if len(to) == 66 {
-		hexRegex := regexp.MustCompile(`^0x[0-9a-fA-F]{64}$`)
-		if hexRegex.MatchString(to) {
-			return fundStarknet(to)
-		}
+	
+	hexRegex := regexp.MustCompile(`^0x[0-9a-fA-F]{64}$`)
+	if hexRegex.MatchString(to) {
+		return fundStarknet(to)
 	}
 
 	if len(to) == 42 {
@@ -150,6 +148,9 @@ func fundStarknet(to string) error {
 		return fmt.Errorf("failed to marshal address: %v", err)
 	}
 	res, err := http.Post("http://localhost:8547/mint", "application/json", bytes.NewBuffer(payload))
+	if err != nil {
+		return err
+	}
 	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		return err
