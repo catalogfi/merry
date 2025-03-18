@@ -148,26 +148,30 @@ The following services are available with their respective ports:
 - **Ethereum**: 8545
 - **Arbitrum**: 8546
 - **Starknet DevNet**: 8547
-- **Bitcoin**: 8080/tcp
-- **Solana Validator**: 8899-8900
+- **Bitcoin**: 18443
+- **Solana Validator**: 8899
 
 ## Explorers
 - **Ethereum Explorer**: 5100
 - **Arbitrum Explorer**: 5101
 - **Esplora**: 5050
 
-## Relayers & Executors
-- **Relayer**: 4426
-- **Starknet Relayer**: 4436
-- **Solana Relayer**: 5014
-- **Starknet Executor**: 3000/tcp
-
 ## Blockchain Tools
 - **Electrs**: 30000
 - **Chopsticks**: 3000
 - **Cosigner**: 11818
-- **Quote**: 6969
 - **Virtual Balance**: 3008
+
+## Garden Services
+
+## Quote Server
+- **quote**: 6969
+
+## Relayers & Executors
+- **Relayer**: 4426
+- **Starknet Relayer**: 4436
+- **Solana Relayer**: 5014
+- **Starknet Executor**: 3000
 
 ## Databases
 - **Postgres**: 5432
