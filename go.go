@@ -59,7 +59,6 @@ func (m *Merry) Start() error {
 		return err
 	})
 	
-	// should add a sleep to ensure all services show up ??
 	// display endpoints	
 	if err := m.Status(); err != nil {
 		return err
