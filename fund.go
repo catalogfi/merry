@@ -48,7 +48,7 @@ func (m *Merry) Fund(to string) error {
 		return fundEVM(to)
 	}
 
-	return fmt.Errorf("Invalid address %s. Expected a valid ethereum, solana or bitcoin regtest address", to)
+	return fmt.Errorf("Invalid address %s. Expected a valid ethereum, solana, starknet or bitcoin regtest address", to)
 }
 
 func fundSolana(to solana.PublicKey) error {
