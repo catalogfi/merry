@@ -1,0 +1,13 @@
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+
+rpc_url = "http://starknet-devnet:5050/rpc"
+chain_name = "starknet_devnet"
+chain_id = "0x534e5f5345504f4c4941"
+htlc_contracts = [
+    "0x1890470168440bbb9df50988748924a74ea22de10d22a081e458737b9574e75",
+    "0x15cf8b127aa850c97ed10de6f8b300cabc4f09232a57e63667af02fdef8a55a"
+    ]
+executer_address = "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502"
+executor_private_key = "0x00000000000000000000000000000000e5852452e0757e16b127975024ade3eb"
+quote_url = "http://quote:6969"
+price_drop_threshold = 0.1

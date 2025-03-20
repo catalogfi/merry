@@ -1,0 +1,55 @@
+{
+    "psqlDB": "postgres://postgres:postgres@garden-db:5432/garden",
+    "orderSigner": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "chains": {
+      "ethereum_localnet": {
+        "contracts": {
+          "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0": "gardenhtlc"
+        },
+        "url": "http://ethereum:8545",
+        "startBlock": 0,
+        "maxBlockSpan": 1000,
+        "pollingInterval": 500,
+        "chainID": "31337",
+        "isL2":false,
+        "timelock": 100,
+        "blockchain" : "evm",
+        "blockchainEnv" : "localnet"
+      },
+      "arbitrum_localnet": {
+        "contracts": {
+          "0x0165878A594ca255338adfa4d48449f69242Eb8F": "gardenhtlc",
+          "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6": "orderbook"
+        },
+        "url": "http://arbitrum:8545",
+        "startBlock": 0,
+        "maxBlockSpan": 1000,
+        "pollingInterval": 500,
+        "chainID" : "31338",
+        "isL2":false,
+        "timelock": 100,
+        "blockchain" : "evm",
+        "blockchainEnv" : "localnet"
+      },
+      "solana_localnet" : {
+        "chainID":"104",
+        "timelock": 500,
+        "blockchain" : "solana",
+        "blockchainEnv" : "localnet"
+      },
+      "bitcoin_regtest" : {
+        "chainID":"0",
+        "timelock": 100,
+        "blockchain" : "btc",
+        "blockchainEnv" : "localnet"
+      },
+      "starknet_devnet" : {
+        "chainID": "393402133025997798000961",
+        "timelock": 100,
+        "blockchain" : "starknet",
+        "blockchainEnv" : "localnet"
+      }
+    },
+    "strategies": [],
+    "stratergiesUrl": "http://quote:6969/quote/strategies"
+  }
