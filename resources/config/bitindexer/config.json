@@ -1,0 +1,10 @@
+{
+  "rpc_url": "http://bitcoin:18443",
+  "db_url": "postgres://postgres:postgres@garden-db:5432/garden",
+  "zmq_raw_tx": "tcp://bitcoin:28333",
+  "zmq_raw_block": "tcp://bitcoin:28332",
+  "rpc_user": "admin1",
+  "rpc_password": "123",
+  "network": "local",
+  "process_historical_blocks": true
+}

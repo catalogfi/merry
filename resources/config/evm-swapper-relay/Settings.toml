@@ -1,0 +1,29 @@
+secret = "my_secret"
+
+api_key_verifier_addr = "0xC63F0632E640580eF3C3F2290767b920C6a36b8d"
+
+order_verifier_addr = "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
+indexer_url = "http://electrs:30000"
+
+[db]
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+
+[[chains]]
+chain_name = "ethereum_localnet"
+rpc_url = "http://ethereum:8545"
+htlc_contracts = ["0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"]
+executor_private_key = "ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
+multicall_contract = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+
+[[chains]]
+chain_name = "arbitrum_localnet"
+rpc_url = "http://arbitrum:8545"
+htlc_contracts = ["0x0165878A594ca255338adfa4d48449f69242Eb8F"]
+executor_private_key = "ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
+multicall_contract = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+
+[creator]
+private_key = "59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d"
+orderbook_contract = "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6"
+rpc_url = "http://arbitrum:8545"
+multicall_contract = "0x5FbDB2315678afecb367f032d93F642f64180aa3"

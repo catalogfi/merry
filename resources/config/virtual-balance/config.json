@@ -1,0 +1,37 @@
+{
+    "orderbook": "https://api.garden.finance",
+    "port": 3008,
+    "baseFeePercent": 0.003,
+    "coingeckoURL": "https://api.coingecko.com/api/v3",
+    "blockchain": {
+        "localnet": {
+            "bitcoin": {
+                "rpc": [
+                    "http://electrs:30000/"
+                ]
+            },
+            "ethereum": {
+                "rpc": [
+                    "http://ethereum:8545/"
+                ]
+            },
+            "arbitrum": {
+                "rpc": [
+                    "http://arbitrum:8545/"
+                ]
+            },
+            "solana": {
+                "rpc": [
+                    "http://solana-validator:8899/"
+                ]
+            }
+        },
+        "testnet": {
+            "solana": {
+                "rpc": [
+                    "https://api.devnet.solana.com"
+                ]
+            }
+        }
+    }
+}
