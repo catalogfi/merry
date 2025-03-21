@@ -13,3 +13,5 @@ htlc_contracts = [
 executer_address = "0x018f81c2ef42310e0abd4fafd27f37beb34d000641beb2cd8a6fb97596552ddb"
 executor_private_key = "0x0000000000000000000000000000000016b0be70a6344cccf3ed6e7d9cf04de4"
 multicall_contract_address = "0x51aa025f1c9948790113e4ebea826dee24542bc50902076c05892774210e8d2"
+secret = "my_secret"
+api_key_verifier_addr = "0xC63F0632E640580eF3C3F2290767b920C6a36b8d"
