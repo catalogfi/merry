@@ -1,0 +1,36 @@
+{
+  "cacheDir": "cache",
+  "fiatAPI": "http://quote:6969",
+  "chainConfig": {
+    "ethereum_localnet_0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0": {
+      "name": "ethereum_localnet",
+      "rpcUrl": "http://ethereum:8545",
+      "contractAddress": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "privateKey": "59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d"
+    },
+    "bitcoin_regtest_primary": {
+      "name": "bitcoin_regtest",
+      "rpcUrl": "http://electrs:30000",
+      "contractAddress": "primary",
+      "privateKey": "31034894ed91ef34b14bea6a414d86b9f77ce3d09bef55ab4f89666c461f9107"
+    },
+    "arbitrum_localnet_0x0165878A594ca255338adfa4d48449f69242Eb8F": {
+      "name": "arbitrum_localnet",
+      "rpcUrl": "http://arbitrum:8545",
+      "contractAddress": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+      "privateKey": "59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d"
+    }
+  },
+  "feeEstimators": [
+    {
+      "mode": "fd",
+      "url": ""
+    }
+  ],
+  "orderbookDB": "postgres://postgres:postgres@garden-db:5432/garden?sslmode=disable",
+  "fillerIDs": [
+    "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac"
+  ],
+  "ignoreOrderDeadline": "12"
+}

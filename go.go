@@ -20,11 +20,11 @@ func (m *Merry) Start() error {
 	}
 	composePath := filepath.Join(home, ".merry", "docker-compose.yml")
 
-	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "quote", "bit-ponder", "cobiv2", "relayer", "solana-validator", "virtual-balance", "solana-executor", "solana-relayer", "solana-watcher", "bit-indexer", "starknet-devnet", "garden-starknet-watcher", "starknet-executor", "starknet-relayer")
+	bashCmd := runDockerCompose(composePath, "up", "-d", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "quote", "bit-ponder", "cobiv2", "relayer", "solana-validator", "virtual-balance", "solana-executor", "solana-relayer", "solana-watcher", "bit-indexer", "starknet-devnet", "garden-starknet-watcher", "starknet-executor", "starknet-relayer")
 	if m.IsHeadless && m.IsBare {
 		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum", "cosigner", "starknet-devnet")
 	} else if m.IsHeadless {
-		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "cobi", "cosigner", "starknet-devnet")
+		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "cosigner", "starknet-devnet")
 	} else if m.IsBare {
 		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum-explorer", "arbitrum-explorer", "cosigner", "starknet-devnet")
 
@@ -34,22 +34,6 @@ func (m *Merry) Start() error {
 	if err := bashCmd.Run(); err != nil {
 		fmt.Println("failed to run docker compose command", err)
 		return err
-	}
-
-	fmt.Println()
-	fmt.Println("ENDPOINTS")
-	for name, endpoint := range m.Services {
-		if m.IsBare {
-			if name == "cobi" || name == "redis" || name == "orderbook" || name == "postgres" || name == "garden-evm-watcher" || name == "garden-db" || name == "matcher" || name == "bit-ponder" {
-				continue
-			}
-		}
-		if m.IsHeadless {
-			if name == "esplora" || name == "ethereum-explorer" || name == "arbitrum-explorer" {
-				continue
-			}
-		}
-		fmt.Println(name + " " + endpoint)
 	}
 
 	m.Running = true
@@ -74,5 +58,11 @@ func (m *Merry) Start() error {
 		_, err := localnet.EVMClient()
 		return err
 	})
+	
+	// display endpoints	
+	if err := m.Status(); err != nil {
+		return err
+	}
+
 	return nil
 }
