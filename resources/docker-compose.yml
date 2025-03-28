@@ -252,7 +252,7 @@ services:
     depends_on:
       - garden-evm-watcher
     volumes:
-      - ./config/bit-ponder/config.json:/docker_config.json
+      - ./config/bit-ponder/config.json:/config.json
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
