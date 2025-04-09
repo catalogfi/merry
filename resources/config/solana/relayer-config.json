@@ -1,7 +1,7 @@
 {
-    "RPC_URL": "http://solana-validator:8899",
-    "DATABASE_URL": "postgres://postgres:postgres@garden-db:5432/garden",
-    "LISTEN_PORT": 5014,
-    "REFUND_POLLING_INTERVAL_MS": 20000,
-    "MIN_TRANSACTION_AMOUNT_LAMPORTS": 0
+    "rpcUrl": "http://solana-validator:8899",
+    "gardenDbUrl": "postgres://postgres:postgres@garden-db:5432/garden",
+    "listenPort": 5014,
+    "refundsPollingIntervalMs": 20000,
+    "programId": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe"
 }

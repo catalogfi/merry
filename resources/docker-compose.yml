@@ -212,12 +212,14 @@ services:
     ports:
       - 5014:5014
     container_name: solana-relayer
-    command: ["--use-testkey"]
     depends_on:
       - solana-validator
     volumes:
       - ./config/solana/relayer-config.json:/usr/src/app/relayer-config.json
     restart: unless-stopped
+    environment:
+      - CONFIG=relayer-config.json
+      - RELAYER_PRIVATE_KEY=test
 
   virtual-balance:
     image: ghcr.io/catalogfi/virtual-balance:latest
