@@ -1,0 +1,27 @@
+# Database configuration
+psql_uri = "postgres://postgres:postgres@garden-db:5432/garden"
+
+# Starknet node configuration
+rpc_url = "http://starknet-devnet:5050/rpc"
+
+# Block configuration
+start_block = 0
+max_block_span = 1000
+polling_interval = 1000
+
+# Chain configuration
+chain_id = "SN_SEPOLIA"
+timelock = 300
+
+# Environment configuration
+blockchain = "starknet_devnet"
+blockchain_env = "devnet"
+
+# Worker configuration
+worker_count = 1
+queue_size = 1000
+
+# Contract addresses
+[contracts]
+"stark_htlc" = "0x1890470168440bbb9df50988748924a74ea22de10d22a081e458737b9574e75"
+"eth_htlc" = "0x15cf8b127aa850c97ed10de6f8b300cabc4f09232a57e63667af02fdef8a55a"

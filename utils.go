@@ -16,7 +16,8 @@ import (
 
 //go:embed resources/docker-compose.yml
 //go:embed resources/bitcoin.conf
-//go:embed resources/nginx/nginx.conf
+//go:embed resources/starknet/dump.json
+//go:embed resources/config/*
 var f embed.FS
 
 var DefaultComposePath string
@@ -115,17 +116,22 @@ func (m *Merry) provisionResourcesToDatadir(datadir string) error {
 		return err
 	}
 
-	if err := makeDirectoryIfNotExists(filepath.Join(datadir, "nginx")); err != nil {
-        return err
-    }
+	if err := makeDirectoryIfNotExists(filepath.Join(datadir, "starknet")); err != nil {
+		return err
+	}
 
-    // copy nginx/nginx.conf into the Nigiri data directory
-    if err := copyFromResourcesToDatadir(
-        filepath.Join("resources", "nginx", "nginx.conf"),
-        filepath.Join(datadir, "nginx", "nginx.conf"),
-    ); err != nil {
-        return err
-    }
+	// copy dump.json into the starknet data directory
+	if err := copyFromResourcesToDatadir(
+		filepath.Join("resources", "starknet", "dump.json"),
+		filepath.Join(datadir, "starknet", "dump.json"),
+	); err != nil {
+		return err
+	}
+
+	// Entire config directory
+	if err := copyDirectoryFromResourcesToDatadir("resources/config", filepath.Join(datadir, "config")); err != nil {
+		return err
+	}
 
 	m.Ready = true
 	data, err := json.Marshal(m)
@@ -135,6 +141,36 @@ func (m *Merry) provisionResourcesToDatadir(datadir string) error {
 	if err := os.WriteFile(filepath.Join(datadir, "merry.config.json"), data, 0777); err != nil {
 		return err
 	}
+	return nil
+}
+
+func copyDirectoryFromResourcesToDatadir(srcDir, destDir string) error {
+	entries, err := f.ReadDir(srcDir)
+	if err != nil {
+		return fmt.Errorf("failed to read embedded directory %s: %w", srcDir, err)
+	}
+
+	// if not exists, make it
+	if err := makeDirectoryIfNotExists(destDir); err != nil {
+		return fmt.Errorf("failed to create destination directory %s: %w", destDir, err)
+	}
+
+	for _, entry := range entries {
+		srcPath := filepath.Join(srcDir, entry.Name())
+		destPath := filepath.Join(destDir, entry.Name())
+
+		// if directory then copy dir if not copy file (recursion)
+		if entry.IsDir() {
+			if err := copyDirectoryFromResourcesToDatadir(srcPath, destPath); err != nil {
+				return err
+			}
+		} else {
+			if err := copyFromResourcesToDatadir(srcPath, destPath); err != nil {
+				return err
+			}
+		}
+	}
+
 	return nil
 }
 

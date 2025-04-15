@@ -1,0 +1,12 @@
+{
+  "env": "merry",
+  "rpc_url": "http://solana-validator:8899",
+  "db_url": "postgres://postgres:postgres@garden-db:5432/garden",
+  "chain_id": 104,
+  "evm_relayer_url": "http://relayer:4426",
+  "quote_server_url": "http://quote:6969",
+  "virtual_balance_server_url": "http://virtual-balance:3008",
+  "executor_sleep_duration": 5000,
+  "price_threshold": 0.01,
+  "native_program_address": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe"
+}

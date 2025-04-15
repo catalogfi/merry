@@ -20,13 +20,14 @@ func (m *Merry) Start() error {
 	}
 	composePath := filepath.Join(home, ".merry", "docker-compose.yml")
 
-	bashCmd := runDockerCompose(composePath, "up", "-d", "cobi", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx")
+	bashCmd := runDockerCompose(composePath, "up", "-d", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "quote", "bit-ponder", "cobiv2", "relayer", "solana-validator", "virtual-balance", "solana-executor", "solana-relayer", "solana-watcher", "bit-indexer", "starknet-devnet", "garden-starknet-watcher", "starknet-executor", "starknet-relayer")
 	if m.IsHeadless && m.IsBare {
-		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum", "cosigner")
+		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum", "cosigner", "starknet-devnet")
 	} else if m.IsHeadless {
-		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "cobi", "cosigner")
+		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "cosigner", "starknet-devnet")
 	} else if m.IsBare {
-		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum-explorer", "arbitrum-explorer", "cosigner")
+		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum-explorer", "arbitrum-explorer", "cosigner", "starknet-devnet")
+
 	}
 	bashCmd.Stdout = os.Stdout
 	bashCmd.Stderr = os.Stderr
@@ -35,34 +36,33 @@ func (m *Merry) Start() error {
 		return err
 	}
 
-	fmt.Println()
-	fmt.Println("ENDPOINTS")
-	for name, endpoint := range m.Services {
-		if m.IsBare {
-			if name == "cobi" || name == "redis" || name == "orderbook" || name == "postgres" {
-				continue
-			}
-		}
-		if m.IsHeadless {
-			if name == "esplora" || name == "ethereum-explorer" || name == "arbitrum-explorer" {
-				continue
-			}
-		}
-		fmt.Println(name + " " + endpoint)
-	}
-
 	m.Running = true
 	if err := m.Save(); err != nil {
 		return err
 	}
 
-	retry(func() error {
-		return fundBTC("bcrt1q5428vq2uzwhm3taey9sr9x5vm6tk78ew8pf2xw")
-	})
+	// Funding
+	fundAddresses := []string{
+		"bcrt1qgyf47wrtnr9gsr06gn62ft6m4lzylcnllrf9cf", // cobi btc address
+		"0x70997970c51812dc3a010c7d01b50e0d17dc79c8",   // cobi evm address
+		"4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS", // cobi sol address
+		"AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9", // solana relayer
+	}
+
+	for _, addr := range fundAddresses {
+		retry(func() error { return m.Fund(addr) })
+	}
+
 	retry(func() error {
 		// try establishing connection with the ethereum clients
 		_, err := localnet.EVMClient()
 		return err
 	})
+	
+	// display endpoints	
+	if err := m.Status(); err != nil {
+		return err
+	}
+
 	return nil
 }

@@ -1,0 +1,13 @@
+{
+    "rpcUrl": "http://solana-validator:8899",
+    "dbUrl": "postgres://postgres:postgres@garden-db:5432/garden",
+    "pollingIntervalMs": 3000,
+    "confirmationsPollIntervalMs": 2000,
+    "programs": [
+        {
+            "address": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+            "idlFile": "idls/solana_native_swaps.json",
+            "startProcessingAfterSignature": ""
+        }
+    ]
+}

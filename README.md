@@ -95,7 +95,15 @@ Keep your testing environment up-to-date by updating all Docker images.
 merry faucet <address>
 ```
 
-Fund any EVM or Bitcoin address for testing purposes. Replace <address> with the address you want to fund. It could be a Bitcoin or Ethereum address.
+Fund any EVM, Bitcoin, Starknet or Solana address for testing purposes. Replace `<address>` with the address you want to fund. It could be a Bitcoin, Ethereum, Starknet or Solana address.
+
+### List active services
+
+```bash
+merry status
+```
+
+Lists all currently running services with their respective ports and operational status.
 
 ### List all commands
 
@@ -131,3 +139,41 @@ cd cmd/merry
 # build and install the binary
 go install
 ```
+
+# Service Endpoints
+
+The following services are available with their respective ports:
+
+## Blockchain Nodes
+- **Ethereum**: 8545
+- **Arbitrum**: 8546
+- **Starknet DevNet**: 8547
+- **Bitcoin**: 18443
+- **Solana Validator**: 8899
+
+## Explorers
+- **Ethereum Explorer**: 5100
+- **Arbitrum Explorer**: 5101
+- **Esplora**: 5050
+
+## Blockchain Tools
+- **Electrs**: 30000
+- **Chopsticks**: 3000
+- **Cosigner**: 11818
+- **Virtual Balance**: 3008
+
+## Garden Services
+
+## Quote Server
+- **quote**: 6969
+
+## Relayers & Executors
+- **Relayer**: 4426
+- **Starknet Relayer**: 4436
+- **Solana Relayer**: 5014
+- **Starknet Executor**: 3000
+
+## Databases
+- **Postgres**: 5432
+- **Garden DB**: 5433
+- **Redis**: 6379

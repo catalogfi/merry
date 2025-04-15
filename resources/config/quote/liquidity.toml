@@ -1,0 +1,55 @@
+relayer_url = "http://relayer:4426/"
+
+[[chains]]
+name = "bitcoin_regtest"
+rpc = "http://electrs:30000/"
+addresses = ["cobi:bcrt1qgyf47wrtnr9gsr06gn62ft6m4lzylcnllrf9cf"]
+chain_type = "btc"
+native_token_id = "bitcoin"
+decimals = 8
+
+[[chains]]
+name = "ethereum_localnet"
+rpc = "http://ethereum:8545/"
+addresses = [
+    "cobi:0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+    "relayer:0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+]
+chain_type = "evm"
+native_token_id = "ethereum"
+decimals = 18
+
+[[chains]]
+name = "arbitrum_localnet"
+rpc = "http://arbitrum:8545/"
+addresses = [
+    "cobi:0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+    "relayer:0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "creator:0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+]
+chain_type = "evm"
+native_token_id = "ethereum"
+decimals = 18
+
+[[chains]]
+name = "solana_localnet"
+rpc = "http://solana-validator:8899/"
+addresses = [
+    "cobi:4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+    "relayer:AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+    "creator:4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+]
+chain_type = "sol"
+native_token_id = "solana"
+decimals = 9
+
+[[chains]]
+name = "starknet_devnet"
+rpc = "http://starknet-devnet:5050/rpc"
+addresses = [
+    "relayer:0x018f81c2ef42310e0abd4fafd27f37beb34d000641beb2cd8a6fb97596552ddb",
+    "cobi:0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+]
+chain_type = "starknet"
+native_token_id = "starknet"
+decimals = 18

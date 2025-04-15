@@ -43,7 +43,7 @@ func main() {
 			panic(err)
 		}
 	}
-	cmd.AddCommand(Start(&state), Stop(&state), Faucet(&state), Replace(&state), Logs(state), RPC(state), Update(), Version(state))
+	cmd.AddCommand(Start(&state), Stop(&state), Faucet(&state), Replace(&state), Logs(state), RPC(state), Update(), Version(state), Status(state))
 	if err := cmd.Execute(); err != nil {
 		panic(err)
 	}
@@ -87,20 +87,7 @@ func Replace(m *merry.Merry) *cobra.Command {
 			c.HelpFunc()(c, args)
 		},
 	}
-	cmd.AddCommand(Orderbook(m), COBI(m), EVM(m))
-	return cmd
-}
-
-func Orderbook(m *merry.Merry) *cobra.Command {
-	var path string
-	var cmd = &cobra.Command{
-		Use:   "orderbook",
-		Short: "Replace orderbook service",
-		RunE: func(c *cobra.Command, args []string) error {
-			return m.Replace(path, "ghcr.io/catalogfi/orderbook:latest")
-		},
-	}
-	cmd.Flags().StringVarP(&path, "path", "p", ".", "docker path")
+	cmd.AddCommand(COBI(m), EVM(m))
 	return cmd
 }
 
@@ -110,7 +97,7 @@ func COBI(m *merry.Merry) *cobra.Command {
 		Use:   "cobi",
 		Short: "Replace cobi service",
 		RunE: func(c *cobra.Command, args []string) error {
-			return m.Replace(path, "ghcr.io/catalogfi/cobi:latest")
+			return m.Replace(path, "ghcr.io/catalogfi/cobiv2:latest")
 		},
 	}
 	cmd.Flags().StringVarP(&path, "path", "p", ".", "docker path")
@@ -200,6 +187,17 @@ func Version(m merry.Merry) *cobra.Command {
 			fmt.Println("merry CLI version")
 			fmt.Println(m.FormatVersion())
 			return nil
+		},
+	}
+	return cmd
+}
+
+func Status(m merry.Merry) *cobra.Command {
+	var cmd = &cobra.Command{
+		Use:   "status",
+		Short: "Get the list of active services under merry",
+		RunE: func(c *cobra.Command, args []string) error {
+			return m.Status()
 		},
 	}
 	return cmd

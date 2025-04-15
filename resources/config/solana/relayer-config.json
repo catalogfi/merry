@@ -1,0 +1,7 @@
+{
+    "rpcUrl": "http://solana-validator:8899",
+    "gardenDbUrl": "postgres://postgres:postgres@garden-db:5432/garden",
+    "listenPort": 5014,
+    "refundsPollingIntervalMillis": 20000,
+    "programId": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe"
+}
