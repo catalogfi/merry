@@ -7,5 +7,6 @@
   "quote_server_url": "http://quote:6969",
   "virtual_balance_server_url": "http://virtual-balance:3008",
   "executor_sleep_duration": 5000,
-  "price_threshold": 0.01
+  "price_threshold": 0.01,
+  "native_program_address": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe"
 }

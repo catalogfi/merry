@@ -1,0 +1,27 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches:
+      - '**' 
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build merry binary
+        run: |
+          cd cmd/merry
+          go install
+
+      - name: Run merry
+        run: merry go
