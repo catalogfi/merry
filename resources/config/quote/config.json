@@ -20,7 +20,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -44,7 +44,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -68,7 +68,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -92,7 +92,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -116,7 +116,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -140,7 +140,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 2,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -164,7 +164,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -188,7 +188,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 2,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -212,7 +212,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -236,7 +236,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -260,7 +260,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 2,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -285,7 +285,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -310,7 +310,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -335,7 +335,7 @@
       "min_amount": "1000",
       "max_amount": "10000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -360,7 +360,7 @@
       "min_amount": "1000",
       "max_amount": "1000000000000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 3,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -385,7 +385,7 @@
       "min_amount": "1000",
       "max_amount": "1000000000000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 0,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     },
@@ -410,7 +410,7 @@
       "min_amount": "1000",
       "max_amount": "1000000000000000000",
       "min_source_timelock": 20,
-      "min_source_confirmations": 0,
+      "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
     }
