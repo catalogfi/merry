@@ -10,7 +10,7 @@ import (
 
 func displayContainerStatus(composepath string) error {
 	// Run docker ps with custom format
-	cmd := runDockerCompose(composepath, "ps", "--format", "{{.Names}}|{{.Ports}}|{{.Status}}")
+	cmd := runDockerCompose(composepath, "ps", "--format", "\"{{.Names}}|{{.Ports}}|{{.Status}}\"")
 
 	// Capture the output
 	var out bytes.Buffer
