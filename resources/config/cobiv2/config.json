@@ -1,6 +1,11 @@
 {
   "cacheDir": "cache",
   "fiatAPI": "http://quote:6969",
+  "bitcoinRPCConfig": {
+     "url": "http://bitcoin:18443",
+     "username": "admin1",
+     "password": "123"
+  },
   "chainConfig": {
     "ethereum_localnet_0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0": {
       "name": "ethereum_localnet",

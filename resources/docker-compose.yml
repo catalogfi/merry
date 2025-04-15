@@ -218,7 +218,7 @@ services:
       - ./config/solana/relayer-config.json:/usr/src/app/relayer-config.json
     restart: unless-stopped
     environment:
-      - CONFIG=relayer-config.json
+      - CONFIG=/usr/src/app/relayer-config.json
       - RELAYER_PRIVATE_KEY=test
 
   virtual-balance:
