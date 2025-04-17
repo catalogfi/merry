@@ -1,4 +1,4 @@
-orderbook_url = "http://relayer:4426/"
+orderbook_url = "http://orderbookV2:4455/"
 
 [[chains]]
 name = "bitcoin_regtest"
