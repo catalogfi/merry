@@ -19,18 +19,6 @@
                 "rpc": [
                     "http://arbitrum:8545/"
                 ]
-            },
-            "solana": {
-                "rpc": [
-                    "http://solana-validator:8899/"
-                ]
-            }
-        },
-        "testnet": {
-            "solana": {
-                "rpc": [
-                    "https://api.devnet.solana.com"
-                ]
             }
         }
     }

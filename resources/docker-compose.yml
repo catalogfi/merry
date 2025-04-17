@@ -181,46 +181,6 @@ services:
     volumes:
       - ./volumes/cobi_data:/data
 
-  solana-validator:
-    image: ghcr.io/catalogfi/solana-test-validator:latest
-    container_name: solana-validator
-    ports:
-      - 8899:8899
-      - 8900:8900
-    restart: unless-stopped
-
-  solana-watcher:
-    image: ghcr.io/catalogfi/solana-watcher:latest
-    container_name: solana-watcher
-    depends_on:
-      - solana-validator
-    volumes:
-      - ./config/solana/watcher-config.json:/usr/src/app/watcher-config.json:ro
-    restart: unless-stopped
-
-  solana-executor:
-    image: ghcr.io/catalogfi/solana-executor:latest
-    container_name: solana-executor
-    depends_on:
-      - solana-watcher
-    volumes:
-      - ./config/solana/executor-config.json:/app/config.json
-    restart: unless-stopped
-
-  solana-relayer:
-    image: ghcr.io/catalogfi/solana-relayer:latest
-    ports:
-      - 5014:5014
-    container_name: solana-relayer
-    depends_on:
-      - solana-validator
-    volumes:
-      - ./config/solana/relayer-config.json:/usr/src/app/relayer-config.json
-    restart: unless-stopped
-    environment:
-      - CONFIG=/usr/src/app/relayer-config.json
-      - RELAYER_PRIVATE_KEY=test
-
   virtual-balance:
     image: ghcr.io/catalogfi/virtual-balance:latest
     container_name: virtual-balance
@@ -276,49 +236,6 @@ services:
     ports:
       - 11818:11818
     restart: unless-stopped
-
-  # starknet-devnet:
-  #   image: shardlabs/starknet-devnet-rs:0.2.4
-  #   container_name: starknet-devnet
-  #   command: ["--seed", "1", "--dump-on", "exit", "--dump-path", "/data/dump.json", "--block-generation-on", "transaction"]
-  #   ports:
-  #     - "8547:5050"
-  #   volumes:
-  #     - ./starknet/dump.json:/data/dump.json
-
-  # garden-starknet-watcher:
-  #   image: ghcr.io/catalogfi/garden-starknet-watcher:latest
-  #   container_name: starknet-watcher
-  #   depends_on:
-  #     - starknet-devnet
-  #     - garden-evm-watcher
-  #   volumes:
-  #     - ./config/starknet/watcher_config.toml:/app/config.toml
-  #   restart: unless-stopped
-
-  # starknet-relayer:
-  #   image: ghcr.io/catalogfi/starknet-relayer:latest
-  #   container_name: starknet-relayer
-  #   depends_on:
-  #     - starknet-devnet
-  #     - garden-db
-  #     - garden-evm-watcher
-  #   volumes:
-  #     - ./config/starknet/relayer_settings.toml:/app/settings.toml
-  #   ports:
-  #     - "4436:4436"
-  #   restart: unless-stopped
-
-  # starknet-executor:
-  #   image: ghcr.io/catalogfi/starknet-executor:latest
-  #   container_name: starknet-executor
-  #   depends_on:
-  #     - starknet-devnet
-  #     - garden-db
-  #     - garden-evm-watcher
-  #   volumes:
-  #     - ./config/starknet/executor_settings.toml:/app/settings.toml
-  #   restart: unless-stopped
 
   nginx:
     image: nginx:latest

@@ -31,12 +31,6 @@
         "blockchain" : "evm",
         "blockchainEnv" : "localnet"
       },
-      "solana_localnet" : {
-        "chainID":"104",
-        "timelock": 500,
-        "blockchain" : "solana",
-        "blockchainEnv" : "localnet"
-      },
       "bitcoin_regtest" : {
         "chainID":"0",
         "timelock": 100,
