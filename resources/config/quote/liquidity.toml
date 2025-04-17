@@ -1,4 +1,4 @@
-relayer_url = "http://relayer:4426/"
+orderbook_url = "http://relayer:4426/"
 
 [[chains]]
 name = "bitcoin_regtest"
@@ -37,7 +37,7 @@ rpc = "http://solana-validator:8899/"
 addresses = [
     "cobi:4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
     "relayer:AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
-    "creator:4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+    "creator:4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS"
 ]
 chain_type = "sol"
 native_token_id = "solana"

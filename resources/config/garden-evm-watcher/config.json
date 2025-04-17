@@ -45,5 +45,5 @@
       }
     },
     "strategies": [],
-    "stratergiesUrl": "http://quote:6969/quote/strategies"
+    "stratergiesUrl": "http://quote:6969/strategies"
   }
