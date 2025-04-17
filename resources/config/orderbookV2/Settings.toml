@@ -1,0 +1,1 @@
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"

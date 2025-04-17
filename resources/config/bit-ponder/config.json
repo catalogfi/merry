@@ -5,7 +5,6 @@
   "database": {
     "db_url": "postgres://postgres:postgres@garden-db:5432/garden"
   },
-  "screener_url": "http://0.0.0.0:3008/screening/addresses",
   "watcher": {
     "interval": 60,
     "workers": 4

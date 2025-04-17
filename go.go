@@ -20,7 +20,7 @@ func (m *Merry) Start() error {
 	}
 	composePath := filepath.Join(home, ".merry", "docker-compose.yml")
 
-	bashCmd := runDockerCompose(composePath, "up", "-d", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "quote", "bit-ponder", "cobiv2", "relayer", "bit-indexer")
+	bashCmd := runDockerCompose(composePath, "up", "-d", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "quote", "bit-ponder", "cobiv2", "relayer", "bit-indexer", "authenticator", "orderbookV2")
 	if m.IsHeadless && m.IsBare {
 		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum", "cosigner")
 	} else if m.IsHeadless {
@@ -56,8 +56,8 @@ func (m *Merry) Start() error {
 		_, err := localnet.EVMClient()
 		return err
 	})
-	
-	// display endpoints	
+
+	// display endpoints
 	if err := m.Status(); err != nil {
 		return err
 	}

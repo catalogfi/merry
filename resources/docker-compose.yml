@@ -35,6 +35,28 @@ services:
     ports:
       - 5101:80
 
+  authenticator:
+    image: ghcr.io/catalogfi/authenticator:latest
+    container_name: authenticator
+    restart: unless-stopped
+    depends_on:
+      - garden-evm-watcher
+    volumes:
+      - ./config/authenticator/config.toml:/app/config.toml
+    ports:
+      - 4427:4427
+  
+  orderbookV2:
+    image: ghcr.io/catalogfi/garden-orderbook-v2:latest
+    container_name: orderbookV2
+    restart: unless-stopped
+    depends_on:
+      - garden-evm-watcher
+    volumes:
+      - ./config/orderbookV2/Settings.toml:/app/Settings.toml
+    ports:
+      - 4455:4455
+
   relayer:
     image: ghcr.io/catalogfi/evm-swapper-relay:latest
     container_name: relayer
