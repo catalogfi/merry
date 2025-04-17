@@ -236,27 +236,3 @@ services:
     ports:
       - 11818:11818
     restart: unless-stopped
-
-  nginx:
-    image: nginx:latest
-    container_name: nginx
-    volumes:
-      - ./config/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-    ports:
-      - "80:80"
-    depends_on:
-      - bitcoin
-      - arbitrum
-      - arbitrum-explorer
-      - ethereum
-      - ethereum-explorer
-      - electrs
-      - esplora
-      - chopsticks
-      - postgres
-      - redis
-      - cosigner
-
-networks:
-  default:
-    name: merry
