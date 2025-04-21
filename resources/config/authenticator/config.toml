@@ -1,0 +1,8 @@
+secret = "my_secret"
+
+expiry = 172800
+
+[[chains]]
+chain_name = "ethereum"
+rpc_url = "http://ethereum:8545"
+chain_id = "31337"

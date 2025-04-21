@@ -31,25 +31,13 @@
         "blockchain" : "evm",
         "blockchainEnv" : "localnet"
       },
-      "solana_localnet" : {
-        "chainID":"104",
-        "timelock": 500,
-        "blockchain" : "solana",
-        "blockchainEnv" : "localnet"
-      },
       "bitcoin_regtest" : {
         "chainID":"0",
         "timelock": 100,
         "blockchain" : "btc",
         "blockchainEnv" : "localnet"
-      },
-      "starknet_devnet" : {
-        "chainID": "393402133025997798000961",
-        "timelock": 100,
-        "blockchain" : "starknet",
-        "blockchainEnv" : "localnet"
       }
     },
     "strategies": [],
-    "stratergiesUrl": "http://quote:6969/quote/strategies"
+    "stratergiesUrl": "http://quote:6969/strategies"
   }

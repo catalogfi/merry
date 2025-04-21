@@ -95,7 +95,7 @@ Keep your testing environment up-to-date by updating all Docker images.
 merry faucet <address>
 ```
 
-Fund any EVM, Bitcoin, Starknet or Solana address for testing purposes. Replace `<address>` with the address you want to fund. It could be a Bitcoin, Ethereum, Starknet or Solana address.
+Fund any EVM and Bitcoin address for testing purposes. Replace `<address>` with the address you want to fund. It could be a Bitcoin or Ethereum address.
 
 ### List active services
 
@@ -147,9 +147,8 @@ The following services are available with their respective ports:
 ## Blockchain Nodes
 - **Ethereum**: 8545
 - **Arbitrum**: 8546
-- **Starknet DevNet**: 8547
+
 - **Bitcoin**: 18443
-- **Solana Validator**: 8899
 
 ## Explorers
 - **Ethereum Explorer**: 5100
@@ -169,9 +168,7 @@ The following services are available with their respective ports:
 
 ## Relayers & Executors
 - **Relayer**: 4426
-- **Starknet Relayer**: 4436
-- **Solana Relayer**: 5014
-- **Starknet Executor**: 3000
+
 
 ## Databases
 - **Postgres**: 5432

@@ -16,7 +16,6 @@ import (
 
 //go:embed resources/docker-compose.yml
 //go:embed resources/bitcoin.conf
-//go:embed resources/starknet/dump.json
 //go:embed resources/config/*
 var f embed.FS
 
@@ -112,18 +111,6 @@ func (m *Merry) provisionResourcesToDatadir(datadir string) error {
 	if err := copyFromResourcesToDatadir(
 		filepath.Join("resources", "bitcoin.conf"),
 		filepath.Join(datadir, "volumes", "bitcoin", "bitcoin.conf"),
-	); err != nil {
-		return err
-	}
-
-	if err := makeDirectoryIfNotExists(filepath.Join(datadir, "starknet")); err != nil {
-		return err
-	}
-
-	// copy dump.json into the starknet data directory
-	if err := copyFromResourcesToDatadir(
-		filepath.Join("resources", "starknet", "dump.json"),
-		filepath.Join(datadir, "starknet", "dump.json"),
 	); err != nil {
 		return err
 	}

@@ -121,294 +121,24 @@
       "fee": 1
     },
     {
-      "id": "sl4sel78",
-      "source_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+      "id": "el8fale0",
       "dest_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "source_chain": "solana_localnet",
-      "dest_chain": "ethereum_localnet",
-      "source_asset": {
-        "asset": "primary",
-        "token_id": "solana",
-        "decimals": 9
-      },
-      "dest_asset": {
-        "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-        "token_id": "bitcoin",
-        "decimals": 8
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "10000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "el78sl4s",
       "source_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "dest_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
       "source_chain": "ethereum_localnet",
-      "dest_chain": "solana_localnet",
-      "source_asset": {
-        "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-        "token_id": "bitcoin",
-        "decimals": 8
-      },
-      "dest_asset": {
-        "asset": "primary",
-        "token_id": "solana",
-        "decimals": 9
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "10000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "sl4sal78",
-      "source_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
-      "dest_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "source_chain": "solana_localnet",
       "dest_chain": "arbitrum_localnet",
-      "source_asset": {
-        "asset": "primary",
-        "token_id": "solana",
-        "decimals": 9
-      },
       "dest_asset": {
         "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
         "token_id": "bitcoin",
         "decimals": 8
       },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "10000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "al78sl4s",
-      "source_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "dest_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
-      "source_chain": "arbitrum_localnet",
-      "dest_chain": "solana_localnet",
-      "source_asset": {
-        "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-        "token_id": "bitcoin",
-        "decimals": 8
-      },
-      "dest_asset": {
-        "asset": "primary",
-        "token_id": "solana",
-        "decimals": 9
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "10000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "brbcsl4s",
-      "source_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
-      "dest_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
-      "source_chain": "bitcoin_regtest",
-      "dest_chain": "solana_localnet",
-      "source_asset": {
-        "asset": "primary",
-        "token_id": "bitcoin",
-        "decimals": 8
-      },
-      "dest_asset": {
-        "asset": "primary",
-        "token_id": "solana",
-        "decimals": 9
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "10000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "sl4sbrbc",
-      "source_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
-      "dest_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
-      "source_chain": "solana_localnet",
-      "dest_chain": "bitcoin_regtest",
-      "source_asset": {
-        "asset": "primary",
-        "token_id": "solana",
-        "decimals": 9
-      },
-      "dest_asset": {
-        "asset": "primary",
-        "token_id": "bitcoin",
-        "decimals": 8
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "10000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "elsd12",
-      "filler": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "source_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "source_chain": "ethereum_localnet",
-      "dest_chain": "starknet_devnet",
       "source_asset": {
         "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
       },
-      "dest_asset": {
-        "asset": "0x1890470168440bbb9df50988748924a74ea22de10d22a081e458737b9574e75",
-        "token_id": "starknet",
-        "decimals": 18
-      },
       "makers": [],
       "min_amount": "1000",
       "max_amount": "10000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "elsd13",
-      "filler": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "source_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "source_chain": "ethereum_localnet",
-      "dest_chain": "starknet_devnet",
-      "source_asset": {
-        "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-        "token_id": "bitcoin",
-        "decimals": 8
-      },
-      "dest_asset": {
-        "asset": "0x15cf8b127aa850c97ed10de6f8b300cabc4f09232a57e63667af02fdef8a55a",
-        "token_id": "starknet",
-        "decimals": 18
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "10000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "brsd13",
-      "filler": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "source_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
-      "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "source_chain": "bitcoin_regtest",
-      "dest_chain": "starknet_devnet",
-      "source_asset": {
-        "asset": "primary",
-        "token_id": "bitcoin",
-        "decimals": 8
-      },
-      "dest_asset": {
-        "asset": "0x15cf8b127aa850c97ed10de6f8b300cabc4f09232a57e63667af02fdef8a55a",
-        "token_id": "starknet",
-        "decimals": 18
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "10000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "sdel10",
-      "filler": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "source_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "dest_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "source_chain": "starknet_devnet",
-      "dest_chain": "ethereum_localnet",
-      "source_asset": {
-        "asset": "0x1890470168440bbb9df50988748924a74ea22de10d22a081e458737b9574e75",
-        "token_id": "starknet",
-        "decimals": 18
-      },
-      "dest_asset": {
-        "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-        "token_id": "bitcoin",
-        "decimals": 8
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "1000000000000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "stbrry",
-      "filler": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
-      "dest_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
-      "source_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "source_chain": "starknet_devnet",
-      "dest_chain": "bitcoin_regtest",
-      "dest_asset": {
-        "asset": "primary",
-        "token_id": "bitcoin",
-        "decimals": 8
-      },
-      "source_asset": {
-        "asset": "0x1890470168440bbb9df50988748924a74ea22de10d22a081e458737b9574e75",
-        "token_id": "starknet",
-        "decimals": 18
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "1000000000000000000",
-      "min_source_timelock": 20,
-      "min_source_confirmations": 1,
-      "min_price": 1.0001,
-      "fee": 1
-    },
-    {
-      "id": "ststy",
-      "filler": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "source_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-      "source_chain": "starknet_devnet",
-      "dest_chain": "starknet_devnet",
-      "dest_asset": {
-        "asset": "0x15cf8b127aa850c97ed10de6f8b300cabc4f09232a57e63667af02fdef8a55a",
-        "token_id": "starknet",
-        "decimals": 18
-      },
-      "source_asset": {
-        "asset": "0x1890470168440bbb9df50988748924a74ea22de10d22a081e458737b9574e75",
-        "token_id": "starknet",
-        "decimals": 18
-      },
-      "makers": [],
-      "min_amount": "1000",
-      "max_amount": "1000000000000000000",
       "min_source_timelock": 20,
       "min_source_confirmations": 1,
       "min_price": 1.0001,
@@ -417,9 +147,7 @@
   ],
   "token_ids": {
     "bitcoin": "1",
-    "ethereum": "1027",
-    "solana": "5426",
-    "starknet": "22691"
+    "ethereum": "1027"
   },
   "update_interval": 60,
   "private_key": "59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d",
