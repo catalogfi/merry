@@ -1,7 +1,7 @@
 version: 2
 
 builds:
-    - main: ./cmd/cli
+    - main: ./cmd/merry
       ldflags:
           - -s -X 'main.version={{.Version}}' -X 'main.commit={{.Commit}}' -X 'main.date={{.Date}}'
       env:

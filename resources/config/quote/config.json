@@ -143,6 +143,54 @@
       "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
+    },
+    {
+      "id": "brryel07",
+      "source_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
+      "dest_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "source_chain": "bitcoin_regtest",
+      "dest_chain": "ethereum_localnet",
+      "source_asset": {
+        "asset": "primary",
+        "token_id": "ethereum",
+        "decimals": 8
+      },
+      "dest_asset": {
+        "asset": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "token_id": "ethereum",
+        "decimals": 18
+      },
+      "makers": [],
+      "min_amount": "1000",
+      "max_amount": "10000000000",
+      "min_source_timelock": 20,
+      "min_source_confirmations": 1,
+      "min_price": 1.0001,
+      "fee": 1
+    },
+    {
+      "id": "el07brry",
+      "source_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "dest_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
+      "source_chain": "ethereum_localnet",
+      "dest_chain": "bitcoin_regtest",
+      "source_asset": {
+        "asset": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "token_id": "ethereum",
+        "decimals": 18
+      },
+      "dest_asset": {
+        "asset": "primary",
+        "token_id": "bitcoin",
+        "decimals": 8
+      },
+      "makers": [],
+      "min_amount": "1000000",
+      "max_amount": "10000000000000000000",
+      "min_source_timelock": 20,
+      "min_source_confirmations": 1,
+      "min_price": 1.0001,
+      "fee": 1
     }
   ],
   "token_ids": {
