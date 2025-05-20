@@ -1,0 +1,18 @@
+# Database configuration
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+
+# Starknet node configuration
+rpc_url = "http://starknet-devnet:5050/rpc"
+
+chain_name = "starknet_devnet"
+chain_id = "0x534e5f5345504f4c4941"
+htlc_contracts = [
+    "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+    "0x37b703339cd490399064ec5203301bfe73b57c96007cec23b406ad22bf61045"
+]
+executer_address = "0x018f81c2ef42310e0abd4fafd27f37beb34d000641beb2cd8a6fb97596552ddb"
+executor_private_key = "0x0000000000000000000000000000000016b0be70a6344cccf3ed6e7d9cf04de4"
+multicall_contract_address = "0x3c770628fa9cfddce18f99ed7bf080d43b17acacf226e75ae4feeb7a3529a1f"
+secret = "my_secret"
+api_key_verifier_addr = "0xC63F0632E640580eF3C3F2290767b920C6a36b8d"
+batch_interval = 5000
