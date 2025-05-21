@@ -215,7 +215,7 @@ services:
       - chopsticks
       - garden-db
     volumes:
-      - "./config/garden-evm-watcher/config.json:/app/docker_config.json"
+      - "./config/garden-evm-watcher/config.json:/app/config.json"
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
