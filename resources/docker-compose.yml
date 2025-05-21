@@ -31,6 +31,7 @@ services:
       ERIGON_URL: "http://localhost:8546"
     ports:
       - "5101:80"
+      
   authenticator:
     image: "ghcr.io/catalogfi/authenticator:latest"
     container_name: authenticator
@@ -72,7 +73,7 @@ services:
     volumes:
       - "./config/info/config.json:/app/config.json"
     ports:
-      - "4232:4232"
+      - "4323:3001"
   quote:
     image: "ghcr.io/catalogfi/quote:latest"
     container_name: quote
