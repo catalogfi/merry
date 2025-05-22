@@ -1,0 +1,56 @@
+{
+  "bitcoin_localnet": {
+    "chainId": "3",
+    "rpcs": ["http://electrs:30000/"],
+    "networkLogo": "https://garden-finance.imgix.net/token-images/bitcoin.svg",
+    "explorer": "http://localhost:5050",
+    "networkType": "localnet",
+    "name": "Bitcoin Regtest",
+    "assetConfig": [
+      {
+        "name": "Bitcoin",
+        "decimals": 8,
+        "symbol": "BTC",
+        "logo": "https://garden-finance.imgix.net/token-images/bitcoin.svg",
+        "tokenAddress": "primary",
+        "atomicSwapAddress": "primary"
+      }
+    ]
+  },
+  "arbitrum_localnet": {
+    "chainId": "31338",
+    "rpcs": ["http://arbitrum:8545"],
+    "networkLogo": "https://garden-finance.imgix.net/chain_images/arbitrumSepolia.svg",
+    "explorer": "https://sepolia.arbiscan.io",
+    "networkType": "localnet",
+    "name": "Arbitrum Localnet",
+    "assetConfig": [
+      {
+        "name": "Wrapped Bitcoin",
+        "decimals": 8,
+        "symbol": "WBTC",
+        "logo": "https://garden-finance.imgix.net/token-images/wbtc.svg",
+        "tokenAddress": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "atomicSwapAddress": "0x0165878A594ca255338adfa4d48449f69242Eb8F"
+      }
+    ]
+  },
+  "ethereum_localnet": {
+    "chainId": "31337",
+    "rpcs": ["http://ethereum:8545"],
+    "networkLogo": "https://garden-finance.imgix.net/chain_images/sepolia.svg",
+    "explorer": "https://sepolia.etherscan.io",
+    "networkType": "localnet",
+    "name": "Ethereum Localnet",
+    "assetConfig": [
+      {
+        "name": "Wrapped Bitcoin",
+        "decimals": 8,
+        "symbol": "WBTC",
+        "logo": "https://garden-finance.imgix.net/token-images/wbtc.svg",
+        "tokenAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "atomicSwapAddress": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+      }
+    ]
+  }
+}
