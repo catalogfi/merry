@@ -79,7 +79,9 @@ services:
     container_name: quote
     restart: unless-stopped
     depends_on:
-      - garden-evm-watcher
+      - ethereum
+      - arbitrum
+      - electrs
     volumes:
       - "./config/quote/config.json:/app/config.json"
       - "./config/quote/liquidity.toml:/app/liquidity.toml"
@@ -215,6 +217,7 @@ services:
       - arbitrum
       - chopsticks
       - garden-db
+      - quote
     volumes:
       - "./config/garden-evm-watcher/config.json:/app/config.json"
     restart: unless-stopped
@@ -265,6 +268,11 @@ services:
       - postgres
       - redis
       - cosigner
+      - info
+      - orderbookV2
+      - relayer
+      - authenticator
+      - quote
 networks:
   default:
     name: merry
