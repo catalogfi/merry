@@ -289,6 +289,7 @@ services:
       - relayer
       - authenticator
       - quote
+      - rippled
 networks:
   default:
     name: merry
