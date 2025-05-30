@@ -249,6 +249,22 @@ services:
     ports:
       - "11818:11818"
     restart: unless-stopped
+
+  rippled:
+    image: xrpllabsofficial/xrpld:latest
+    container_name: rippled
+    platform: linux/amd64   
+    ports:
+      - "6006:6006"         
+      - "51235:51235"       
+      - "5005:5005"         
+    volumes:
+      - "./config/rippled/rippled.cfg:/config/rippled.cfg"
+      - "./volumes/rippled-data:/var/lib/rippled"  
+    environment:
+      ENV_ARGS: "--start"     
+    restart: unless-stopped   
+
   nginx:
     image: "nginx:latest"
     container_name: nginx
