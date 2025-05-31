@@ -1,5 +1,5 @@
 {
-  "bitcoin_localnet": {
+  "bitcoin_regtest": {
     "chainId": "3",
     "rpcs": ["http://electrs:30000/"],
     "networkLogo": "https://garden-finance.imgix.net/token-images/bitcoin.svg",
