@@ -1,0 +1,5 @@
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+port = 4575
+encryption_secret = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+generate_secret = "c4b8f7e2a1d9e345f06b9a1c3d7f8e2b0a5d6c1e9b3f7a2d4c6e8b0f3a2d7e1c"
+retrieve_secret = "9e3b7a5d0c1f6b2d8a4e3f1c7d9b6a0e2c5d3a9f0e7b4c6d1a3e9b7c2f5d0a1"

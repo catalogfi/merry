@@ -233,6 +233,29 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+  order-credentials:
+    image: "ghcr.io/catalogfi/order-credentials:latest"
+    container_name: order-credentials
+    ports:
+      - "4575:4575"
+    volumes:
+      - "./config/order-credentials/Settings.toml:/app/Settings.toml"
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  solver-orders:
+    image: "ghcr.io/catalogfi/solver-orders:latest"
+    container_name: solver-orders
+    ports:
+      - "4596:4596"
+    volumes:
+      - "./config/solver-orders/Settings.toml:/app/Settings.toml"
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
   cobiv2:
     image: "ghcr.io/catalogfi/cobiv2:latest"
     container_name: cobiv2
