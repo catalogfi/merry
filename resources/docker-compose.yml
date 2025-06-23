@@ -249,6 +249,13 @@ services:
     ports:
       - "11818:11818"
     restart: unless-stopped
+    environment:
+      ELECTRS_URL: "http://electrs:30000"
+      RPC_URL: "http://bitcoin:18443"
+      RPC_USERNAME: "admin"
+      RPC_PASSWORD: "123"
+      BITCOIN_NETWORK: "regtest"
+      COSIGNER_WIF: "cRRnaQ4Yjrp4gP1M29LaryN8SaYvDGrnPozmjk2qPPfp5z2Mch3J"
 
   rippled:
     image: xrpllabsofficial/xrpld:latest
