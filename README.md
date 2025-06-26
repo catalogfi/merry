@@ -68,7 +68,7 @@ Replace <service> with the specific service (e.g., cobi, orderbook, evm) to view
 merry replace <service>
 ```
 
-This command allows you to replace a service with your local development version. Make sure you're in the directory containing the local service's Dockerfile. Supported services include COBI, Orderbook, and EVM.
+This command allows you to replace a service with your local development version. Make sure you're in the directory containing the local service's Dockerfile. Supported services include COBI, Orderbook, EVM, Starknet and Bitcoin.
 
 ### Calling Bitcoin RPC methods
 
@@ -95,7 +95,7 @@ Keep your testing environment up-to-date by updating all Docker images.
 merry faucet <address>
 ```
 
-Fund any EVM and Bitcoin address for testing purposes. Replace `<address>` with the address you want to fund. It could be a Bitcoin or Ethereum address.
+Fund any EVM, Starknet, and Bitcoin address for testing purposes. Replace `<address>` with the address you want to fund. It could be a Bitcoin or Ethereum address.
 
 ### List active services
 

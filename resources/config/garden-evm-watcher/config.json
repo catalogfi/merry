@@ -37,6 +37,12 @@
         "timelock": 100,
         "blockchain" : "btc",
         "blockchainEnv" : "localnet"
+      },
+      "starknet_devnet" : {
+        "chainID": "393402133025997798000961",
+        "timelock": 100,
+        "blockchain" : "starknet",
+        "blockchainEnv" : "localnet"
       }
     },
     "strategies": [],

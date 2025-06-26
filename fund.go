@@ -10,6 +10,7 @@ import (
 	"io"
 	"math/big"
 	"net/http"
+	"regexp"
 
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/chaincfg"
@@ -27,6 +28,11 @@ func (m *Merry) Fund(to string) error {
 		return fundBTC(to)
 	}
 
+	hexRegex := regexp.MustCompile(`^0x[0-9a-fA-F]{64}$`)
+	if hexRegex.MatchString(to) {
+		return fundStarknet(to)
+	}
+	
 	if len(to) == 42 {
 		to = to[2:]
 	}
@@ -34,7 +40,7 @@ func (m *Merry) Fund(to string) error {
 		return fundEVM(to)
 	}
 
-	return fmt.Errorf("Invalid address %s. Expected a valid ethereum or bitcoin regtest address", to)
+	return fmt.Errorf("Invalid address %s. Expected a valid ethereum, starknet or bitcoin regtest address", to)
 }
 
 func fundEVM(to string) error {
@@ -109,5 +115,45 @@ func fundBTC(to string) error {
 		return errors.New("not successful")
 	}
 	fmt.Println("Successfully submitted at http://localhost:5050/tx/" + dat["txId"])
+	return nil
+}
+
+func fundStarknet(to string) error {
+	mintAmount, _ := new(big.Int).SetString("1000000000000000000", 10)
+
+	payload, err := json.Marshal(map[string]any{
+		"address": to,
+		"amount":  mintAmount,
+		"unit":    "FRI",
+	})
+	
+	if err != nil {
+		return fmt.Errorf("failed to marshal address: %v", err)
+	}
+	
+	res, err := http.Post("http://localhost:8547/mint", "application/json", bytes.NewBuffer(payload))
+	if err != nil {
+		return err
+	}
+	
+	body, err := io.ReadAll(res.Body)
+	if err != nil {
+		return err
+	}
+	
+	if res.StatusCode != http.StatusOK {
+		return errors.New(string(body))
+	}
+	
+	var data map[string]string
+	if err := json.Unmarshal([]byte(body), &data); err != nil {
+		return errors.New("internal error, please try again")
+	}
+	
+	if data["tx_hash"] == "" {
+		return errors.New("error funding address")
+	}
+	
+	fmt.Printf("Successfully funded address. TxHash: %s. New Balance: %s %s.\n", data["tx_hash"], data["new_balance"], data["unit"])
 	return nil
 }

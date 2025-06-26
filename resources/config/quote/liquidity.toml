@@ -30,3 +30,14 @@ addresses = [
 chain_type = "evm"
 native_token_id = "ethereum"
 decimals = 18
+
+[[chains]]
+name = "starknet_devnet"
+rpc = "http://starknet-devnet:5050/rpc"
+addresses = [
+    "relayer:0x018f81c2ef42310e0abd4fafd27f37beb34d000641beb2cd8a6fb97596552ddb",
+    "cobi:0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+]
+chain_type = "starknet"
+native_token_id = "starknet"
+decimals = 18

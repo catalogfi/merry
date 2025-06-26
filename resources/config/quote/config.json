@@ -191,11 +191,162 @@
       "min_source_confirmations": 1,
       "min_price": 1.0001,
       "fee": 1
+    },
+    {
+        "id": "al8fsdc5",
+        "filler": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        "source_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "source_chain": "arbitrum_localnet",
+        "dest_chain": "starknet_devnet",
+        "source_asset": {
+          "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          "token_id": "bitcoin",
+          "decimals": 8
+        },
+        "dest_asset": {
+          "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_id": "stark",
+          "decimals": 18
+        },
+        "makers": [],
+        "min_amount": "1000",
+        "max_amount": "10000000000",
+        "min_source_timelock": 20,
+        "min_source_confirmations": 1,
+        "min_price": 1.0001,
+        "fee": 1
+    },
+    {
+        "id": "sdc5al8f",
+        "filler": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        "source_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "dest_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        "source_chain": "starknet_devnet",
+        "dest_chain": "arbitrum_localnet",
+        "source_asset": {
+          "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_id": "stark",
+          "decimals": 18
+        },
+        "dest_asset": {
+          "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          "token_id": "bitcoin",
+          "decimals": 8
+        },
+        "makers": [],
+        "min_amount": "1000",
+        "max_amount": "1000000000000000000",
+        "min_source_timelock": 20,
+        "min_source_confirmations": 1,
+        "min_price": 1.0001,
+        "fee": 1
+    },
+    {
+        "id": "brrysdc5",
+        "filler": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "source_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
+        "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "source_chain": "bitcoin_regtest",
+        "dest_chain": "starknet_devnet",
+        "source_asset": {
+          "asset": "primary",
+          "token_id": "bitcoin",
+          "decimals": 8
+        },
+        "dest_asset": {
+          "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_id": "stark",
+          "decimals": 18
+        },
+        "makers": [],
+        "min_amount": "1000",
+        "max_amount": "10000000000",
+        "min_source_timelock": 20,
+        "min_source_confirmations": 1,
+        "min_price": 1.0001,
+        "fee": 1
+    },
+    {
+        "id": "sdc5brry",
+        "filler": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+        "dest_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
+        "source_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "source_chain": "starknet_devnet",
+        "dest_chain": "bitcoin_regtest",
+        "source_asset": {
+          "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_id": "stark",
+          "decimals": 18
+        },
+        "dest_asset": {
+          "asset": "primary",
+          "token_id": "bitcoin",
+          "decimals": 8
+        },
+        "makers": [],
+        "min_amount": "1000",
+        "max_amount": "1000000000000000000",
+        "min_source_timelock": 20,
+        "min_source_confirmations": 1,
+        "min_price": 1.0001,
+        "fee": 1
+    },
+    {
+        "id": "sd45sdc5",
+        "filler": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "source_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "source_chain": "starknet_devnet",
+        "dest_chain": "starknet_devnet",
+        "source_asset": {
+          "asset": "0x37b703339cd490399064ec5203301bfe73b57c96007cec23b406ad22bf61045",
+          "token_id": "ethereum",
+          "decimals": 18
+        },
+        "dest_asset": {
+          "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_id": "stark",
+          "decimals": 18
+        },
+        "makers": [],
+        "min_amount": "1000",
+        "max_amount": "1000000000000000000",
+        "min_source_timelock": 20,
+        "min_source_confirmations": 1,
+        "min_price": 1.0001,
+        "fee": 1
+    },
+    {
+        "id": "sdc5sd45",
+        "filler": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "source_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+        "source_chain": "starknet_devnet",
+        "dest_chain": "starknet_devnet",
+        "source_asset": {
+          "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_id": "stark",
+          "decimals": 18
+        },
+        "dest_asset": {
+          "asset": "0x37b703339cd490399064ec5203301bfe73b57c96007cec23b406ad22bf61045",
+          "token_id": "ethereum",
+          "decimals": 18
+        },
+        "makers": [],
+        "min_amount": "1000",
+        "max_amount": "1000000000000000000",
+        "min_source_timelock": 20,
+        "min_source_confirmations": 1,
+        "min_price": 1.0001,
+        "fee": 1
     }
   ],
   "token_ids": {
     "bitcoin": "1",
-    "ethereum": "1027"
+    "ethereum": "1027",
+    "starknet": "22691"
   },
   "update_interval": 60,
   "private_key": "59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d",
