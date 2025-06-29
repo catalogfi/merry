@@ -312,6 +312,12 @@ services:
     volumes:
       - ./config/starknet/executor_config.toml:/app/settings.toml
     restart: unless-stopped
+  garden-kiosk:
+    image: ghcr.io/catalogfi/garden-kiosk:latest
+    container_name: garden-kiosk
+    ports:
+      - "9898:80"
+    restart: unless-stopped
   
   nginx:
     image: "nginx:latest"
