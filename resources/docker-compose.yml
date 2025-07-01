@@ -14,7 +14,6 @@ services:
       - "28333:28333"
     volumes:
       - "./volumes/bitcoin:/root/.bitcoin"
-    profiles: ["bitcoin", "full"]
   arbitrum:
     image: "ghcr.io/catalogfi/garden_sol:latest"
     container_name: arbitrum
@@ -23,7 +22,6 @@ services:
       LIGHT: "false"
     ports:
       - "8546:8545"
-    profiles: ["evm","garden-core", "full"]
   arbitrum-explorer:
     image: "otterscan/otterscan:latest"
     container_name: arbitrum-explorer
@@ -33,7 +31,6 @@ services:
       ERIGON_URL: "http://localhost:8546"
     ports:
       - "5101:80"
-    profiles: ["evm", "garden-core", "full"]
       
   authenticator:
     image: "ghcr.io/catalogfi/authenticator:latest"
@@ -45,7 +42,6 @@ services:
       - "./config/authenticator/config.toml:/app/config.toml"
     ports:
       - "4427:4427"
-    profiles: ["garden-core", "full"]
   orderbookV2:
     image: "ghcr.io/catalogfi/garden-orderbook-v2:latest"
     container_name: orderbookV2
@@ -56,7 +52,6 @@ services:
       - "./config/orderbookV2/Settings.toml:/app/Settings.toml"
     ports:
       - "4455:4455"
-    profiles: ["garden-core", "full"]
   relayer:
     image: "ghcr.io/catalogfi/evm-swapper-relay:latest"
     container_name: relayer
@@ -67,7 +62,6 @@ services:
       - "./config/evm-swapper-relay/Settings.toml:/app/Settings.toml"
     ports:
       - "4426:4426"
-    profiles: ["garden-core", "full"]
   info:
     image: "ghcr.io/catalogfi/info-v2:latest"
     container_name: info
@@ -80,7 +74,6 @@ services:
       - "./config/info/config.json:/app/config.json"
     ports:
       - "4323:3001"
-    profiles: ["garden-core", "full"]
   quote:
     image: "ghcr.io/catalogfi/quote:latest"
     container_name: quote
@@ -94,7 +87,6 @@ services:
       - "./config/quote/liquidity.toml:/app/liquidity.toml"
     ports:
       - "6969:6969"
-    profiles: ["garden-core",  "full"]
   ethereum:
     image: "ghcr.io/catalogfi/garden_sol:latest"
     container_name: ethereum
@@ -103,7 +95,6 @@ services:
       LIGHT: "true"
     ports:
       - "8545:8545"
-    profiles: ["evm", "full"]
   ethereum-explorer:
     image: "otterscan/otterscan:latest"
     container_name: ethereum-explorer
@@ -111,7 +102,6 @@ services:
       - ethereum
     ports:
       - "5100:80"
-    profiles: ["evm", "full"]
   electrs:
     image: "ghcr.io/vulpemventures/electrs:latest"
     container_name: electrs
@@ -142,7 +132,6 @@ services:
     volumes:
       - "./volumes/bitcoin/:/config"
     restart: unless-stopped
-    profiles: ["bitcoin",  "full"]
   esplora:
     image: "ghcr.io/vulpemventures/esplora:latest"
     container_name: esplora
@@ -153,7 +142,6 @@ services:
     ports:
       - "5050:5000"
     restart: unless-stopped
-    profiles: ["bitcoin",  "full"]
   chopsticks:
     image: "ghcr.io/vulpemventures/nigiri-chopsticks:latest"
     container_name: chopsticks
@@ -173,7 +161,6 @@ services:
     ports:
       - "3000:3000"
     restart: unless-stopped
-    profiles: ["bitcoin", "evm", "full"]
   postgres:
     image: "postgres:alpine"
     container_name: postgres
@@ -185,7 +172,6 @@ services:
       - "5432:5432"
     volumes:
       - "./volumes/orderbook_data:/var/lib/postgresql/data"
-    profiles: ["database", "full"]
   bit-indexer:
     image: "ghcr.io/catalogfi/bitindexer:latest"
     container_name: bit-indexer
@@ -194,7 +180,6 @@ services:
       - garden-evm-watcher
     volumes:
       - "./config/bitindexer/config.json:/app/config.json"
-    profiles: ["bitcoin",  "full"]
   garden-db:
     image: "postgres:alpine"
     container_name: garden-db
@@ -206,7 +191,6 @@ services:
       - "5433:5432"
     volumes:
       - "./volumes/ponder_data:/var/lib/postgresql/data"
-    profiles: ["database", "garden-core", "full"]
   redis:
     image: "redis:alpine"
     container_name: redis
@@ -214,7 +198,6 @@ services:
       - "6379:6379"
     volumes:
       - "./volumes/cobi_data:/data"
-    profiles: ["database", "full"]
   virtual-balance:
     image: "ghcr.io/catalogfi/virtual-balance:latest"
     container_name: virtual-balance
@@ -226,7 +209,6 @@ services:
     volumes:
       - "./config/virtual-balance/config.json:/app/config.json"
     restart: unless-stopped
-    profiles: ["garden-core", "full"]
   garden-evm-watcher:
     image: "ghcr.io/catalogfi/garden-evm-watcher:latest"
     container_name: garden-evm-watcher
@@ -241,7 +223,6 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    profiles: ["garden-core",  "full", "starknet"] # added due to dependency of starknet services
   bit-ponder:
     image: "ghcr.io/catalogfi/bit-ponder:latest"
     container_name: bit-ponder
@@ -252,7 +233,6 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    profiles: ["bitcoin", "full"]
   cobiv2:
     image: "ghcr.io/catalogfi/cobiv2:latest"
     container_name: cobiv2
@@ -263,7 +243,6 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    profiles: ["garden-core", "full"]
   cosigner:
     image: "ghcr.io/catalogfi/cosigner:latest"
     container_name: cosigner
@@ -277,7 +256,6 @@ services:
       RPC_PASSWORD: "123"
       BITCOIN_NETWORK: "regtest"
       COSIGNER_WIF: "cRRnaQ4Yjrp4gP1M29LaryN8SaYvDGrnPozmjk2qPPfp5z2Mch3J"
-    profiles: ["bitcoin", "full"]
 
   rippled:
     image: xrpllabsofficial/xrpld:latest
@@ -293,7 +271,6 @@ services:
     environment:
       ENV_ARGS: "--start"     
     restart: unless-stopped   
-    profiles: ["rippled", "full"]
 
   starknet-devnet:
     image: shardlabs/starknet-devnet-rs:0.3.0
@@ -304,7 +281,6 @@ services:
     volumes:
       - ./config/starknet-devnet/dump.json:/data/dump.json
     restart: unless-stopped
-    profiles: ["starknet", "full"]
   garden-starknet-watcher:
     image: ghcr.io/catalogfi/garden-starknet-watcher:latest
     container_name: starknet-watcher
@@ -314,7 +290,6 @@ services:
     volumes:
       - ./config/starknet/watcher_config.toml:/app/config.toml
     restart: unless-stopped
-    profiles: ["starknet", "full"]
   starknet-relayer:
     image: ghcr.io/catalogfi/starknet-relayer:latest
     container_name: starknet-relayer
@@ -327,7 +302,6 @@ services:
     ports:
       - "4436:4436"
     restart: unless-stopped
-    profiles: ["starknet", "full"]
   starknet-executor:
     image: ghcr.io/catalogfi/starknet-executor:latest
     container_name: starknet-executor
@@ -338,7 +312,6 @@ services:
     volumes:
       - ./config/starknet/executor_config.toml:/app/settings.toml
     restart: unless-stopped
-    profiles: ["starknet", "full"]
   
   nginx:
     image: "nginx:latest"
@@ -348,16 +321,6 @@ services:
     ports:
       - "80:80"
     restart: unless-stopped 
-    profiles: ["full", "bitcoin"]
 networks:
   default:
     name: merry
-
-# | **Profile**   | **Services**                                                                                                          |
-# | `bitcoin`     | bitcoin, electrs, esplora, chopsticks, bit-indexer, bit-ponder, cosigner                                              |
-# | `evm`         | arbitrum, arbitrum-explorer, ethereum, ethereum-explorer, chopsticks                                                  |
-# | `starknet`    | starknet-devnet, garden-starknet-watcher, starknet-relayer, starknet-executor                                         |
-# | `rippled`     | rippled                                                                                                               |
-# | `database`    | postgres, redis, garden-db                                                                                            |
-# | `garden-core` | arbitrum, arbitrum-explorer, garden-evm-wathcer, authenticator, orderbookV2, relayer, info, quote, garden-db, cobiv2  |
-# | `full`        | **All services (30 total)** including nginx                                                                           |
