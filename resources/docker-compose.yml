@@ -320,24 +320,7 @@ services:
       - "./config/nginx/nginx.conf:/etc/nginx/conf.d/default.conf"
     ports:
       - "80:80"
-    depends_on:
-      - bitcoin
-      - arbitrum
-      - arbitrum-explorer
-      - ethereum
-      - ethereum-explorer
-      - electrs
-      - esplora
-      - chopsticks
-      - postgres
-      - redis
-      - cosigner
-      - info
-      - orderbookV2
-      - relayer
-      - authenticator
-      - quote
-      - rippled
+    restart: unless-stopped 
 networks:
   default:
     name: merry
