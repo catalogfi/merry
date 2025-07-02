@@ -53,8 +53,9 @@ services:
     ports:
       - "4455:4455"
   relayer:
-    image: "ghcr.io/catalogfi/evm-swapper-relay:latest"
+    image: "ghcr.io/catalogfi/evm-swapper-relay@sha256:2b005163800becaa5c2728c35814bab3d5029dba75cfca745281936e0f7fad94"
     container_name: relayer
+    platform: linux/amd64
     restart: unless-stopped
     depends_on:
       - garden-evm-watcher
@@ -256,6 +257,7 @@ services:
       RPC_PASSWORD: "123"
       BITCOIN_NETWORK: "regtest"
       COSIGNER_WIF: "cRRnaQ4Yjrp4gP1M29LaryN8SaYvDGrnPozmjk2qPPfp5z2Mch3J"
+      DB_PATH: ./db/cosigner.db
 
   rippled:
     image: xrpllabsofficial/xrpld:latest
@@ -318,7 +320,14 @@ services:
     ports:
       - "9898:80"
     restart: unless-stopped
-  
+
+  explorer:
+    image: "ghcr.io/catalogfi/explorer:latest"
+    container_name: explorer
+    ports:
+      - "8989:80"
+    restart: unless-stopped
+
   nginx:
     image: "nginx:latest"
     container_name: nginx
