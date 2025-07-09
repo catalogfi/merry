@@ -199,7 +199,7 @@ services:
       - garden-db
     volumes:
       - "./config/migrator/config.json:/config.json"
-    restart: unless-stopped
+    restart: no
 
   redis:
     image: "redis:alpine"
