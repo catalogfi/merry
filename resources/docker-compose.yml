@@ -191,6 +191,16 @@ services:
       - "5433:5432"
     volumes:
       - "./volumes/ponder_data:/var/lib/postgresql/data"
+
+  migrator:
+    image: "ghcr.io/catalogfi/migrator:latest"
+    container_name: migrator
+    depends_on:
+      - garden-db
+    volumes:
+      - "./config/migrator/config.json:/config.json"
+    restart: unless-stopped
+
   redis:
     image: "redis:alpine"
     container_name: redis
@@ -217,6 +227,7 @@ services:
       - arbitrum
       - chopsticks
       - garden-db
+      - migrator
       - quote
     volumes:
       - "./config/garden-evm-watcher/config.json:/app/config.json"
