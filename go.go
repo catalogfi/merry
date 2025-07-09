@@ -58,6 +58,7 @@ func (m *Merry) Start() error {
 		return err
 	})
 
+	fmt.Println("waiting for services to start.....")
 	// wait for 10 sec using sleep
 	time.Sleep(10 * time.Second)
 
