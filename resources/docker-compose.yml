@@ -267,6 +267,7 @@ services:
       RPC_PASSWORD: "123"
       BITCOIN_NETWORK: "regtest"
       COSIGNER_WIF: "cRRnaQ4Yjrp4gP1M29LaryN8SaYvDGrnPozmjk2qPPfp5z2Mch3J"
+      DB_PATH: "./db/cosigner.db"
 
   rippled:
     image: xrpllabsofficial/xrpld:latest
