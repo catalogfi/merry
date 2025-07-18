@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/catalogfi/blockchain/localnet"
 )
@@ -56,6 +57,10 @@ func (m *Merry) Start() error {
 		_, err := localnet.EVMClient()
 		return err
 	})
+
+	fmt.Println("waiting for services to start.....")
+	// wait for 10 sec using sleep
+	time.Sleep(10 * time.Second)
 
 	// display endpoints
 	if err := m.Status(); err != nil {

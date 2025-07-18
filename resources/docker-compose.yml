@@ -1,7 +1,7 @@
 services:
   # RPC daemon
   bitcoin:
-    image: "lncm/bitcoind:v24.0.1"
+    image: "lncm/bitcoind:v28.0"
     container_name: bitcoin
     # wildcard user 0:0 to avoid permission problems
     user: 0:0
@@ -191,6 +191,16 @@ services:
       - "5433:5432"
     volumes:
       - "./volumes/ponder_data:/var/lib/postgresql/data"
+
+  migrator:
+    image: "ghcr.io/catalogfi/migrator:latest"
+    container_name: migrator
+    depends_on:
+      - garden-db
+    volumes:
+      - "./config/migrator/config.json:/config.json"
+    restart: no
+
   redis:
     image: "redis:alpine"
     container_name: redis
@@ -217,6 +227,7 @@ services:
       - arbitrum
       - chopsticks
       - garden-db
+      - migrator
       - quote
     volumes:
       - "./config/garden-evm-watcher/config.json:/app/config.json"
@@ -336,24 +347,7 @@ services:
       - "./config/nginx/nginx.conf:/etc/nginx/conf.d/default.conf"
     ports:
       - "80:80"
-    depends_on:
-      - bitcoin
-      - arbitrum
-      - arbitrum-explorer
-      - ethereum
-      - ethereum-explorer
-      - electrs
-      - esplora
-      - chopsticks
-      - postgres
-      - redis
-      - cosigner
-      - info
-      - orderbookV2
-      - relayer
-      - authenticator
-      - quote
-      - rippled
+    restart: unless-stopped 
 networks:
   default:
     name: merry
