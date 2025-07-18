@@ -267,6 +267,7 @@ services:
       RPC_PASSWORD: "123"
       BITCOIN_NETWORK: "regtest"
       COSIGNER_WIF: "cRRnaQ4Yjrp4gP1M29LaryN8SaYvDGrnPozmjk2qPPfp5z2Mch3J"
+      DB_PATH: "./db/cosigner.db"
 
   rippled:
     image: xrpllabsofficial/xrpld:latest
@@ -323,6 +324,22 @@ services:
     volumes:
       - ./config/starknet/executor_config.toml:/app/settings.toml
     restart: unless-stopped
+  garden-kiosk:
+    image: ghcr.io/catalogfi/garden-kiosk:latest
+    container_name: garden-kiosk
+    ports:
+      - "9898:80"
+    restart: unless-stopped
+  explorer:
+    image: ghcr.io/catalogfi/explorer:latest
+    container_name: explorer
+    ports:
+      - "8989:80"
+    restart: unless-stopped
+    depends_on: 
+      - orderbookV2
+      - info
+
   
   nginx:
     image: "nginx:latest"
