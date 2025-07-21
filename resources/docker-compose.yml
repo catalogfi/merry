@@ -273,6 +273,16 @@ services:
       - "11818:11818"
     restart: unless-stopped
 
+  integrator-api:
+    image: "ghcr.io/catalogfi/integrator-api-key-manager:latest"
+    container_name: integrator-api
+    ports:
+      - "5544:5544"
+    restart: unless-stopped
+    depends_on:
+      - garden-db
+
+
   rippled:
     image: xrpllabsofficial/xrpld:latest
     container_name: rippled
@@ -313,6 +323,16 @@ services:
       - authenticator
       - quote
       - rippled
+
+  local-cdn:
+    image: nginx:alpine
+    container_name: local-cdn
+    ports:
+      - "6748:80"
+    volumes:
+      - "./config/cdn:/usr/share/nginx/html:ro"
+
+  
 networks:
   default:
     name: merry

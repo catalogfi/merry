@@ -1,0 +1,4 @@
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+server_secret = "server_secret"
+encryption_key = "encryption_key"
+port = "5544"
