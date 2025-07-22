@@ -339,16 +339,32 @@ services:
     depends_on: 
       - orderbookV2
       - info
-
   
-  nginx:
-    image: "nginx:latest"
-    container_name: nginx
+  nginx-wrapper:
+    image: ghcr.io/catalogfi/nginx-wrapper:latest
+    container_name: nginx-wrapper
+    environment:
+      - ADMIN_PASSWORD=merry
+      - ADMIN_USERNAME=luffy
+      - DATABASE_URL=sqlite:////app/nginx-mappings.db
+      - MAPPING_TABLE_NAME=production-table
     volumes:
-      - "./config/nginx/nginx.conf:/etc/nginx/conf.d/default.conf"
+      - ./config/nginx-wrapper/nginx-mappings.db:/app/nginx-mappings.db
     ports:
       - "80:80"
-    restart: unless-stopped 
+      - "8080:8080"
+    depends_on:
+      - bitcoin
+      - arbitrum
+      - arbitrum-explorer
+      - ethereum
+      - ethereum-explorer
+      - electrs
+      - esplora
+      - chopsticks
+      - postgres
+      - redis
+      - cosigner
 networks:
   default:
     name: merry
