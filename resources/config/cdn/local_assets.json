@@ -1,0 +1,10 @@
+{
+    "localnet_schemas": {
+        "ethereum": {
+            "name": "Ethereum Localnet",
+            "logo": "https://garden-finance.imgix.net/chain_images/sepolia.svg",
+            "explorer": "https://sepolia.etherscan.io",
+            "networkType": "localnet"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+pending_orders_url = "http://solver-orders:4596"
+fiat_provider_url = "http://quote:6969"
+private_key = "59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d"
+
+
+[[chains]]
+chain_identifier = "ethereum_localnet"
+rpc_url = "http://ethereum:8545"
+multicall_address = "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6"
+polling_interval = 5000
+transaction_timeout = 60000
+
+[[chains]]
+chain_identifier = "arbitrum_localnet"
+rpc_url = "http://arbitrum:8545"
+multicall_address = "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0"
+polling_interval = 5000
+transaction_timeout = 60000

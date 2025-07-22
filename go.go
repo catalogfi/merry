@@ -20,9 +20,9 @@ func (m *Merry) Start() error {
 	}
 	composePath := filepath.Join(home, ".merry", "docker-compose.yml")
 
-	bashCmd := runDockerCompose(composePath, "up", "-d", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "quote", "bit-ponder", "cobiv2", "relayer", "bit-indexer", "authenticator", "orderbookV2", "info", "rippled", "order-credentials", "solver-orders", "integrator-api")
+	bashCmd := runDockerCompose(composePath, "up", "-d", "esplora", "ethereum-explorer", "arbitrum-explorer", "nginx", "garden-evm-watcher", "garden-db", "quote", "bit-ponder", "cobiv2", "relayer", "bit-indexer", "authenticator", "orderbookV2", "info", "rippled", "order-credentials", "solver-orders", "integrator-api", "evm-executor", "solana-validator", "solana-watcher", "solana-executor", "solana-relayer", "local-cdn")
 	if m.IsHeadless && m.IsBare {
-		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum", "cosigner")
+		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "ethereum", "arbitrum", "cosigner", "solana-validator", "starknet-devnet")
 	} else if m.IsHeadless {
 		bashCmd = runDockerCompose(composePath, "up", "-d", "chopsticks", "cosigner")
 	} else if m.IsBare {

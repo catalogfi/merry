@@ -1,0 +1,25 @@
+# Interval (in seconds) at which the watcher will check
+# the confirmation status of unconfirmed transactions
+confirmations_poll_interval_secs = 3
+
+# URL of garden db
+database_url = "postgres://postgres:postgres@garden-db:5432/garden"
+
+rpc_url = "http://solana-validator:8899"
+
+# Interval (in seconds) at which the watcher will poll for new
+# on-chain transactions
+watcher_poll_interval_secs = 3
+
+# Details of the on-chain solana programs
+# program_id: The program's on-chain address
+# start_after_transaction: Watcher will start processing all transactions succeeding this one upon restart.
+# A value of "" (empty string) will process the last 100 transactions.
+
+[native_program]
+program_id = "6eksgdCnSjUaGQWZ6iYvauv1qzvYPF33RTGTM1ZuyENx"
+start_after_transaction = ""
+
+[spl_program]
+program_id = "2WXpY8havGjfRxme9LUxtjFHTh1EfU3ur4v6wiK4KdNC"
+start_after_transaction = ""
