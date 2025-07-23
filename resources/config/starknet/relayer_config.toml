@@ -16,3 +16,5 @@ multicall_contract_address = "0x3c770628fa9cfddce18f99ed7bf080d43b17acacf226e75a
 secret = "my_secret"
 api_key_verifier_addr = "0xC63F0632E640580eF3C3F2290767b920C6a36b8d"
 batch_interval = 5000
+order_credentials_url = "https://order-credentials:4596/credentials/9e3b7a5d0c1f6b2d8a4e3f1c7d9b6a0e2c5d3a9f0e7b4c6d1a3e9b7c2f5d0a1"
+pending_orders_url = "http://solver-orders:4596"

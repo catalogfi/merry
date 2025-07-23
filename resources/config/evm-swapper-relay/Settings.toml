@@ -4,6 +4,10 @@ api_key_verifier_addr = "0xC63F0632E640580eF3C3F2290767b920C6a36b8d"
 
 order_verifier_addr = "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
 indexer_url = "http://electrs:30000"
+integrator_auth_url = "http://integrator-api:5444"
+pending_orders_url = "http://solver-orders:4596"
+quote_url = "http://quote:6969"
+order_credentials_url = "https://order-credentials:4596/credentials/9e3b7a5d0c1f6b2d8a4e3f1c7d9b6a0e2c5d3a9f0e7b4c6d1a3e9b7c2f5d0a1"
 
 [db]
 db_url = "postgres://postgres:postgres@garden-db:5432/garden"
@@ -25,3 +29,10 @@ private_key = "59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d"
 orderbook_contract = "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6"
 rpc_url = "http://arbitrum:8545"
 multicall_contract = "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0"
+
+[bitcoin]
+chain_name = "bitcoin_regtest"
+indexer_url = "http://electrs:30000"
+
+[bitcoin.fee_estimators]
+fixed_fee = 1

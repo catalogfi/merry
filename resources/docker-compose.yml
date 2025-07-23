@@ -393,7 +393,6 @@ services:
       - ./config/solana/executor-config.json:/app/config.json
     restart: unless-stopped
     environment:
-      - CONFIG=/usr/src/app/config.json
       - FILLER_PRIVATE_KEY=5cpuymR6tCQKFDzKQ1beFVRqTf9MrzviyF1hwWRNhfAimEo1vgf99nCJ3sjbyc4pH953TG3XrxXi85JdaxZLhrfW
   
   solana-relayer:
