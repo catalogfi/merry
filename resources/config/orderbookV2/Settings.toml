@@ -1,4 +1,4 @@
-db_url = "postgres://postgres:postgres@localhost:5432/garden"
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
 quote_url = "http://quote:6969"
 bitcoin_indexer_url = "http://electrs:30000"
 jwt_secret = "my_secret"

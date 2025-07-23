@@ -1,10 +1,3607 @@
 {
-    "localnet_schemas": {
-        "ethereum": {
-            "name": "Ethereum Localnet",
-            "logo": "https://garden-finance.imgix.net/chain_images/sepolia.svg",
-            "explorer": "https://sepolia.etherscan.io",
-            "networkType": "localnet"
-        }
+    "evm:erc20": [
+      {
+        "type": "function",
+        "name": "allowance",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "spender",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "approve",
+        "inputs": [
+          {
+            "name": "spender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "value",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "balanceOf",
+        "inputs": [
+          {
+            "name": "account",
+            "type": "address",
+            "internalType": "address"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "decimals",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint8",
+            "internalType": "uint8"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "name",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "symbol",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "string",
+            "internalType": "string"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "totalSupply",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "stateMutability": "view"
+      },
+      {
+        "type": "function",
+        "name": "transfer",
+        "inputs": [
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "value",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "function",
+        "name": "transferFrom",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "value",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ],
+        "stateMutability": "nonpayable"
+      },
+      {
+        "type": "event",
+        "name": "Approval",
+        "inputs": [
+          {
+            "name": "owner",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "spender",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "value",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "event",
+        "name": "Transfer",
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "to",
+            "type": "address",
+            "indexed": true,
+            "internalType": "address"
+          },
+          {
+            "name": "value",
+            "type": "uint256",
+            "indexed": false,
+            "internalType": "uint256"
+          }
+        ],
+        "anonymous": false
+      },
+      {
+        "type": "error",
+        "name": "ERC20InsufficientAllowance",
+        "inputs": [
+          {
+            "name": "spender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "allowance",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "needed",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "type": "error",
+        "name": "ERC20InsufficientBalance",
+        "inputs": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "balance",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "needed",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      },
+      {
+        "type": "error",
+        "name": "ERC20InvalidApprover",
+        "inputs": [
+          {
+            "name": "approver",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      },
+      {
+        "type": "error",
+        "name": "ERC20InvalidReceiver",
+        "inputs": [
+          {
+            "name": "receiver",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      },
+      {
+        "type": "error",
+        "name": "ERC20InvalidSender",
+        "inputs": [
+          {
+            "name": "sender",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      },
+      {
+        "type": "error",
+        "name": "ERC20InvalidSpender",
+        "inputs": [
+          {
+            "name": "spender",
+            "type": "address",
+            "internalType": "address"
+          }
+        ]
+      }
+    ],
+    "evm:htlc": [
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "version",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [],
+        "name": "InvalidShortString",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__DuplicateOrder",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__IncorrectFundsRecieved",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__IncorrectSecret",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__InsufficientBalance",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__InvalidRedeemerSignature",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__OrderFulfilled",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__OrderNotExpired",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__OrderNotInitiated",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__SameInitiatorAndRedeemer",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__ZeroAddressInitiator",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__ZeroAddressRedeemer",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__ZeroAmount",
+        "type": "error"
+      },
+      {
+        "inputs": [],
+        "name": "NativeHTLC__ZeroTimelock",
+        "type": "error"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "str",
+            "type": "string"
+          }
+        ],
+        "name": "StringTooLong",
+        "type": "error"
+      },
+      {
+        "anonymous": false,
+        "inputs": [],
+        "name": "EIP712DomainChanged",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "secretHash",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "Initiated",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "secretHash",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "internalType": "bytes",
+            "name": "secret",
+            "type": "bytes"
+          }
+        ],
+        "name": "Redeemed",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          }
+        ],
+        "name": "Refunded",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "eip712Domain",
+        "outputs": [
+          {
+            "internalType": "bytes1",
+            "name": "fields",
+            "type": "bytes1"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "version",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "chainId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "verifyingContract",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "extensions",
+            "type": "uint256[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address payable",
+            "name": "redeemer",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timelock",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "secretHash",
+            "type": "bytes32"
+          }
+        ],
+        "name": "initiate",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address payable",
+            "name": "initiator",
+            "type": "address"
+          },
+          {
+            "internalType": "address payable",
+            "name": "redeemer",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timelock",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "secretHash",
+            "type": "bytes32"
+          }
+        ],
+        "name": "initiateOnBehalf",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "signature",
+            "type": "bytes"
+          }
+        ],
+        "name": "instantRefund",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          }
+        ],
+        "name": "instantRefundDigest",
+        "outputs": [
+          {
+            "internalType": "bytes32",
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "name": "orders",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "isFulfilled",
+            "type": "bool"
+          },
+          {
+            "internalType": "address payable",
+            "name": "initiator",
+            "type": "address"
+          },
+          {
+            "internalType": "address payable",
+            "name": "redeemer",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "initiatedAt",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timelock",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "secret",
+            "type": "bytes"
+          }
+        ],
+        "name": "redeem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          }
+        ],
+        "name": "refund",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "token",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ],
+    "evm:htlc_erc20": [
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "token_",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "version",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [],
+        "name": "InvalidShortString",
+        "type": "error"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "str",
+            "type": "string"
+          }
+        ],
+        "name": "StringTooLong",
+        "type": "error"
+      },
+      {
+        "anonymous": false,
+        "inputs": [],
+        "name": "EIP712DomainChanged",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "secretHash",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "Initiated",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "secretHash",
+            "type": "bytes32"
+          },
+          {
+            "indexed": false,
+            "internalType": "bytes",
+            "name": "secret",
+            "type": "bytes"
+          }
+        ],
+        "name": "Redeemed",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          }
+        ],
+        "name": "Refunded",
+        "type": "event"
+      },
+      {
+        "inputs": [],
+        "name": "eip712Domain",
+        "outputs": [
+          {
+            "internalType": "bytes1",
+            "name": "fields",
+            "type": "bytes1"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "version",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "chainId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "verifyingContract",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "salt",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "extensions",
+            "type": "uint256[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "redeemer",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timelock",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "secretHash",
+            "type": "bytes32"
+          }
+        ],
+        "name": "initiate",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "redeemer",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timelock",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "secretHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "signature",
+            "type": "bytes"
+          }
+        ],
+        "name": "initiateWithSignature",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "signature",
+            "type": "bytes"
+          }
+        ],
+        "name": "instantRefund",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "redeemer",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "expiry",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "secretHash",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes",
+                "name": "signature",
+                "type": "bytes"
+              }
+            ],
+            "internalType": "struct HTLC.InitWithSig[]",
+            "name": "inits",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "orderID",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes",
+                "name": "secret",
+                "type": "bytes"
+              }
+            ],
+            "internalType": "struct HTLC.Redeem[]",
+            "name": "redeems",
+            "type": "tuple[]"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "orderID",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct HTLC.Refund[]",
+            "name": "refunds",
+            "type": "tuple[]"
+          }
+        ],
+        "name": "multicall",
+        "outputs": [
+          {
+            "internalType": "bool[]",
+            "name": "results",
+            "type": "bool[]"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "",
+            "type": "bytes32"
+          }
+        ],
+        "name": "orders",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "isFulfilled",
+            "type": "bool"
+          },
+          {
+            "internalType": "address",
+            "name": "initiator",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "redeemer",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "initiatedAt",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timelock",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "secret",
+            "type": "bytes"
+          }
+        ],
+        "name": "redeem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32",
+            "name": "orderID",
+            "type": "bytes32"
+          }
+        ],
+        "name": "refund",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "token",
+        "outputs": [
+          {
+            "internalType": "contract IERC20",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ],
+    "solana:htlc": {
+        "address": "2bag6xpshpvPe7SJ9nSDLHpxqhEAoHPGpEkjNSv7gxoF",
+        "metadata": {
+          "name": "solana_native_swaps",
+          "version": "1.0.0",
+          "spec": "0.1.0",
+          "description": "Created with Anchor"
+        },
+        "instructions": [
+          {
+            "name": "initiate",
+            "docs": [
+              "Initiates the atomic swap. Funds are transferred from the initiator to the token vault.",
+              "As such, the initiator's signature is required for this instruction.",
+              "`amount_lamports` represents the quantity of native SOL to be transferred",
+              "through this atomic swap in base units (aka lamports).",
+              "E.g: A quantity of 1 SOL must be provided as 1,000,000,000.",
+              "`expires_in_slots` represents the number of slots (1 slot = 400ms) after",
+              "which (non-instant) refunds are allowed."
+            ],
+            "discriminator": [
+              5,
+              63,
+              123,
+              113,
+              153,
+              75,
+              148,
+              14
+            ],
+            "accounts": [
+              {
+                "name": "swap_account",
+                "docs": [
+                  "A PDA that maintains the on-chain state of the atomic swap throughout its lifecycle.",
+                  "It also serves as the \"vault\" for this swap, by escrowing the SOL involved in this swap.",
+                  "The choice of seeds ensures that any swap with equal `initiator` and",
+                  "`secret_hash` cannot be created until an existing one completes.",
+                  "This PDA will be deleted upon completion of the swap."
+                ],
+                "writable": true,
+                "pda": {
+                  "seeds": [
+                    {
+                      "kind": "const",
+                      "value": [
+                        115,
+                        119,
+                        97,
+                        112,
+                        95,
+                        97,
+                        99,
+                        99,
+                        111,
+                        117,
+                        110,
+                        116
+                      ]
+                    },
+                    {
+                      "kind": "account",
+                      "path": "initiator"
+                    },
+                    {
+                      "kind": "arg",
+                      "path": "secret_hash"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "initiator",
+                "docs": [
+                  "The initiator of the atomic swap. They must sign this transaction."
+                ],
+                "writable": true,
+                "signer": true
+              },
+              {
+                "name": "system_program",
+                "address": "11111111111111111111111111111111"
+              }
+            ],
+            "args": [
+              {
+                "name": "amount_lamports",
+                "type": "u64"
+              },
+              {
+                "name": "expires_in_slots",
+                "type": "u64"
+              },
+              {
+                "name": "redeemer",
+                "type": "pubkey"
+              },
+              {
+                "name": "secret_hash",
+                "type": {
+                  "array": [
+                    "u8",
+                    32
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "name": "instant_refund",
+            "docs": [
+              "Funds are returned to the initiator, with the redeemer's consent.",
+              "As such, the redeemer's signature is required for this instruction.",
+              "This allows for refunds before the expiry slot."
+            ],
+            "discriminator": [
+              211,
+              202,
+              103,
+              41,
+              183,
+              147,
+              59,
+              251
+            ],
+            "accounts": [
+              {
+                "name": "swap_account",
+                "docs": [
+                  "The PDA holding the state information of the atomic swap.",
+                  "Will be closed upon successful execution and the resulting rent",
+                  "will be transferred to the initiator."
+                ],
+                "writable": true
+              },
+              {
+                "name": "initiator",
+                "docs": [
+                  "This is included here for the PDA rent refund using the `close` attribute above."
+                ],
+                "writable": true
+              },
+              {
+                "name": "redeemer",
+                "signer": true
+              }
+            ],
+            "args": []
+          },
+          {
+            "name": "redeem",
+            "docs": [
+              "Funds are transferred to the redeemer. This instruction does not require any signatures."
+            ],
+            "discriminator": [
+              184,
+              12,
+              86,
+              149,
+              70,
+              196,
+              97,
+              225
+            ],
+            "accounts": [
+              {
+                "name": "swap_account",
+                "docs": [
+                  "The PDA holding the state information of the atomic swap.",
+                  "Will be closed upon successful execution and the resulting rent",
+                  "will be transferred to the initiator."
+                ],
+                "writable": true
+              },
+              {
+                "name": "initiator",
+                "docs": [
+                  "This is included here for the PDA rent refund using the `close` attribute above."
+                ],
+                "writable": true
+              },
+              {
+                "name": "redeemer",
+                "writable": true
+              }
+            ],
+            "args": [
+              {
+                "name": "secret",
+                "type": {
+                  "array": [
+                    "u8",
+                    32
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "name": "refund",
+            "docs": [
+              "Funds are returned to the initiator, given that no redeems have occured",
+              "and the expiry slot has been reached.",
+              "This instruction does not require any signatures."
+            ],
+            "discriminator": [
+              2,
+              96,
+              183,
+              251,
+              63,
+              208,
+              46,
+              46
+            ],
+            "accounts": [
+              {
+                "name": "swap_account",
+                "docs": [
+                  "The PDA holding the state information of the atomic swap.",
+                  "Will be closed upon successful execution and the resulting rent",
+                  "will be transferred to the initiator."
+                ],
+                "writable": true
+              },
+              {
+                "name": "initiator",
+                "docs": [
+                  "This is included here for the PDA rent refund using the `close` attribute above."
+                ],
+                "writable": true
+              }
+            ],
+            "args": []
+          }
+        ],
+        "accounts": [
+          {
+            "name": "SwapAccount",
+            "discriminator": [
+              53,
+              126,
+              9,
+              14,
+              14,
+              197,
+              105,
+              182
+            ]
+          }
+        ],
+        "events": [
+          {
+            "name": "Initiated",
+            "discriminator": [
+              6,
+              108,
+              212,
+              91,
+              67,
+              60,
+              207,
+              221
+            ]
+          },
+          {
+            "name": "InstantRefunded",
+            "discriminator": [
+              220,
+              50,
+              18,
+              207,
+              183,
+              232,
+              218,
+              25
+            ]
+          },
+          {
+            "name": "Redeemed",
+            "discriminator": [
+              14,
+              29,
+              183,
+              71,
+              31,
+              165,
+              107,
+              38
+            ]
+          },
+          {
+            "name": "Refunded",
+            "discriminator": [
+              35,
+              103,
+              149,
+              246,
+              196,
+              123,
+              221,
+              99
+            ]
+          }
+        ],
+        "errors": [
+          {
+            "code": 6000,
+            "name": "InvalidInitiator",
+            "msg": "The provided initiator is not the original initiator of this swap"
+          },
+          {
+            "code": 6001,
+            "name": "InvalidRedeemer",
+            "msg": "The provided redeemer is not the original redeemer of this swap"
+          },
+          {
+            "code": 6002,
+            "name": "InvalidSecret",
+            "msg": "The provided secret does not correspond to the secret hash of this swap"
+          },
+          {
+            "code": 6003,
+            "name": "RefundBeforeExpiry",
+            "msg": "Attempt to perform a refund before expiry time"
+          }
+        ],
+        "types": [
+          {
+            "name": "Initiated",
+            "docs": [
+              "Represents the initiated state of the swap where the initiator has deposited funds into the vault"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "swap_amount",
+                  "docs": [
+                    "The quantity of native SOL transferred through this atomic swap in base units (aka lamports).",
+                    "E.g: A quantity of 1 SOL will be represented as 1,000,000,000."
+                  ],
+                  "type": "u64"
+                },
+                {
+                  "name": "expires_in_slots",
+                  "docs": [
+                    "`expires_in_slots` represents the number of slots (1 slot = 400ms) after which",
+                    "(non-instant) refunds are allowed"
+                  ],
+                  "type": "u64"
+                },
+                {
+                  "name": "initiator",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "redeemer",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret_hash",
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "InstantRefunded",
+            "docs": [
+              "Represents the instant refund state of the swap, where the initiator has withdrawn funds the vault",
+              "with the redeemer's consent"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "initiator",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret_hash",
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "Redeemed",
+            "docs": [
+              "Represents the redeemed state of the swap, where the redeemer has withdrawn funds from the vault"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "initiator",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret",
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "Refunded",
+            "docs": [
+              "Represents the refund state of the swap, where the initiator has withdrawn funds from the vault past expiry"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "initiator",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret_hash",
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "SwapAccount",
+            "docs": [
+              "Stores the state information of the atomic swap on-chain"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "amount_lamports",
+                  "docs": [
+                    "The quantity of native SOL to be transferred through this atomic swap in base units (aka lamports)"
+                  ],
+                  "type": "u64"
+                },
+                {
+                  "name": "expiry_slot",
+                  "docs": [
+                    "The exact slot after which (non-instant) refunds are allowed"
+                  ],
+                  "type": "u64"
+                },
+                {
+                  "name": "initiator",
+                  "docs": [
+                    "The initiator of the atomic swap"
+                  ],
+                  "type": "pubkey"
+                },
+                {
+                  "name": "redeemer",
+                  "docs": [
+                    "The redeemer of the atomic swap"
+                  ],
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret_hash",
+                  "docs": [
+                    "The secret hash associated with the atomic swap"
+                  ],
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+    },
+    "starknet:erc20": [
+      {
+        "name": "LockingContract",
+        "type": "impl",
+        "interface_name": "src::mintable_lock_interface::ILockingContract"
+      },
+      {
+        "name": "src::mintable_lock_interface::ILockingContract",
+        "type": "interface",
+        "items": [
+          {
+            "name": "set_locking_contract",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "locking_contract",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "get_locking_contract",
+            "type": "function",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "state_mutability": "view"
+          }
+        ]
+      },
+      {
+        "name": "LockAndDelegate",
+        "type": "impl",
+        "interface_name": "src::mintable_lock_interface::ILockAndDelegate"
+      },
+      {
+        "name": "core::integer::u256",
+        "type": "struct",
+        "members": [
+          {
+            "name": "low",
+            "type": "core::integer::u128"
+          },
+          {
+            "name": "high",
+            "type": "core::integer::u128"
+          }
+        ]
+      },
+      {
+        "name": "src::mintable_lock_interface::ILockAndDelegate",
+        "type": "interface",
+        "items": [
+          {
+            "name": "lock_and_delegate",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "delegatee",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "lock_and_delegate_by_sig",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "delegatee",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              },
+              {
+                "name": "nonce",
+                "type": "core::felt252"
+              },
+              {
+                "name": "expiry",
+                "type": "core::integer::u64"
+              },
+              {
+                "name": "signature",
+                "type": "core::array::Array::<core::felt252>"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          }
+        ]
+      },
+      {
+        "name": "MintableToken",
+        "type": "impl",
+        "interface_name": "src::mintable_token_interface::IMintableToken"
+      },
+      {
+        "name": "src::mintable_token_interface::IMintableToken",
+        "type": "interface",
+        "items": [
+          {
+            "name": "permissioned_mint",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "permissioned_burn",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          }
+        ]
+      },
+      {
+        "name": "MintableTokenCamelImpl",
+        "type": "impl",
+        "interface_name": "src::mintable_token_interface::IMintableTokenCamel"
+      },
+      {
+        "name": "src::mintable_token_interface::IMintableTokenCamel",
+        "type": "interface",
+        "items": [
+          {
+            "name": "permissionedMint",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "permissionedBurn",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          }
+        ]
+      },
+      {
+        "name": "Replaceable",
+        "type": "impl",
+        "interface_name": "src::replaceability_interface::IReplaceable"
+      },
+      {
+        "name": "core::array::Span::<core::felt252>",
+        "type": "struct",
+        "members": [
+          {
+            "name": "snapshot",
+            "type": "@core::array::Array::<core::felt252>"
+          }
+        ]
+      },
+      {
+        "name": "src::replaceability_interface::EICData",
+        "type": "struct",
+        "members": [
+          {
+            "name": "eic_hash",
+            "type": "core::starknet::class_hash::ClassHash"
+          },
+          {
+            "name": "eic_init_data",
+            "type": "core::array::Span::<core::felt252>"
+          }
+        ]
+      },
+      {
+        "name": "core::option::Option::<src::replaceability_interface::EICData>",
+        "type": "enum",
+        "variants": [
+          {
+            "name": "Some",
+            "type": "src::replaceability_interface::EICData"
+          },
+          {
+            "name": "None",
+            "type": "()"
+          }
+        ]
+      },
+      {
+        "name": "core::bool",
+        "type": "enum",
+        "variants": [
+          {
+            "name": "False",
+            "type": "()"
+          },
+          {
+            "name": "True",
+            "type": "()"
+          }
+        ]
+      },
+      {
+        "name": "src::replaceability_interface::ImplementationData",
+        "type": "struct",
+        "members": [
+          {
+            "name": "impl_hash",
+            "type": "core::starknet::class_hash::ClassHash"
+          },
+          {
+            "name": "eic_data",
+            "type": "core::option::Option::<src::replaceability_interface::EICData>"
+          },
+          {
+            "name": "final",
+            "type": "core::bool"
+          }
+        ]
+      },
+      {
+        "name": "src::replaceability_interface::IReplaceable",
+        "type": "interface",
+        "items": [
+          {
+            "name": "get_upgrade_delay",
+            "type": "function",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::integer::u64"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "get_impl_activation_time",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "implementation_data",
+                "type": "src::replaceability_interface::ImplementationData"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::integer::u64"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "add_new_implementation",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "implementation_data",
+                "type": "src::replaceability_interface::ImplementationData"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "remove_implementation",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "implementation_data",
+                "type": "src::replaceability_interface::ImplementationData"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "replace_to",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "implementation_data",
+                "type": "src::replaceability_interface::ImplementationData"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          }
+        ]
+      },
+      {
+        "name": "AccessControlImplExternal",
+        "type": "impl",
+        "interface_name": "src::access_control_interface::IAccessControl"
+      },
+      {
+        "name": "src::access_control_interface::IAccessControl",
+        "type": "interface",
+        "items": [
+          {
+            "name": "has_role",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "role",
+                "type": "core::felt252"
+              },
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::bool"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "get_role_admin",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "role",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::felt252"
+              }
+            ],
+            "state_mutability": "view"
+          }
+        ]
+      },
+      {
+        "name": "RolesImpl",
+        "type": "impl",
+        "interface_name": "src::roles_interface::IMinimalRoles"
+      },
+      {
+        "name": "src::roles_interface::IMinimalRoles",
+        "type": "interface",
+        "items": [
+          {
+            "name": "is_governance_admin",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::bool"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "is_upgrade_governor",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::bool"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "register_governance_admin",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "remove_governance_admin",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "register_upgrade_governor",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "remove_upgrade_governor",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "renounce",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "role",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          }
+        ]
+      },
+      {
+        "name": "ERC20Impl",
+        "type": "impl",
+        "interface_name": "openzeppelin::token::erc20::interface::IERC20"
+      },
+      {
+        "name": "openzeppelin::token::erc20::interface::IERC20",
+        "type": "interface",
+        "items": [
+          {
+            "name": "name",
+            "type": "function",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::felt252"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "symbol",
+            "type": "function",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::felt252"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "decimals",
+            "type": "function",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::integer::u8"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "total_supply",
+            "type": "function",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::integer::u256"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "balance_of",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::integer::u256"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "allowance",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "owner",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "spender",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::integer::u256"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "transfer",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "recipient",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::bool"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "name": "transfer_from",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "sender",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "recipient",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::bool"
+              }
+            ],
+            "state_mutability": "external"
+          },
+          {
+            "name": "approve",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "spender",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::bool"
+              }
+            ],
+            "state_mutability": "external"
+          }
+        ]
+      },
+      {
+        "name": "ERC20CamelOnlyImpl",
+        "type": "impl",
+        "interface_name": "openzeppelin::token::erc20::interface::IERC20CamelOnly"
+      },
+      {
+        "name": "openzeppelin::token::erc20::interface::IERC20CamelOnly",
+        "type": "interface",
+        "items": [
+          {
+            "name": "totalSupply",
+            "type": "function",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::integer::u256"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "balanceOf",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "account",
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::integer::u256"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "transferFrom",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "sender",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "recipient",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              }
+            ],
+            "outputs": [
+              {
+                "type": "core::bool"
+              }
+            ],
+            "state_mutability": "external"
+          }
+        ]
+      },
+      {
+        "name": "constructor",
+        "type": "constructor",
+        "inputs": [
+          {
+            "name": "name",
+            "type": "core::felt252"
+          },
+          {
+            "name": "symbol",
+            "type": "core::felt252"
+          },
+          {
+            "name": "decimals",
+            "type": "core::integer::u8"
+          },
+          {
+            "name": "initial_supply",
+            "type": "core::integer::u256"
+          },
+          {
+            "name": "recipient",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "permitted_minter",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "provisional_governance_admin",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "upgrade_delay",
+            "type": "core::integer::u64"
+          }
+        ]
+      },
+      {
+        "name": "increase_allowance",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "spender",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "added_value",
+            "type": "core::integer::u256"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "core::bool"
+          }
+        ],
+        "state_mutability": "external"
+      },
+      {
+        "name": "decrease_allowance",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "spender",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "subtracted_value",
+            "type": "core::integer::u256"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "core::bool"
+          }
+        ],
+        "state_mutability": "external"
+      },
+      {
+        "name": "increaseAllowance",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "spender",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "addedValue",
+            "type": "core::integer::u256"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "core::bool"
+          }
+        ],
+        "state_mutability": "external"
+      },
+      {
+        "name": "decreaseAllowance",
+        "type": "function",
+        "inputs": [
+          {
+            "name": "spender",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "name": "subtractedValue",
+            "type": "core::integer::u256"
+          }
+        ],
+        "outputs": [
+          {
+            "type": "core::bool"
+          }
+        ],
+        "state_mutability": "external"
+      },
+      {
+        "kind": "struct",
+        "name": "src::strk::erc20_lockable::ERC20Lockable::Transfer",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "from",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "to",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "value",
+            "type": "core::integer::u256"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::strk::erc20_lockable::ERC20Lockable::Approval",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "owner",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "spender",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "value",
+            "type": "core::integer::u256"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::replaceability_interface::ImplementationAdded",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "implementation_data",
+            "type": "src::replaceability_interface::ImplementationData"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::replaceability_interface::ImplementationRemoved",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "implementation_data",
+            "type": "src::replaceability_interface::ImplementationData"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::replaceability_interface::ImplementationReplaced",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "implementation_data",
+            "type": "src::replaceability_interface::ImplementationData"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::replaceability_interface::ImplementationFinalized",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "impl_hash",
+            "type": "core::starknet::class_hash::ClassHash"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::access_control_interface::RoleGranted",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "role",
+            "type": "core::felt252"
+          },
+          {
+            "kind": "data",
+            "name": "account",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "sender",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::access_control_interface::RoleRevoked",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "role",
+            "type": "core::felt252"
+          },
+          {
+            "kind": "data",
+            "name": "account",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "sender",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::access_control_interface::RoleAdminChanged",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "role",
+            "type": "core::felt252"
+          },
+          {
+            "kind": "data",
+            "name": "previous_admin_role",
+            "type": "core::felt252"
+          },
+          {
+            "kind": "data",
+            "name": "new_admin_role",
+            "type": "core::felt252"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::roles_interface::GovernanceAdminAdded",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "added_account",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "added_by",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::roles_interface::GovernanceAdminRemoved",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "removed_account",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "removed_by",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::roles_interface::UpgradeGovernorAdded",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "added_account",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "added_by",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "src::roles_interface::UpgradeGovernorRemoved",
+        "type": "event",
+        "members": [
+          {
+            "kind": "data",
+            "name": "removed_account",
+            "type": "core::starknet::contract_address::ContractAddress"
+          },
+          {
+            "kind": "data",
+            "name": "removed_by",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ]
+      },
+      {
+        "kind": "enum",
+        "name": "src::strk::erc20_lockable::ERC20Lockable::Event",
+        "type": "event",
+        "variants": [
+          {
+            "kind": "nested",
+            "name": "Transfer",
+            "type": "src::strk::erc20_lockable::ERC20Lockable::Transfer"
+          },
+          {
+            "kind": "nested",
+            "name": "Approval",
+            "type": "src::strk::erc20_lockable::ERC20Lockable::Approval"
+          },
+          {
+            "kind": "nested",
+            "name": "ImplementationAdded",
+            "type": "src::replaceability_interface::ImplementationAdded"
+          },
+          {
+            "kind": "nested",
+            "name": "ImplementationRemoved",
+            "type": "src::replaceability_interface::ImplementationRemoved"
+          },
+          {
+            "kind": "nested",
+            "name": "ImplementationReplaced",
+            "type": "src::replaceability_interface::ImplementationReplaced"
+          },
+          {
+            "kind": "nested",
+            "name": "ImplementationFinalized",
+            "type": "src::replaceability_interface::ImplementationFinalized"
+          },
+          {
+            "kind": "nested",
+            "name": "RoleGranted",
+            "type": "src::access_control_interface::RoleGranted"
+          },
+          {
+            "kind": "nested",
+            "name": "RoleRevoked",
+            "type": "src::access_control_interface::RoleRevoked"
+          },
+          {
+            "kind": "nested",
+            "name": "RoleAdminChanged",
+            "type": "src::access_control_interface::RoleAdminChanged"
+          },
+          {
+            "kind": "nested",
+            "name": "GovernanceAdminAdded",
+            "type": "src::roles_interface::GovernanceAdminAdded"
+          },
+          {
+            "kind": "nested",
+            "name": "GovernanceAdminRemoved",
+            "type": "src::roles_interface::GovernanceAdminRemoved"
+          },
+          {
+            "kind": "nested",
+            "name": "UpgradeGovernorAdded",
+            "type": "src::roles_interface::UpgradeGovernorAdded"
+          },
+          {
+            "kind": "nested",
+            "name": "UpgradeGovernorRemoved",
+            "type": "src::roles_interface::UpgradeGovernorRemoved"
+          }
+        ]
+      }
+    ],
+    "starknet:htlc_erc20": [
+      {
+        "name": "HTLC",
+        "type": "impl",
+        "interface_name": "starknet_htlc::interface::IHTLC"
+      },
+      {
+        "name": "core::integer::u256",
+        "type": "struct",
+        "members": [
+          {
+            "name": "low",
+            "type": "core::integer::u128"
+          },
+          {
+            "name": "high",
+            "type": "core::integer::u128"
+          }
+        ]
+      },
+      {
+        "name": "starknet_htlc::interface::IHTLC",
+        "type": "interface",
+        "items": [
+          {
+            "name": "token",
+            "type": "function",
+            "inputs": [],
+            "outputs": [
+              {
+                "type": "core::starknet::contract_address::ContractAddress"
+              }
+            ],
+            "state_mutability": "view"
+          },
+          {
+            "name": "initiate",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "redeemer",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "timelock",
+                "type": "core::integer::u128"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              },
+              {
+                "name": "secret_hash",
+                "type": "[core::integer::u32; 8]"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "initiate_on_behalf",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "initiator",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "redeemer",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "timelock",
+                "type": "core::integer::u128"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              },
+              {
+                "name": "secret_hash",
+                "type": "[core::integer::u32; 8]"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "initiate_with_signature",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "initiator",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "redeemer",
+                "type": "core::starknet::contract_address::ContractAddress"
+              },
+              {
+                "name": "timelock",
+                "type": "core::integer::u128"
+              },
+              {
+                "name": "amount",
+                "type": "core::integer::u256"
+              },
+              {
+                "name": "secret_hash",
+                "type": "[core::integer::u32; 8]"
+              },
+              {
+                "name": "signature",
+                "type": "core::array::Array::<core::felt252>"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "redeem",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "order_id",
+                "type": "core::felt252"
+              },
+              {
+                "name": "secret",
+                "type": "core::array::Array::<core::integer::u32>"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "refund",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "order_id",
+                "type": "core::felt252"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          },
+          {
+            "name": "instant_refund",
+            "type": "function",
+            "inputs": [
+              {
+                "name": "order_id",
+                "type": "core::felt252"
+              },
+              {
+                "name": "signature",
+                "type": "core::array::Array::<core::felt252>"
+              }
+            ],
+            "outputs": [],
+            "state_mutability": "external"
+          }
+        ]
+      },
+      {
+        "name": "constructor",
+        "type": "constructor",
+        "inputs": [
+          {
+            "name": "token",
+            "type": "core::starknet::contract_address::ContractAddress"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "starknet_htlc::interface::events::Initiated",
+        "type": "event",
+        "members": [
+          {
+            "kind": "key",
+            "name": "order_id",
+            "type": "core::felt252"
+          },
+          {
+            "kind": "data",
+            "name": "secret_hash",
+            "type": "[core::integer::u32; 8]"
+          },
+          {
+            "kind": "data",
+            "name": "amount",
+            "type": "core::integer::u256"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "starknet_htlc::interface::events::Redeemed",
+        "type": "event",
+        "members": [
+          {
+            "kind": "key",
+            "name": "order_id",
+            "type": "core::felt252"
+          },
+          {
+            "kind": "data",
+            "name": "secret_hash",
+            "type": "[core::integer::u32; 8]"
+          },
+          {
+            "kind": "data",
+            "name": "secret",
+            "type": "core::array::Array::<core::integer::u32>"
+          }
+        ]
+      },
+      {
+        "kind": "struct",
+        "name": "starknet_htlc::interface::events::Refunded",
+        "type": "event",
+        "members": [
+          {
+            "kind": "key",
+            "name": "order_id",
+            "type": "core::felt252"
+          }
+        ]
+      },
+      {
+        "kind": "enum",
+        "name": "starknet_htlc::htlc::HTLC::Event",
+        "type": "event",
+        "variants": [
+          {
+            "kind": "nested",
+            "name": "Initiated",
+            "type": "starknet_htlc::interface::events::Initiated"
+          },
+          {
+            "kind": "nested",
+            "name": "Redeemed",
+            "type": "starknet_htlc::interface::events::Redeemed"
+          },
+          {
+            "kind": "nested",
+            "name": "Refunded",
+            "type": "starknet_htlc::interface::events::Refunded"
+          }
+        ]
+      }
+    ],
+    "solana:htlc_spltoken": {
+        "address": "gdnvdMCHJgnidtU7SL8RkRshHPvDJU1pdfZEpoLvqdU",
+        "metadata": {
+          "name": "solana_spl_swaps",
+          "version": "0.4.0",
+          "spec": "0.1.0",
+          "description": "Created with Anchor"
+        },
+        "instructions": [
+          {
+            "name": "initiate",
+            "docs": [
+              "Initiates the atomic swap. Funds are transferred from the initiator to the token vault.",
+              "As such, the initiator's signature is required for this instruction.",
+              "A sponsor may be involved, who pays PDA rent and transaction fees in SOL, allowing for the",
+              "initiator to participate without holding SOL. As such, the sponsor must also sign this transaction.",
+              "`swap_amount` represents the quantity of tokens to be transferred through this atomic swap",
+              "in base units of the token mint.",
+              "E.g: A quantity of $1 represented by the token \"USDC\" with \"6\" decimals",
+              "must be provided as 1,000,000.",
+              "`expires_in_slots` represents the number of slots after which (non-instant) refunds are allowed.",
+              "`destination_data` can hold optional information regarding the destination chain",
+              "in the atomic swap, to be emitted in the logs as-is."
+            ],
+            "discriminator": [
+              5,
+              63,
+              123,
+              113,
+              153,
+              75,
+              148,
+              14
+            ],
+            "accounts": [
+              {
+                "name": "identity_pda",
+                "docs": [
+                  "the token transfers of the `token_vault` PDA.",
+                  "This PDA will be created during the first most invocation of the `initiate()` function",
+                  "using the `init_if_needed` attribute, and be reused for all succeeding instructions."
+                ],
+                "writable": true,
+                "pda": {
+                  "seeds": []
+                }
+              },
+              {
+                "name": "swap_data",
+                "docs": [
+                  "A PDA that maintains the on-chain state of the atomic swap throughout its lifecycle.",
+                  "The choice of seeds ensure that any swap with equal `initiator` and",
+                  "`secret_hash` wont be created until an existing one completes.",
+                  "This PDA will be deleted upon completion of the swap."
+                ],
+                "writable": true,
+                "pda": {
+                  "seeds": [
+                    {
+                      "kind": "account",
+                      "path": "initiator"
+                    },
+                    {
+                      "kind": "arg",
+                      "path": "secret_hash"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "token_vault",
+                "docs": [
+                  "A permanent PDA that is controlled by the program through the `identity_pda`, as implied",
+                  "by the value of the `authority` field below. As such, it serves as the \"vault\" by escrowing tokens",
+                  "of type `mint` for the atomic swap.",
+                  "It is intended to be reused for all swaps involving the same mint.",
+                  "Just like `identity_pda`, it will be created during the first most invocation of `initiate()`",
+                  "of every distinct mint using the `init_if_needed` attribute."
+                ],
+                "writable": true,
+                "pda": {
+                  "seeds": [
+                    {
+                      "kind": "account",
+                      "path": "mint"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "initiator",
+                "docs": [
+                  "The initiator of the atomic swap. They must sign this transaction."
+                ],
+                "signer": true
+              },
+              {
+                "name": "initiator_token_account",
+                "docs": [
+                  "The token account of the initiator"
+                ],
+                "writable": true
+              },
+              {
+                "name": "mint",
+                "docs": [
+                  "The mint of the tokens involved in this swap. As this is a parameter, this program can thus be reused",
+                  "for atomic swaps with different mints."
+                ]
+              },
+              {
+                "name": "sponsor",
+                "docs": [
+                  "Any entity that pays the PDA rent.",
+                  "Upon completion of the swap, the PDA rent refund resulting from the",
+                  "deletion of `swap_data` will be refunded to this address."
+                ],
+                "writable": true,
+                "signer": true
+              },
+              {
+                "name": "token_program",
+                "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+              },
+              {
+                "name": "system_program",
+                "address": "11111111111111111111111111111111"
+              }
+            ],
+            "args": [
+              {
+                "name": "expires_in_slots",
+                "type": "u64"
+              },
+              {
+                "name": "redeemer",
+                "type": "pubkey"
+              },
+              {
+                "name": "secret_hash",
+                "type": {
+                  "array": [
+                    "u8",
+                    32
+                  ]
+                }
+              },
+              {
+                "name": "swap_amount",
+                "type": "u64"
+              },
+              {
+                "name": "destination_data",
+                "type": {
+                  "option": "bytes"
+                }
+              }
+            ]
+          },
+          {
+            "name": "instant_refund",
+            "docs": [
+              "Funds are returned to the initiator, with the redeemer's consent.",
+              "As such, the redeemer's signature is required for this instruction.",
+              "This allows for refunds before the expiry slot."
+            ],
+            "discriminator": [
+              211,
+              202,
+              103,
+              41,
+              183,
+              147,
+              59,
+              251
+            ],
+            "accounts": [
+              {
+                "name": "identity_pda",
+                "pda": {
+                  "seeds": []
+                }
+              },
+              {
+                "name": "swap_data",
+                "docs": [
+                  "The PDA holding the state information of the atomic swap. Will be closed upon successful execution",
+                  "and the resulting rent refund will be sent to the sponsor."
+                ],
+                "writable": true
+              },
+              {
+                "name": "token_vault",
+                "docs": [
+                  "A token account controlled by the program, escrowing the tokens for this atomic swap"
+                ],
+                "writable": true
+              },
+              {
+                "name": "initiator_token_account",
+                "writable": true
+              },
+              {
+                "name": "redeemer",
+                "docs": [
+                  "The redeemer of the atomic swap. They must sign this transaction."
+                ],
+                "writable": true,
+                "signer": true
+              },
+              {
+                "name": "sponsor",
+                "writable": true
+              },
+              {
+                "name": "token_program",
+                "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+              }
+            ],
+            "args": []
+          },
+          {
+            "name": "redeem",
+            "docs": [
+              "Funds are transferred to the redeemer. This instruction does not require any signatures."
+            ],
+            "discriminator": [
+              184,
+              12,
+              86,
+              149,
+              70,
+              196,
+              97,
+              225
+            ],
+            "accounts": [
+              {
+                "name": "identity_pda",
+                "pda": {
+                  "seeds": []
+                }
+              },
+              {
+                "name": "swap_data",
+                "docs": [
+                  "The PDA holding the state information of the atomic swap. Will be closed upon successful execution",
+                  "and the resulting rent refund will be sent to the sponsor."
+                ],
+                "writable": true
+              },
+              {
+                "name": "token_vault",
+                "docs": [
+                  "A token account controlled by the program, escrowing the tokens for this atomic swap"
+                ],
+                "writable": true
+              },
+              {
+                "name": "redeemer_token_account",
+                "writable": true
+              },
+              {
+                "name": "sponsor",
+                "writable": true
+              },
+              {
+                "name": "token_program",
+                "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+              }
+            ],
+            "args": [
+              {
+                "name": "secret",
+                "type": {
+                  "array": [
+                    "u8",
+                    32
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "name": "refund",
+            "docs": [
+              "Funds are returned to the initiator, given that no redeems have occured",
+              "and the expiry slot has been reached.",
+              "This instruction does not require any signatures."
+            ],
+            "discriminator": [
+              2,
+              96,
+              183,
+              251,
+              63,
+              208,
+              46,
+              46
+            ],
+            "accounts": [
+              {
+                "name": "identity_pda",
+                "pda": {
+                  "seeds": []
+                }
+              },
+              {
+                "name": "swap_data",
+                "docs": [
+                  "The PDA holding the state information of the atomic swap. Will be closed upon successful execution",
+                  "and the resulting rent refund will be sent to the sponsor."
+                ],
+                "writable": true
+              },
+              {
+                "name": "token_vault",
+                "docs": [
+                  "A token account controlled by the program, escrowing the tokens for this atomic swap"
+                ],
+                "writable": true
+              },
+              {
+                "name": "initiator_token_account",
+                "writable": true
+              },
+              {
+                "name": "sponsor",
+                "writable": true
+              },
+              {
+                "name": "token_program",
+                "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+              }
+            ],
+            "args": []
+          }
+        ],
+        "accounts": [
+          {
+            "name": "SwapAccount",
+            "discriminator": [
+              53,
+              126,
+              9,
+              14,
+              14,
+              197,
+              105,
+              182
+            ]
+          }
+        ],
+        "events": [
+          {
+            "name": "Initiated",
+            "discriminator": [
+              6,
+              108,
+              212,
+              91,
+              67,
+              60,
+              207,
+              221
+            ]
+          },
+          {
+            "name": "InstantRefunded",
+            "discriminator": [
+              220,
+              50,
+              18,
+              207,
+              183,
+              232,
+              218,
+              25
+            ]
+          },
+          {
+            "name": "Redeemed",
+            "discriminator": [
+              14,
+              29,
+              183,
+              71,
+              31,
+              165,
+              107,
+              38
+            ]
+          },
+          {
+            "name": "Refunded",
+            "discriminator": [
+              35,
+              103,
+              149,
+              246,
+              196,
+              123,
+              221,
+              99
+            ]
+          }
+        ],
+        "errors": [
+          {
+            "code": 6000,
+            "name": "InvalidRedeemer",
+            "msg": "The provider redeemer is not the original redeemer of this swap"
+          },
+          {
+            "code": 6001,
+            "name": "InvalidSecret",
+            "msg": "The provided secret does not correspond to the secret hash of this swap"
+          },
+          {
+            "code": 6002,
+            "name": "InvalidSponsor",
+            "msg": "The provided sponsor is not the original sponsor of this swap"
+          },
+          {
+            "code": 6003,
+            "name": "RefundBeforeExpiry",
+            "msg": "Attempt to perform a refund before expiry time"
+          }
+        ],
+        "types": [
+          {
+            "name": "Initiated",
+            "docs": [
+              "Represents the initiated state of the swap where the initiator has deposited funds into the vault"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "swap_amount",
+                  "docs": [
+                    "The quantity of tokens transferred through this atomic swap in base units of the token mint.",
+                    "E.g: A quantity of $1 represented by the token \"USDC\" with \"6\" decimals will be represented as 1,000,000."
+                  ],
+                  "type": "u64"
+                },
+                {
+                  "name": "expires_in_slots",
+                  "docs": [
+                    "`expires_in_slots` represents the number of slots after which (non-instant) refunds are allowed"
+                  ],
+                  "type": "u64"
+                },
+                {
+                  "name": "initiator",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "mint",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "redeemer",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret_hash",
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                },
+                {
+                  "name": "destination_data",
+                  "docs": [
+                    "Information regarding the destination chain in the atomic swap"
+                  ],
+                  "type": {
+                    "option": "bytes"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "InstantRefunded",
+            "docs": [
+              "Represents the instant refund state of the swap, where the initiator has withdrawn funds the vault",
+              "with the redeemer's consent"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "initiator",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret_hash",
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "Redeemed",
+            "docs": [
+              "Represents the redeemed state of the swap, where the redeemer has withdrawn funds from the vault"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "initiator",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret",
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "Refunded",
+            "docs": [
+              "Represents the refund state of the swap, where the initiator has withdrawn funds from the vault past expiry"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "initiator",
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret_hash",
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "SwapAccount",
+            "docs": [
+              "Stores the state information of the atomic swap on-chain"
+            ],
+            "type": {
+              "kind": "struct",
+              "fields": [
+                {
+                  "name": "expiry_slot",
+                  "docs": [
+                    "The exact slot after which (non-instant) refunds are allowed"
+                  ],
+                  "type": "u64"
+                },
+                {
+                  "name": "initiator",
+                  "docs": [
+                    "The initiator of the atomic swap"
+                  ],
+                  "type": "pubkey"
+                },
+                {
+                  "name": "redeemer",
+                  "docs": [
+                    "The redeemer of the atomic swap"
+                  ],
+                  "type": "pubkey"
+                },
+                {
+                  "name": "secret_hash",
+                  "docs": [
+                    "The secret hash associated with the atomic swap"
+                  ],
+                  "type": {
+                    "array": [
+                      "u8",
+                      32
+                    ]
+                  }
+                },
+                {
+                  "name": "swap_amount",
+                  "docs": [
+                    "The quantity tokens to be transferred through this atomic swap",
+                    "in base units of the token mint.",
+                    "E.g: A quantity of $1 represented by the token \"USDC\" with \"6\" decimals",
+                    "must be provided as 1,000,000."
+                  ],
+                  "type": "u64"
+                },
+                {
+                  "name": "identity_pda_bump",
+                  "docs": [
+                    "The bump associated with the identity pda.",
+                    "This is needed by the program to authorize token transfers via the token vault."
+                  ],
+                  "type": "u8"
+                },
+                {
+                  "name": "sponsor",
+                  "docs": [
+                    "The entity that paid the rent fees for the creation of this PDA.",
+                    "This will be referenced during the refund of the same upon closing this PDA."
+                  ],
+                  "type": "pubkey"
+                }
+              ]
+            }
+          }
+        ]
     }
-}
+  }

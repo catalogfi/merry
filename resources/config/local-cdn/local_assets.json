@@ -1,10 +1,121 @@
-{
-    "localnet_schemas": {
-        "ethereum": {
-            "name": "Ethereum Localnet",
-            "logo": "https://garden-finance.imgix.net/chain_images/sepolia.svg",
-            "explorer": "https://sepolia.etherscan.io",
-            "networkType": "localnet"
-        }
+[
+    {
+      "id": "bitcoin_regtest:btc",
+      "chain": "bitcoin_regtest",
+      "icon": "https://garden.imgix.net/token-images/bitcoin.svg",
+      "htlc": {
+        "address": "primary",
+        "schema": "primary"
+      },
+      "token": {
+        "address": "primary",
+        "schema": "primary"
+      },
+      "decimals": 8,
+      "min_amount": "50000",
+      "max_amount": "10000000000",
+      "chain_icon": "https://garden.imgix.net/token-images/bitcoin.svg"
+    },
+    {
+      "id": "solana_localnet:sol",
+      "chain": "solana_localnet",
+      "icon": "https://garden-finance.imgix.net/chain_images/solana.png",
+      "htlc": {
+        "address": "2bag6xpshpvPe7SJ9nSDLHpxqhEAoHPGpEkjNSv7gxoF",
+        "schema": "solana:htlc"
+      },
+      "token": {
+        "address": "primary",
+        "schema": "primary"
+      },
+      "decimals": 9,
+      "min_amount": "1000000",
+      "max_amount": "1000000000",
+      "chain_icon": "https://garden-finance.imgix.net/chain_images/solana.png"
+    },
+    {
+      "id": "ethereum_localnet:wbtc",
+      "chain": "ethereum_localnet",
+      "icon": "https://garden.imgix.net/token-images/wbtc.svg",
+      "htlc": {
+        "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "schema": "evm:htlc_erc20"
+      },
+      "token": {
+        "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "schema": "evm:erc20"
+      },
+      "decimals": 8,
+      "min_amount": "50000",
+      "max_amount": "10000000000",
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
+    },
+    {
+      "id": "ethereum_localnet:ethereum",
+      "chain": "ethereum_localnet",
+      "icon": "https://garden.imgix.net/token-images/wbtc.svg",
+      "htlc": {
+        "address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "schema": "evm:htlc"
+      },
+      "token": {
+        "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "schema": "primary"
+      },
+      "decimals": 18,
+      "min_amount": "50000",
+      "max_amount": "1000000000000000000",
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
+    },
+    {
+      "id": "starknet_devnet:starknet",
+      "chain": "starknet_devnet",
+      "icon": "https://garden.imgix.net/token-images/wbtc.svg",
+      "htlc": {
+        "address": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+        "schema": "starknet:htlc_erc20"
+      },
+      "token": {
+        "address": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+        "schema": "starknet:erc20"
+      },
+      "decimals": 18,
+      "min_amount": "50000",
+      "max_amount": "1000000000000000000",
+      "chain_icon": "https://garden-finance.imgix.net/chain_images/StarknetIcon.svg"
+    },
+    {
+      "id": "starknet_devnet:ethereum",
+      "chain": "starknet_devnet",
+      "icon": "https://garden.imgix.net/token-images/wbtc.svg",
+      "htlc": {
+        "address": "0x37b703339cd490399064ec5203301bfe73b57c96007cec23b406ad22bf61045",
+        "schema": "starknet:htlc_erc20"
+      },
+      "token": {
+        "address": "0x49d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7",
+        "schema": "starknet:erc20"
+      },
+      "decimals": 18,
+      "min_amount": "50000",
+      "max_amount": "1000000000000000000",
+      "chain_icon": "https://garden-finance.imgix.net/chain_images/StarknetIcon.svg"
+    },
+    {
+      "id": "arbitrum_localnet:wbtc",
+      "chain": "arbitrum_localnet",
+      "icon": "https://garden.imgix.net/token-images/wbtc.svg",
+      "htlc": {
+        "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "schema": "evm:htlc_erc20"
+      },
+      "token": {
+        "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "schema": "evm:erc20"
+      },
+      "decimals": 8,
+      "min_amount": "50000",
+      "max_amount": "10000000000",
+      "chain_icon": "https://garden.imgix.net/chain_images/arbitrumSepolia.svg"
     }
-}
+  ]

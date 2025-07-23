@@ -8,21 +8,27 @@
       "dest_chain": "ethereum_localnet",
       "source_asset": {
         "asset": "primary",
+        "htlc_address": "primary",
+        "token_address": "primary",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "dest_asset": {
         "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "htlc_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "token_address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "makers": [],
       "min_amount": "1000",
       "max_amount": "10000000000",
-      "min_source_timelock": 20,
+      "min_source_timelock": 12,
+      "destination_timelock": 600,
       "min_source_confirmations": 1,
       "min_price": 1.0001,
-      "fee": 1
+      "fee": 1,
+      "version": "v1"
     },
     {
       "id": "bralc9",
@@ -32,21 +38,27 @@
       "dest_chain": "arbitrum_localnet",
       "source_asset": {
         "asset": "primary",
+        "htlc_address": "primary",
+        "token_address": "primary",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "dest_asset": {
         "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "makers": [],
       "min_amount": "1000",
       "max_amount": "10000000000",
-      "min_source_timelock": 20,
+      "min_source_timelock": 12,
+      "destination_timelock": 600,
       "min_source_confirmations": 1,
       "min_price": 1.0001,
-      "fee": 1
+      "fee": 1,
+      "version": "v1"
     },
     {
       "id": "elbrry",
@@ -56,21 +68,27 @@
       "dest_chain": "bitcoin_regtest",
       "dest_asset": {
         "asset": "primary",
+        "htlc_address": "primary",
+        "token_address": "primary",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "source_asset": {
         "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "htlc_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "token_address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "makers": [],
       "min_amount": "1000",
       "max_amount": "10000000000",
-      "min_source_timelock": 20,
+      "min_source_timelock": 600,
+      "destination_timelock": 12,
       "min_source_confirmations": 1,
       "min_price": 1.0001,
-      "fee": 1
+      "fee": 1,
+      "version": "v1"
     },
     {
       "id": "arbrry",
@@ -80,21 +98,27 @@
       "dest_chain": "bitcoin_regtest",
       "dest_asset": {
         "asset": "primary",
+        "htlc_address": "primary",
+        "token_address": "primary",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "source_asset": {
         "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "makers": [],
       "min_amount": "1000",
       "max_amount": "10000000000",
-      "min_source_timelock": 20,
+      "min_source_timelock": 600,
+      "destination_timelock": 12,
       "min_source_confirmations": 1,
       "min_price": 1.0001,
-      "fee": 1
+      "fee": 1,
+      "version": "v1"
     },
     {
       "id": "alel12",
@@ -104,21 +128,27 @@
       "dest_chain": "ethereum_localnet",
       "dest_asset": {
         "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "htlc_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "token_address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "source_asset": {
         "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "makers": [],
       "min_amount": "1000",
       "max_amount": "10000000000",
-      "min_source_timelock": 20,
+      "min_source_timelock": 600,
+      "destination_timelock": 600,
       "min_source_confirmations": 1,
       "min_price": 1.0001,
-      "fee": 1
+      "fee": 1,
+      "version": "v1"
     },
     {
       "id": "el8fale0",
@@ -128,21 +158,27 @@
       "dest_chain": "arbitrum_localnet",
       "dest_asset": {
         "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "source_asset": {
         "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "htlc_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "token_address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "makers": [],
       "min_amount": "1000",
       "max_amount": "10000000000",
-      "min_source_timelock": 20,
+      "min_source_timelock": 600,
+      "destination_timelock": 600,
       "min_source_confirmations": 1,
       "min_price": 1.0001,
-      "fee": 1
+      "fee": 1,
+      "version": "v1"
     },
     {
       "id": "brryel07",
@@ -152,21 +188,27 @@
       "dest_chain": "ethereum_localnet",
       "source_asset": {
         "asset": "primary",
+        "htlc_address": "primary",
+        "token_address": "primary",
         "token_id": "ethereum",
         "decimals": 8
       },
       "dest_asset": {
         "asset": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "htlc_address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "token_address": "primary",
         "token_id": "ethereum",
         "decimals": 18
       },
       "makers": [],
       "min_amount": "1000",
       "max_amount": "10000000000",
-      "min_source_timelock": 20,
+      "min_source_timelock": 12,
+      "destination_timelock": 600,
       "min_source_confirmations": 1,
       "min_price": 1.0001,
-      "fee": 1
+      "fee": 1,
+      "version": "v1"
     },
     {
       "id": "el07brry",
@@ -176,21 +218,27 @@
       "dest_chain": "bitcoin_regtest",
       "source_asset": {
         "asset": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "htlc_address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "token_address": "primary",
         "token_id": "ethereum",
         "decimals": 18
       },
       "dest_asset": {
         "asset": "primary",
+        "htlc_address": "primary",
+        "token_address": "primary",
         "token_id": "bitcoin",
         "decimals": 8
       },
       "makers": [],
       "min_amount": "1000000",
       "max_amount": "10000000000000000000",
-      "min_source_timelock": 20,
+      "min_source_timelock": 600,
+      "destination_timelock": 12,
       "min_source_confirmations": 1,
       "min_price": 1.0001,
-      "fee": 1
+      "fee": 1,
+      "version": "v1"
     },
     {
         "id": "al8fsdc5",
@@ -201,21 +249,27 @@
         "dest_chain": "starknet_devnet",
         "source_asset": {
           "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
           "token_id": "bitcoin",
           "decimals": 8
         },
         "dest_asset": {
           "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
-          "token_id": "stark",
+          "htlc_address": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_address": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+          "token_id": "starknet",
           "decimals": 18
         },
         "makers": [],
         "min_amount": "1000",
         "max_amount": "10000000000",
-        "min_source_timelock": 20,
+        "min_source_timelock": 600,
+        "destination_timelock": 240,
         "min_source_confirmations": 1,
         "min_price": 1.0001,
-        "fee": 1
+        "fee": 1,
+        "version": "v1"
     },
     {
         "id": "sdc5al8f",
@@ -226,21 +280,27 @@
         "dest_chain": "arbitrum_localnet",
         "source_asset": {
           "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
-          "token_id": "stark",
+          "htlc_address": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_address": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+          "token_id": "starknet",
           "decimals": 18
         },
         "dest_asset": {
           "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
           "token_id": "bitcoin",
           "decimals": 8
         },
         "makers": [],
         "min_amount": "1000",
         "max_amount": "1000000000000000000",
-        "min_source_timelock": 20,
+        "min_source_timelock": 240,
+        "destination_timelock": 600,
         "min_source_confirmations": 1,
         "min_price": 1.0001,
-        "fee": 1
+        "fee": 1,
+        "version": "v1"
     },
     {
         "id": "brrysdc5",
@@ -251,21 +311,27 @@
         "dest_chain": "starknet_devnet",
         "source_asset": {
           "asset": "primary",
+          "htlc_address": "primary",
+          "token_address": "primary",
           "token_id": "bitcoin",
           "decimals": 8
         },
         "dest_asset": {
           "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
-          "token_id": "stark",
+          "htlc_address": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_address": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+          "token_id": "starknet",
           "decimals": 18
         },
         "makers": [],
         "min_amount": "1000",
         "max_amount": "10000000000",
-        "min_source_timelock": 20,
+        "min_source_timelock": 12,
+        "destination_timelock": 240,
         "min_source_confirmations": 1,
         "min_price": 1.0001,
-        "fee": 1
+        "fee": 1,
+        "version": "v1"
     },
     {
         "id": "sdc5brry",
@@ -276,21 +342,27 @@
         "dest_chain": "bitcoin_regtest",
         "source_asset": {
           "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
-          "token_id": "stark",
+          "htlc_address": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_address": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+          "token_id": "starknet",
           "decimals": 18
         },
         "dest_asset": {
           "asset": "primary",
+          "htlc_address": "primary",
+          "token_address": "primary",
           "token_id": "bitcoin",
           "decimals": 8
         },
         "makers": [],
         "min_amount": "1000",
         "max_amount": "1000000000000000000",
-        "min_source_timelock": 20,
+        "min_source_timelock": 240,
+        "destination_timelock": 12,
         "min_source_confirmations": 1,
         "min_price": 1.0001,
-        "fee": 1
+        "fee": 1,
+        "version": "v1"
     },
     {
         "id": "sd45sdc5",
@@ -301,56 +373,262 @@
         "dest_chain": "starknet_devnet",
         "source_asset": {
           "asset": "0x37b703339cd490399064ec5203301bfe73b57c96007cec23b406ad22bf61045",
+          "htlc_address": "0x37b703339cd490399064ec5203301bfe73b57c96007cec23b406ad22bf61045",
+          "token_address": "0x49d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7",
           "token_id": "ethereum",
           "decimals": 18
         },
         "dest_asset": {
           "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
-          "token_id": "stark",
+          "htlc_address": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+          "token_address": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+          "token_id": "starknet",
           "decimals": 18
         },
         "makers": [],
         "min_amount": "1000",
         "max_amount": "1000000000000000000",
-        "min_source_timelock": 20,
+        "min_source_timelock": 240,
+        "destination_timelock": 240,
         "min_source_confirmations": 1,
         "min_price": 1.0001,
-        "fee": 1
+        "fee": 1,
+        "version": "v1"
     },
     {
-        "id": "sdc5sd45",
-        "filler": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-        "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-        "source_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
-        "source_chain": "starknet_devnet",
-        "dest_chain": "starknet_devnet",
-        "source_asset": {
-          "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
-          "token_id": "stark",
-          "decimals": 18
-        },
-        "dest_asset": {
-          "asset": "0x37b703339cd490399064ec5203301bfe73b57c96007cec23b406ad22bf61045",
-          "token_id": "ethereum",
-          "decimals": 18
-        },
-        "makers": [],
-        "min_amount": "1000",
-        "max_amount": "1000000000000000000",
-        "min_source_timelock": 20,
-        "min_source_confirmations": 1,
-        "min_price": 1.0001,
-        "fee": 1
+      "id": "sdc5sd45",
+      "filler": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+      "dest_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+      "source_chain_address": "0x014923a0e03ec4f7484f600eab5ecf3e4eacba20ffd92d517b213193ea991502",
+      "source_chain": "starknet_devnet",
+      "dest_chain": "starknet_devnet",
+      "source_asset": {
+        "asset": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+        "htlc_address": "0x76f1c2d4fe41e381f368130ef47fa9d8791b3badd5b4a844d06154e99ae56c5",
+        "token_address": "0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
+        "token_id": "starknet",
+        "decimals": 18
+      },
+      "dest_asset": {
+        "asset": "0x37b703339cd490399064ec5203301bfe73b57c96007cec23b406ad22bf61045",
+        "htlc_address": "0x37b703339cd490399064ec5203301bfe73b57c96007cec23b406ad22bf61045",
+        "token_address": "0x49d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7",
+        "token_id": "ethereum",
+        "decimals": 18
+      },
+      "makers": [],
+      "min_amount": "1000",
+      "max_amount": "1000000000000000000",
+      "min_source_timelock": 240,
+      "destination_timelock": 240,
+      "min_source_confirmations": 1,
+      "min_price": 1.0001,
+      "fee": 1,
+      "version": "v1"
+    },
+    {
+      "id": "sl4sel78",
+      "source_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+      "dest_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "source_chain": "solana_localnet",
+      "dest_chain": "ethereum_localnet",
+      "source_asset": {
+        "asset": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "htlc_address": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "token_address": "primary",
+        "token_id": "solana",
+        "decimals": 9
+      },
+      "dest_asset": {
+        "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "htlc_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "token_address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "token_id": "bitcoin",
+        "decimals": 8
+      },
+      "makers": [],
+      "min_amount": "1000",
+      "max_amount": "10000000000",
+      "min_source_timelock": 18000,
+      "destination_timelock": 600,
+      "min_source_confirmations": 1,
+      "min_price": 1.0001,
+      "fee": 1,
+      "version": "v1"
+    },
+    {
+      "id": "el78sl4s",
+      "source_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "dest_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+      "source_chain": "ethereum_localnet",
+      "dest_chain": "solana_localnet",
+      "source_asset": {
+        "asset": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "htlc_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "token_address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "token_id": "bitcoin",
+        "decimals": 8
+      },
+      "dest_asset": {
+        "asset": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "htlc_address": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "token_address": "primary",
+        "token_id": "solana",
+        "decimals": 9
+      },
+      "makers": [],
+      "min_amount": "1000",
+      "max_amount": "10000000000",
+      "min_source_timelock": 600,
+      "destination_timelock": 18000,
+      "min_source_confirmations": 1,
+      "min_price": 1.0001,
+      "fee": 1,
+      "version": "v1"
+    },
+    {
+      "id": "sl4sal78",
+      "source_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+      "dest_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "source_chain": "solana_localnet",
+      "dest_chain": "arbitrum_localnet",
+      "source_asset": {
+        "asset": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "htlc_address": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "token_address": "primary",
+        "token_id": "solana",
+        "decimals": 9
+      },
+      "dest_asset": {
+        "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "token_id": "bitcoin",
+        "decimals": 8
+      },
+      "makers": [],
+      "min_amount": "1000",
+      "max_amount": "10000000000",
+      "min_source_timelock": 18000,
+      "destination_timelock": 600,
+      "min_source_confirmations": 1,
+      "min_price": 1.0001,
+      "fee": 1,
+      "version": "v1"
+    },
+    {
+      "id": "al78sl4s",
+      "source_chain_address": "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+      "dest_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+      "source_chain": "arbitrum_localnet",
+      "dest_chain": "solana_localnet",
+      "source_asset": {
+        "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "token_id": "bitcoin",
+        "decimals": 8
+      },
+      "dest_asset": {
+        "asset": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "htlc_address": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "token_address": "primary",
+        "token_id": "solana",
+        "decimals": 9
+      },
+      "makers": [],
+      "min_amount": "1000",
+      "max_amount": "10000000000",
+      "min_source_timelock": 600,
+      "destination_timelock": 18000,
+      "min_source_confirmations": 1,
+      "min_price": 1.0001,
+      "fee": 1,
+      "version": "v1"
+    },
+    {
+      "id": "brbcsl4s",
+      "source_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
+      "dest_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+      "source_chain": "bitcoin_regtest",
+      "dest_chain": "solana_localnet",
+      "source_asset": {
+        "asset": "primary",
+        "htlc_address": "primary",
+        "token_address": "primary",
+        "token_id": "bitcoin",
+        "decimals": 8
+      },
+      "dest_asset": {
+        "asset": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "htlc_address": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "token_address": "primary",
+        "token_id": "solana",
+        "decimals": 9
+      },
+      "makers": [],
+      "min_amount": "1000",
+      "max_amount": "10000000000",
+      "min_source_timelock": 12,
+      "destination_timelock": 18000,
+      "min_source_confirmations": 1,
+      "min_price": 1.0001,
+      "fee": 1,
+      "version": "v1"
+    },
+    {
+      "id": "sl4sbrbc",
+      "source_chain_address": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+      "dest_chain_address": "bcd6f4cfa96358c74dbc03fec5ba25da66bbc92a31b714ce339dd93db1a9ffac",
+      "source_chain": "solana_localnet",
+      "dest_chain": "bitcoin_regtest",
+      "source_asset": {
+        "asset": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "htlc_address": "GfCxk9H9EoHP7cvophozquwRTkkm3ierP6sVUWKBBwCe",
+        "token_address": "primary",
+        "token_id": "solana",
+        "decimals": 9
+      },
+      "dest_asset": {
+        "asset": "primary",
+        "htlc_address": "primary",
+        "token_address": "primary",
+        "token_id": "bitcoin",
+        "decimals": 8
+      },
+      "makers": [],
+      "min_amount": "1000",
+      "max_amount": "10000000000",
+      "min_source_timelock": 18000,
+      "destination_timelock": 12,
+      "min_source_confirmations": 1,
+      "min_price": 1.0001,
+      "fee": 1,
+      "version": "v1"
     }
   ],
   "token_ids": {
     "bitcoin": "1",
     "ethereum": "1027",
-    "starknet": "22691"
+    "starknet": "22691",
+    "solana": "5426"
   },
   "update_interval": 60,
   "private_key": "59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d",
   "api_url": "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest",
   "api_key": ["localnet"],
-  "addr": "0.0.0.0:6969"
+  "addr": "0.0.0.0:6969",
+  "use_testnet": true,
+  "coingecko_api_url": "https://pro-api.coingecko.com/api/v3/simple/price",
+  "coingecko_api_keys": ["localnet"],
+  "credential_provider_url": "http://localhost:4575/credentials/c4b8f7e2a1d9e345f06b9a1c3d7f8e2b0a5d6c1e9b3f7a2d4c6e8b0f3a2d7e1c",
+  "chain_ids": {
+      "bitcoin_regtest": 1,
+      "ethereum_localnet": 31337,
+      "solana_localnet": 104,
+      "arbitrum_localnet": 31338,
+      "starknet_devnet": 393402133025997798000961
+  },
+  "markets": ["BTC", "ETH", "SOL"],
+  "assets_url": "http://local-cdn:80/local_"
 }

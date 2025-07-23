@@ -41,3 +41,15 @@ addresses = [
 chain_type = "starknet"
 native_token_id = "starknet"
 decimals = 18
+
+[[chains]]
+name = "solana_localnet"
+rpc = "http://solana-validator:8899/"
+addresses = [
+    "cobi:4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+    "relayer:AKnL4NNf3DGWZJS6cPknBuEGnVsV4A4m5tgebLHaRSZ9",
+    "creator:4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS",
+]
+chain_type = "sol"
+native_token_id = "solana"
+decimals = 9
