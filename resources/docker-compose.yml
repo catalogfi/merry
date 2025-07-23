@@ -365,6 +365,89 @@ services:
       - postgres
       - redis
       - cosigner
+  solana-validator:
+    image: ghcr.io/catalogfi/solana-test-validator:latest
+    container_name: solana-validator
+    ports:
+      - 8899:8899
+      - 8900:8900
+    restart: unless-stopped
+
+  solana-watcher:
+    image: ghcr.io/catalogfi/solana-watcher:latest
+    container_name: solana-watcher
+    depends_on:
+      - solana-validator
+    volumes:
+      - ./config/solana/watcher-config.toml:/usr/src/app/watcher-config.toml
+    restart: unless-stopped
+    environment:
+      - CONFIG=/usr/src/app/watcher-config.toml
+  
+  solana-executor:
+    image: ghcr.io/catalogfi/solana-executor:latest
+    container_name: solana-executor
+    depends_on:
+      - solana-watcher
+    volumes:
+      - ./config/solana/executor-config.json:/app/config.json
+    restart: unless-stopped
+    environment:
+      - CONFIG=/usr/src/app/config.json
+      - FILLER_PRIVATE_KEY=5cpuymR6tCQKFDzKQ1beFVRqTf9MrzviyF1hwWRNhfAimEo1vgf99nCJ3sjbyc4pH953TG3XrxXi85JdaxZLhrfW
+  
+  solana-relayer:
+    image: ghcr.io/catalogfi/solana-relayer:latest
+    ports:
+      - 5014:5014
+    container_name: solana-relayer
+    depends_on:
+      - solana-validator
+    volumes:
+      - ./config/solana/relayer-config.toml:/usr/src/app/relayer-config.toml
+    restart: unless-stopped
+    environment:
+      - CONFIG=/usr/src/app/relayer-config.toml
+      - RELAYER_PRIVATE_KEY=CcRVvyujxa1MDBz9VRomHTe1pzLN7YyzeGs9GqBU2p1dCNeJjrHrEirAmmQyKcQS9nAqhcm1wWCeUBnwBhMTwor
+
+  integrator-api:
+    image: "ghcr.io/catalogfi/integrator-api-key-manager:latest"
+    container_name: integrator-api
+    volumes:
+      - "./config/integrator-api/Settings.toml:/app/Settings.toml"
+    ports:
+      - "5544:5544"
+    restart: unless-stopped
+    depends_on:
+      - garden-db
+
+  evm-executor:
+    image: "ghcr.io/catalogfi/evm-executor:latest"
+    container_name: evm-executor
+    restart: unless-stopped
+    volumes:
+      - "./config/evm-executor/Settings.toml:/app/Settings.toml"
+    depends_on:
+      - solver-orders
+
+  solver-orders:
+    image: "ghcr.io/catalogfi/solver-orders:latest"
+    container_name: solver-orders
+    ports:
+      - "4596:4596"
+    volumes:
+      - "./config/solver-orders/Settings.toml:/app/Settings.toml"
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  local-cdn:
+    image: nginx:latest
+    container_name: local-cdn
+    ports:
+      - "6748:80"
+    volumes:
+      - "./config/local-cdn:/usr/share/nginx/html:ro"
 networks:
   default:
     name: merry

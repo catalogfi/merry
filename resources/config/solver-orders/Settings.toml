@@ -1,0 +1,3 @@
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+port = 4596
+polling_interval = 2000

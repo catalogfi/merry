@@ -1,0 +1,28 @@
+# URL of garden db (postgres)
+database_url = "postgres://postgres:postgres@garden-db:5432/garden"
+
+listen_port = 5014
+
+# Address of the on-chain solana-native-swaps program
+program_id = "6eksgdCnSjUaGQWZ6iYvauv1qzvYPF33RTGTM1ZuyENx"
+
+# Address of the on-chain solana-spl-swaps program
+spl_program_id = "2WXpY8havGjfRxme9LUxtjFHTh1EfU3ur4v6wiK4KdNC"
+
+rpc_url = "http://solana-validator:8899"
+
+# auto_redeem is a service that automatically serves redeems for
+# orders that do not manage secrets
+[auto_redeem]
+# Enable or Disable auto_redeem
+enable = true
+
+# Interval (in seconds) at which to poll for automatic redeems
+poll_interval_secs = 5
+
+# URL of garden credentials manager
+# SECRET must be included in this URL, as specified in this example
+credentials_url = "https://order-credentials:4596/credentials/9e3b7a5d0c1f6b2d8a4e3f1c7d9b6a0e2c5d3a9f0e7b4c6d1a3e9b7c2f5d0a1"
+
+# URL to fetch pending orders in garden
+pending_orders_url = "http://solver-orders:4596"

@@ -1,0 +1,13 @@
+{
+  "environment": "merry",
+  "rpc_url": "http://solana-validator:8899",
+  "db_url": "postgres://postgres:postgres@garden-db:5432/garden",
+  "chain_id": 103,
+  "evm_relayer_url": "http://relayer:4426",
+  "quote_server_url": "http://quote:6969",
+  "executor_sleep_duration": 5000,
+  "price_threshold": 0.01,
+  "native_program_address": "6eksgdCnSjUaGQWZ6iYvauv1qzvYPF33RTGTM1ZuyENx",
+  "spl_program_address": "2WXpY8havGjfRxme9LUxtjFHTh1EfU3ur4v6wiK4KdNC",
+  "relayerAddress": "ANUVKxeqaec3bf4DVPqLTnG1PT3Fng56wPcE7LXAb46Q"
+}
