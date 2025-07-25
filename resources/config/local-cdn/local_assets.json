@@ -51,6 +51,23 @@
       "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
     },
     {
+      "id": "ethereum_localnet:wbtc",
+      "chain": "ethereum_localnet",
+      "icon": "https://garden.imgix.net/token-images/wbtc.svg",
+      "htlc": {
+        "address": "0x4b590154D583E134a1a492c5a885Ca6f3d51Be7C",
+        "schema": "evm:htlc_erc20"
+      },
+      "token": {
+        "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "schema": "evm:erc20"
+      },
+      "decimals": 8,
+      "min_amount": "50000",
+      "max_amount": "10000000000",
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
+    },
+    {
       "id": "ethereum_localnet:ethereum",
       "chain": "ethereum_localnet",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
@@ -59,7 +76,7 @@
         "schema": "evm:htlc"
       },
       "token": {
-        "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+        "address": "primary",
         "schema": "primary"
       },
       "decimals": 18,
@@ -107,6 +124,23 @@
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
         "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "schema": "evm:htlc_erc20"
+      },
+      "token": {
+        "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+        "schema": "evm:erc20"
+      },
+      "decimals": 8,
+      "min_amount": "50000",
+      "max_amount": "10000000000",
+      "chain_icon": "https://garden.imgix.net/chain_images/arbitrumSepolia.svg"
+    },
+    {
+      "id": "arbitrum_localnet:wbtc",
+      "chain": "arbitrum_localnet",
+      "icon": "https://garden.imgix.net/token-images/wbtc.svg",
+      "htlc": {
+        "address": "0xeE9f59e9a27C43242A4D4b4b2f2E030198b4f589",
         "schema": "evm:htlc_erc20"
       },
       "token": {
