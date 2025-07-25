@@ -140,7 +140,7 @@
       "chain": "arbitrum_localnet",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0xeE9f59e9a27C43242A4D4b4b2f2E030198b4f589",
+        "address": "0xdCBD7e6E07Eb9a7AB6E1d47622bc5b18424007f5",
         "schema": "evm:htlc_erc20"
       },
       "token": {
