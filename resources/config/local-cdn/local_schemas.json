@@ -310,400 +310,267 @@
     }
   ],
   "evm:htlc": [
+    { "type": "constructor", "inputs": [], "stateMutability": "nonpayable" },
     {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "version",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "nonpayable",
-      "type": "constructor"
-    },
-    {
-      "inputs": [],
-      "name": "InvalidShortString",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__DuplicateOrder",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__IncorrectFundsRecieved",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__IncorrectSecret",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__InsufficientBalance",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__InvalidRedeemerSignature",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__OrderFulfilled",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__OrderNotExpired",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__OrderNotInitiated",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__SameInitiatorAndRedeemer",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__ZeroAddressInitiator",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__ZeroAddressRedeemer",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__ZeroAmount",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NativeHTLC__ZeroTimelock",
-      "type": "error"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "str",
-          "type": "string"
-        }
-      ],
-      "name": "StringTooLong",
-      "type": "error"
-    },
-    {
-      "anonymous": false,
-      "inputs": [],
-      "name": "EIP712DomainChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "bytes32",
-          "name": "orderID",
-          "type": "bytes32"
-        },
-        {
-          "indexed": true,
-          "internalType": "bytes32",
-          "name": "secretHash",
-          "type": "bytes32"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "Initiated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "bytes32",
-          "name": "orderID",
-          "type": "bytes32"
-        },
-        {
-          "indexed": true,
-          "internalType": "bytes32",
-          "name": "secretHash",
-          "type": "bytes32"
-        },
-        {
-          "indexed": false,
-          "internalType": "bytes",
-          "name": "secret",
-          "type": "bytes"
-        }
-      ],
-      "name": "Redeemed",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "bytes32",
-          "name": "orderID",
-          "type": "bytes32"
-        }
-      ],
-      "name": "Refunded",
-      "type": "event"
-    },
-    {
-      "inputs": [],
+      "type": "function",
       "name": "eip712Domain",
-      "outputs": [
-        {
-          "internalType": "bytes1",
-          "name": "fields",
-          "type": "bytes1"
-        },
-        {
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "string",
-          "name": "version",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "chainId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address",
-          "name": "verifyingContract",
-          "type": "address"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "salt",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "uint256[]",
-          "name": "extensions",
-          "type": "uint256[]"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address payable",
-          "name": "redeemer",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "timelock",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "secretHash",
-          "type": "bytes32"
-        }
-      ],
-      "name": "initiate",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address payable",
-          "name": "initiator",
-          "type": "address"
-        },
-        {
-          "internalType": "address payable",
-          "name": "redeemer",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "timelock",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "internalType": "bytes32",
-          "name": "secretHash",
-          "type": "bytes32"
-        }
-      ],
-      "name": "initiateOnBehalf",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "orderID",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "bytes",
-          "name": "signature",
-          "type": "bytes"
-        }
-      ],
-      "name": "instantRefund",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "orderID",
-          "type": "bytes32"
-        }
-      ],
-      "name": "instantRefundDigest",
-      "outputs": [
-        {
-          "internalType": "bytes32",
-          "name": "",
-          "type": "bytes32"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "",
-          "type": "bytes32"
-        }
-      ],
-      "name": "orders",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "isFulfilled",
-          "type": "bool"
-        },
-        {
-          "internalType": "address payable",
-          "name": "initiator",
-          "type": "address"
-        },
-        {
-          "internalType": "address payable",
-          "name": "redeemer",
-          "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "initiatedAt",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "timelock",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "orderID",
-          "type": "bytes32"
-        },
-        {
-          "internalType": "bytes",
-          "name": "secret",
-          "type": "bytes"
-        }
-      ],
-      "name": "redeem",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "bytes32",
-          "name": "orderID",
-          "type": "bytes32"
-        }
-      ],
-      "name": "refund",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "inputs": [],
-      "name": "token",
       "outputs": [
+        { "name": "fields", "type": "bytes1", "internalType": "bytes1" },
+        { "name": "name", "type": "string", "internalType": "string" },
+        { "name": "version", "type": "string", "internalType": "string" },
+        { "name": "chainId", "type": "uint256", "internalType": "uint256" },
         {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
+          "name": "verifyingContract",
+          "type": "address",
+          "internalType": "address"
+        },
+        { "name": "salt", "type": "bytes32", "internalType": "bytes32" },
+        {
+          "name": "extensions",
+          "type": "uint256[]",
+          "internalType": "uint256[]"
         }
       ],
-      "stateMutability": "view",
-      "type": "function"
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "initiate",
+      "inputs": [
+        {
+          "name": "redeemer",
+          "type": "address",
+          "internalType": "address payable"
+        },
+        { "name": "timelock", "type": "uint256", "internalType": "uint256" },
+        { "name": "amount", "type": "uint256", "internalType": "uint256" },
+        { "name": "secretHash", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "_destinationData", "type": "bytes", "internalType": "bytes" }
+      ],
+      "outputs": [],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "initiateOnBehalf",
+      "inputs": [
+        {
+          "name": "initiator",
+          "type": "address",
+          "internalType": "address payable"
+        },
+        {
+          "name": "redeemer",
+          "type": "address",
+          "internalType": "address payable"
+        },
+        { "name": "timelock", "type": "uint256", "internalType": "uint256" },
+        { "name": "amount", "type": "uint256", "internalType": "uint256" },
+        { "name": "secretHash", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "_destinationData", "type": "bytes", "internalType": "bytes" }
+      ],
+      "outputs": [],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "instantRefund",
+      "inputs": [
+        { "name": "orderID", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "signature", "type": "bytes", "internalType": "bytes" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "instantRefundDigest",
+      "inputs": [
+        { "name": "orderID", "type": "bytes32", "internalType": "bytes32" }
+      ],
+      "outputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "name",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "orders",
+      "inputs": [{ "name": "", "type": "bytes32", "internalType": "bytes32" }],
+      "outputs": [
+        {
+          "name": "initiator",
+          "type": "address",
+          "internalType": "address payable"
+        },
+        {
+          "name": "redeemer",
+          "type": "address",
+          "internalType": "address payable"
+        },
+        { "name": "initiatedAt", "type": "uint256", "internalType": "uint256" },
+        { "name": "timelock", "type": "uint256", "internalType": "uint256" },
+        { "name": "amount", "type": "uint256", "internalType": "uint256" },
+        { "name": "fulfilledAt", "type": "uint256", "internalType": "uint256" }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "redeem",
+      "inputs": [
+        { "name": "orderID", "type": "bytes32", "internalType": "bytes32" },
+        { "name": "secret", "type": "bytes", "internalType": "bytes" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "refund",
+      "inputs": [
+        { "name": "orderID", "type": "bytes32", "internalType": "bytes32" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "token",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "version",
+      "inputs": [],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "event",
+      "name": "EIP712DomainChanged",
+      "inputs": [],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Initiated",
+      "inputs": [
+        {
+          "name": "orderID",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "secretHash",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "indexed": true,
+          "internalType": "uint256"
+        },
+        {
+          "name": "destinationData",
+          "type": "bytes",
+          "indexed": false,
+          "internalType": "bytes"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Redeemed",
+      "inputs": [
+        {
+          "name": "orderID",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "secretHash",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        },
+        {
+          "name": "secret",
+          "type": "bytes",
+          "indexed": false,
+          "internalType": "bytes"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Refunded",
+      "inputs": [
+        {
+          "name": "orderID",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    { "type": "error", "name": "InvalidShortString", "inputs": [] },
+    { "type": "error", "name": "NativeHTLC__DuplicateOrder", "inputs": [] },
+    {
+      "type": "error",
+      "name": "NativeHTLC__IncorrectFundsRecieved",
+      "inputs": []
+    },
+    { "type": "error", "name": "NativeHTLC__IncorrectSecret", "inputs": [] },
+    {
+      "type": "error",
+      "name": "NativeHTLC__InvalidRedeemerSignature",
+      "inputs": []
+    },
+    { "type": "error", "name": "NativeHTLC__OrderFulfilled", "inputs": [] },
+    { "type": "error", "name": "NativeHTLC__OrderNotExpired", "inputs": [] },
+    { "type": "error", "name": "NativeHTLC__OrderNotInitiated", "inputs": [] },
+    {
+      "type": "error",
+      "name": "NativeHTLC__SameFunderAndRedeemer",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NativeHTLC__SameInitiatorAndRedeemer",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NativeHTLC__ZeroAddressInitiator",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "NativeHTLC__ZeroAddressRedeemer",
+      "inputs": []
+    },
+    { "type": "error", "name": "NativeHTLC__ZeroAmount", "inputs": [] },
+    { "type": "error", "name": "NativeHTLC__ZeroTimelock", "inputs": [] },
+    {
+      "type": "error",
+      "name": "StringTooLong",
+      "inputs": [{ "name": "str", "type": "string", "internalType": "string" }]
     }
   ],
   "evm:htlc_erc20": [

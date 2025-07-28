@@ -55,7 +55,7 @@
       "chain": "ethereum_localnet",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0x37e4e4ddd050cc4cFBE27cceF5e50966f3C4b6EA",
+        "address": "0x21D975dc3b8eC5EC0952455e06c7eCc9699Df192",
         "schema": "evm:htlc_erc20"
       },
       "token": {
@@ -73,6 +73,23 @@
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
         "address": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
+        "schema": "evm:htlc"
+      },
+      "token": {
+        "address": "primary",
+        "schema": "primary"
+      },
+      "decimals": 18,
+      "min_amount": "50000",
+      "max_amount": "1000000000000000000",
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
+    },
+    {
+      "id": "ethereum_localnet:ethereum",
+      "chain": "ethereum_localnet",
+      "icon": "https://garden.imgix.net/token-images/wbtc.svg",
+      "htlc": {
+        "address": "0x91F25b5E354DE190e88722B8fFD2500A44964Db6",
         "schema": "evm:htlc"
       },
       "token": {
@@ -140,7 +157,7 @@
       "chain": "arbitrum_localnet",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0xddfA1a7988240B6FA629A8c5274e66614C357172",
+        "address": "0x21D975dc3b8eC5EC0952455e06c7eCc9699Df192",
         "schema": "evm:htlc_erc20"
       },
       "token": {
@@ -151,5 +168,22 @@
       "min_amount": "50000",
       "max_amount": "10000000000",
       "chain_icon": "https://garden.imgix.net/chain_images/arbitrumSepolia.svg"
+    },
+    {
+      "id": "arbitrum_localnet:native",
+      "chain": "arbitrum_localnet",
+      "icon": "https://garden.imgix.net/token-images/wbtc.svg",
+      "htlc": {
+        "address": "0x91F25b5E354DE190e88722B8fFD2500A44964Db6",
+        "schema": "evm:htlc"
+      },
+      "token": {
+        "address": "primary",
+        "schema": "primary"
+      },
+      "decimals": 18,
+      "min_amount": "50000",
+      "max_amount": "1000000000000000000",
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
     }
   ]
