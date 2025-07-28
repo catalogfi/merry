@@ -55,7 +55,7 @@
       "chain": "ethereum_localnet",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0x4b590154D583E134a1a492c5a885Ca6f3d51Be7C",
+        "address": "0x37e4e4ddd050cc4cFBE27cceF5e50966f3C4b6EA",
         "schema": "evm:htlc_erc20"
       },
       "token": {
@@ -140,7 +140,7 @@
       "chain": "arbitrum_localnet",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0xdCBD7e6E07Eb9a7AB6E1d47622bc5b18424007f5",
+        "address": "0xddfA1a7988240B6FA629A8c5274e66614C357172",
         "schema": "evm:htlc_erc20"
       },
       "token": {
