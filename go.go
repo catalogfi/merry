@@ -46,6 +46,8 @@ func (m *Merry) Start() error {
 	fundAddresses := []string{
 		"bcrt1qgyf47wrtnr9gsr06gn62ft6m4lzylcnllrf9cf", // cobi btc address
 		"0x70997970c51812dc3a010c7d01b50e0d17dc79c8",   // cobi evm address
+		"0x7a2088a1bFc9d81c55368AE168C2C02570cB814F",   // distributor ethereum address
+		"0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E",   // distributor arbitrum address
 	}
 
 	for _, addr := range fundAddresses {
