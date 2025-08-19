@@ -55,7 +55,7 @@
       "chain": "ethereum_localnet",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0x21D975dc3b8eC5EC0952455e06c7eCc9699Df192",
+        "address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
         "schema": "evm:htlc_erc20"
       },
       "token": {
@@ -89,7 +89,7 @@
       "chain": "ethereum_localnet",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0x91F25b5E354DE190e88722B8fFD2500A44964Db6",
+        "address": "0xA7bca148C283Dc33F21860f18C149f09aDd45Fe1",
         "schema": "evm:htlc"
       },
       "token": {
@@ -157,7 +157,7 @@
       "chain": "arbitrum_localnet",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0x21D975dc3b8eC5EC0952455e06c7eCc9699Df192",
+        "address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
         "schema": "evm:htlc_erc20"
       },
       "token": {
