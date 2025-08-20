@@ -44,8 +44,8 @@
         "decimals": 8
       },
       "dest_asset": {
-        "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "asset": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+        "htlc_address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
         "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
@@ -104,8 +104,8 @@
         "decimals": 8
       },
       "source_asset": {
-        "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "asset": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+        "htlc_address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
         "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
@@ -134,8 +134,8 @@
         "decimals": 8
       },
       "source_asset": {
-        "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "asset": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+        "htlc_address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
         "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
@@ -157,8 +157,8 @@
       "source_chain": "ethereum_localnet",
       "dest_chain": "arbitrum_localnet",
       "dest_asset": {
-        "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "asset": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+        "htlc_address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
         "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
@@ -248,8 +248,8 @@
         "source_chain": "arbitrum_localnet",
         "dest_chain": "starknet_devnet",
         "source_asset": {
-          "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-          "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          "asset": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+          "htlc_address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
           "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
           "token_id": "bitcoin",
           "decimals": 8
@@ -286,8 +286,8 @@
           "decimals": 18
         },
         "dest_asset": {
-          "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-          "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+          "asset": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+          "htlc_address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
           "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
           "token_id": "bitcoin",
           "decimals": 8
@@ -500,8 +500,8 @@
         "decimals": 9
       },
       "dest_asset": {
-        "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "asset": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+        "htlc_address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
         "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
@@ -523,8 +523,8 @@
       "source_chain": "arbitrum_localnet",
       "dest_chain": "solana_localnet",
       "source_asset": {
-        "asset": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
-        "htlc_address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
+        "asset": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+        "htlc_address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
         "token_address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
         "token_id": "bitcoin",
         "decimals": 8
