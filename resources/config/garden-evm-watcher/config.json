@@ -5,7 +5,9 @@
       "ethereum_localnet": {
         "contracts": {
           "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0": "gardenhtlc",
-          "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707": "gardenhtlc"
+          "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707": "gardenhtlc",
+          "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF": "gardenhtlcv3",
+          "0xA7bca148C283Dc33F21860f18C149f09aDd45Fe1": "gardenhtlcv3"
         },
         "url": "http://ethereum:8545",
         "startBlock": 0,
@@ -20,7 +22,9 @@
       "arbitrum_localnet": {
         "contracts": {
           "0x0165878A594ca255338adfa4d48449f69242Eb8F": "gardenhtlc",
-          "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6": "orderbook"
+          "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6": "orderbook",
+          "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF": "gardenhtlcv3",
+          "0x91F25b5E354DE190e88722B8fFD2500A44964Db6": "gardenhtlcv3"
         },
         "url": "http://arbitrum:8545",
         "startBlock": 0,
