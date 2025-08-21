@@ -65,7 +65,7 @@
       "chain_type": "evm",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+        "address": "0x5922EB81685b55f6519F995E7632912c1C752e7b",
         "schema": "evm:htlc_erc20"
       },
       "token": {
@@ -105,7 +105,7 @@
       "chain_type": "evm",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0xA7bca148C283Dc33F21860f18C149f09aDd45Fe1",
+        "address": "0x66bd335af64d29392cf90d8A4A411f0444176CC0",
         "schema": "evm:htlc"
       },
       "token": {
@@ -185,7 +185,7 @@
       "chain_type": "evm",
       "icon": "https://garden.imgix.net/token-images/wbtc.svg",
       "htlc": {
-        "address": "0x6d49021ebF8172F4B51A52a621C7Fc94BD8364cF",
+        "address": "0x5922EB81685b55f6519F995E7632912c1C752e7b",
         "schema": "evm:htlc_erc20"
       },
       "token": {
