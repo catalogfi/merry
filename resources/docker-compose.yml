@@ -447,6 +447,30 @@ services:
       - "6748:80"
     volumes:
       - "./config/local-cdn:/usr/share/nginx/html:ro"
+
+  sui-localnet:
+    image: mysten/sui-node:mainnet
+    container_name: sui-localnet
+    user: root
+    ports:
+      - "9000:9000"      # RPC port
+      - "9184:9184"      # Metrics port
+    command: 
+      - /bin/sh
+      - -c
+      - |
+        if [ ! -f /app/genesis.blob ]; then
+          sui genesis -f
+        fi
+        sui-node --config-path /app/fullnode.yaml
+    volumes:
+      - "./config/sui/fullnode.yaml:/app/fullnode.yaml"
+      - "./volumes/sui:/app/suidb"
+    environment:
+      - SUI_CONFIG_DIR=/app
+      - RUST_BACKTRACE=1
+    restart: unless-stopped
+
 networks:
   default:
     name: merry
