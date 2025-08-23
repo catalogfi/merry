@@ -1,0 +1,19 @@
+# Database configuration
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+
+# Sui node configuration
+rpc_url = "http://sui-node:9000/"
+
+port = "127.0.0.1:20000"
+
+package_id = "0x6dd165f918508a99b02ff0866156d64265c0d2c4aa7de91f0c23834c8efddb68"
+
+registry_id = "0x5aafd354c8a23ae7c0dceeee163734e91ae47a9c184eabb9bade7517d6082bdc"
+
+registry_version = 4
+
+orders_provider = "http://solver-orders:4596/"
+
+credentials_provider = "https://order-credentials:4596/credentials/9e3b7a5d0c1f6b2d8a4e3f1c7d9b6a0e2c5d3a9f0e7b4c6d1a3e9b7c2f5d0a1"
+
+chain = "sui_testnet"

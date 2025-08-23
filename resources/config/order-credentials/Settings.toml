@@ -1,0 +1,10 @@
+# Database settings
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+
+# Server settings
+port = 4575
+
+# Security secrets (must be 32 bytes/64 hex characters)
+generate_secret = "c4b8f7e2a1d9e345f06b9a1c3d7f8e2b0a5d6c1e9b3f7a2d4c6e8b0f3a2d7e1c"
+retrieve_secret = "9e3b7a5d0c1f6b2d8a4e3f1c7d9b6a0e2c5d3a9f0e7b4c6d1a3e9b7c2f5d0a1"
+encryption_secret = "b7e151628aed2a6abf7158809cf4f3c762e7160b7b5b329c1f8e6a7a8e6f24b3"

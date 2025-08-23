@@ -14,7 +14,8 @@
       "decimals": 8,
       "min_amount": "50000",
       "max_amount": "10000000000",
-      "chain_icon": "https://garden.imgix.net/token-images/bitcoin.svg"
+      "chain_icon": "https://garden.imgix.net/token-images/bitcoin.svg",
+      "chain_type": "bitcoin"
     },
     {
       "id": "solana_localnet:sol",
@@ -31,7 +32,8 @@
       "decimals": 9,
       "min_amount": "1000000",
       "max_amount": "1000000000",
-      "chain_icon": "https://garden-finance.imgix.net/chain_images/solana.png"
+      "chain_icon": "https://garden-finance.imgix.net/chain_images/solana.png",
+      "chain_type": "solana"
     },
     {
       "id": "ethereum_localnet:wbtc",
@@ -48,7 +50,8 @@
       "decimals": 8,
       "min_amount": "50000",
       "max_amount": "10000000000",
-      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg",
+      "chain_type": "evm:31337"
     },
     {
       "id": "ethereum_localnet:wbtc",
@@ -65,7 +68,8 @@
       "decimals": 8,
       "min_amount": "50000",
       "max_amount": "10000000000",
-      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg",
+      "chain_type": "evm:31337"
     },
     {
       "id": "ethereum_localnet:ethereum",
@@ -82,7 +86,8 @@
       "decimals": 18,
       "min_amount": "50000",
       "max_amount": "1000000000000000000",
-      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg",
+      "chain_type": "evm:31337"
     },
     {
       "id": "ethereum_localnet:ethereum",
@@ -99,7 +104,8 @@
       "decimals": 18,
       "min_amount": "50000",
       "max_amount": "1000000000000000000",
-      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg",
+      "chain_type": "evm:31337"
     },
     {
       "id": "starknet_devnet:starknet",
@@ -116,7 +122,8 @@
       "decimals": 18,
       "min_amount": "50000",
       "max_amount": "1000000000000000000",
-      "chain_icon": "https://garden-finance.imgix.net/chain_images/StarknetIcon.svg"
+      "chain_icon": "https://garden-finance.imgix.net/chain_images/StarknetIcon.svg",
+      "chain_type": "starknet:393402133025997798000961"
     },
     {
       "id": "starknet_devnet:ethereum",
@@ -133,7 +140,8 @@
       "decimals": 18,
       "min_amount": "50000",
       "max_amount": "1000000000000000000",
-      "chain_icon": "https://garden-finance.imgix.net/chain_images/StarknetIcon.svg"
+      "chain_icon": "https://garden-finance.imgix.net/chain_images/StarknetIcon.svg",
+      "chain_type": "starknet:393402133025997798000961"
     },
     {
       "id": "arbitrum_localnet:wbtc",
@@ -150,7 +158,8 @@
       "decimals": 8,
       "min_amount": "50000",
       "max_amount": "10000000000",
-      "chain_icon": "https://garden.imgix.net/chain_images/arbitrumSepolia.svg"
+      "chain_icon": "https://garden.imgix.net/chain_images/arbitrumSepolia.svg",
+      "chain_type": "evm:31338"
     },
     {
       "id": "arbitrum_localnet:wbtc",
@@ -167,7 +176,8 @@
       "decimals": 8,
       "min_amount": "50000",
       "max_amount": "10000000000",
-      "chain_icon": "https://garden.imgix.net/chain_images/arbitrumSepolia.svg"
+      "chain_icon": "https://garden.imgix.net/chain_images/arbitrumSepolia.svg",
+      "chain_type": "evm:31338"
     },
     {
       "id": "arbitrum_localnet:native",
@@ -184,6 +194,7 @@
       "decimals": 18,
       "min_amount": "50000",
       "max_amount": "1000000000000000000",
-      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg"
+      "chain_icon": "https://garden.imgix.net/chain_images/sepolia.svg",
+      "chain_type": "evm:31337"
     }
   ]

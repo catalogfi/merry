@@ -1,0 +1,26 @@
+# Database configuration
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+
+# Sui node configuration
+rpc_url = "http://sui-node:9000/"
+
+redis_url = "redis://redis:6379"
+
+redis_timestamp_key = "last_processed_event"
+
+polling_interval = 5000
+
+# Order expiration time in seconds
+order_deadline = 7200000
+
+# Environment configuration
+chain_identifier = "sui_testnet"
+
+# Worker configuration
+worker_count = 1
+
+queue_size = 1000
+
+package_id = "0x6dd165f918508a99b02ff0866156d64265c0d2c4aa7de91f0c23834c8efddb68"
+
+last_processed_event_id = "2qGGkuNtmTPZDPgVZ728czXyYuS6ipCeyu5dVMyjgTdn:0"

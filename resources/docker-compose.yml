@@ -448,28 +448,57 @@ services:
     volumes:
       - "./config/local-cdn:/usr/share/nginx/html:ro"
 
-  sui-localnet:
-    image: mysten/sui-node:mainnet
-    container_name: sui-localnet
-    user: root
-    ports:
-      - "9000:9000"      # RPC port
-      - "9184:9184"      # Metrics port
-    command: 
-      - /bin/sh
-      - -c
-      - |
-        if [ ! -f /app/genesis.blob ]; then
-          sui genesis -f
-        fi
-        sui-node --config-path /app/fullnode.yaml
-    volumes:
-      - "./config/sui/fullnode.yaml:/app/fullnode.yaml"
-      - "./volumes/sui:/app/suidb"
-    environment:
-      - SUI_CONFIG_DIR=/app
-      - RUST_BACKTRACE=1
+  sui-executor:
+    image: ghcr.io/catalogfi/sui-executor:latest
+    container_name: sui-executor
     restart: unless-stopped
+    environment:
+      ADDRESS: "0x3c2b84e8804abc0ff01adf309bfde47cc48f8f5e4be078adc509d8e42cf8879e"
+      PRIVATE_KEY: "suiprivkey1qpenmcjec9pr96rshv6xcqh0st8qgpg6j8j2l6e9dr3rdh6u33rlvrk958l"
+    volumes:
+      - "./config/sui-executor/config.toml:/app/config.toml"
+
+
+  sui-watcher:
+    image: ghcr.io/catalogfi/sui-watcher:latest
+    container_name: sui-watcher
+    restart: unless-stopped
+    volumes:
+      - "./config/sui-watcher/Settings.toml:/app/Settings.toml"
+
+  sui-relayer:
+    image: ghcr.io/catalogfi/sui-relayer:latest
+    container_name: sui-relayer
+    restart: unless-stopped
+    environment:
+      ADDRESS: "0x09e7bd0e41c8db08c377816685aabd9d86982761c3c0752532d8de261f849710"
+      PRIVATE_KEY: "suiprivkey1qz779xpfee0z7uavtarljcw49p533ervyaces66mq7avyezsw0zpsldgwe8"
+    volumes:
+      - "./config/sui-relayer/config.toml:/app/config.toml"
+    ports:
+      - "20000:20000"
+
+  sui-node:
+    image: ghcr.io/catalogfi/sui-node:latest
+    container_name: sui-node
+    restart: unless-stopped
+    environment:
+      - RUST_LOG=off,sui_node=info
+    command: ["--with-faucet", "--force-regenesis"]
+    ports:
+      - "9000:9000"   # Sui JSON-RPC
+      - "9123:9123"   # Faucet
+
+
+
+  order-credentials:
+    image: ghcr.io/catalogfi/order-credentials:latest
+    container_name: order-credentials
+    ports:
+      - "4575:4575"
+    restart: unless-stopped
+    volumes:
+      - "./config/order-credentials/Settings.toml:/app/Settings.toml"
 
 networks:
   default:

@@ -1,0 +1,15 @@
+db_url = "postgres://postgres:postgres@garden-db:5432/garden"
+rpc_url = "http://sui-nodexs:9000/"
+port = "127.0.0.1:20001"
+package_id = "0x6dd165f918508a99b02ff0866156d64265c0d2c4aa7de91f0c23834c8efddb68"
+chain_identifier = "testnet"
+order_deadline = 72000
+registry_id = "0x5aafd354c8a23ae7c0dceeee163734e91ae47a9c184eabb9bade7517d6082bdc"
+registry_version = 4
+price_url = ""
+polling_interval = 5000
+quote_url = "http://quote:6969"
+price_drop_threshold = 0.1
+batch_interval = 3000
+chain_name = "sui_testnet"
+pending_orders_url = "http://solver-orders:4596/"

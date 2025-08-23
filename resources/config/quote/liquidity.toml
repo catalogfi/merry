@@ -53,3 +53,14 @@ addresses = [
 chain_type = "sol"
 native_token_id = "solana"
 decimals = 9
+
+[[chains]]
+name = "sui_testnet"
+rpc = "http://168.119.32.51:9000/"
+addresses = [
+    "relayer:0x09e7bd0e41c8db08c377816685aabd9d86982761c3c0752532d8de261f849710",
+    "cobi:0x3c2b84e8804abc0ff01adf309bfde47cc48f8f5e4be078adc509d8e42cf8879e"
+]
+chain_type = "sui"
+native_token_id = "sui"
+decimals = 9
