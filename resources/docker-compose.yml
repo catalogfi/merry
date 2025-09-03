@@ -15,7 +15,7 @@ services:
     volumes:
       - "./volumes/bitcoin:/root/.bitcoin"
   arbitrum:
-    image: "ghcr.io/catalogfi/garden_sol:latest"
+    image: "ghcr.io/hashiraio/garden_sol:latest"
     container_name: arbitrum
     environment:
       CHAIN_ID: 31338
@@ -33,7 +33,7 @@ services:
       - "5101:80"
       
   authenticator:
-    image: "ghcr.io/catalogfi/authenticator:latest"
+    image: "ghcr.io/hashiraio/authenticator:latest"
     container_name: authenticator
     restart: unless-stopped
     depends_on:
@@ -43,7 +43,7 @@ services:
     ports:
       - "4427:4427"
   orderbookV2:
-    image: "ghcr.io/catalogfi/garden-orderbook-v2:latest"
+    image: "ghcr.io/hashiraio/garden-orderbook-v2:latest"
     container_name: orderbookV2
     restart: unless-stopped
     depends_on:
@@ -53,7 +53,7 @@ services:
     ports:
       - "4455:4455"
   relayer:
-    image: "ghcr.io/catalogfi/evm-swapper-relay:latest"
+    image: "ghcr.io/hashiraio/evm-swapper-relay:latest"
     container_name: relayer
     restart: unless-stopped
     depends_on:
@@ -63,7 +63,7 @@ services:
     ports:
       - "4426:4426"
   info:
-    image: "ghcr.io/catalogfi/info-v2:latest"
+    image: "ghcr.io/hashiraio/info-v2:latest"
     container_name: info
     restart: unless-stopped
     depends_on:
@@ -75,7 +75,7 @@ services:
     ports:
       - "4323:3001"
   quote:
-    image: "ghcr.io/catalogfi/quote:latest"
+    image: "ghcr.io/hashiraio/quote:latest"
     container_name: quote
     restart: unless-stopped
     depends_on:
@@ -88,7 +88,7 @@ services:
     ports:
       - "6969:6969"
   ethereum:
-    image: "ghcr.io/catalogfi/garden_sol:latest"
+    image: "ghcr.io/hashiraio/garden_sol:latest"
     container_name: ethereum
     environment:
       CHAIN_ID: 31337
@@ -173,7 +173,7 @@ services:
     volumes:
       - "./volumes/orderbook_data:/var/lib/postgresql/data"
   bit-indexer:
-    image: "ghcr.io/catalogfi/bitindexer:latest"
+    image: "ghcr.io/hashiraio/bitindexer:latest"
     container_name: bit-indexer
     restart: unless-stopped
     depends_on:
@@ -193,7 +193,7 @@ services:
       - "./volumes/ponder_data:/var/lib/postgresql/data"
 
   migrator:
-    image: "ghcr.io/catalogfi/migrator:latest"
+    image: "ghcr.io/hashiraio/migrator:latest"
     container_name: migrator
     depends_on:
       - garden-db
@@ -209,7 +209,7 @@ services:
     volumes:
       - "./volumes/cobi_data:/data"
   virtual-balance:
-    image: "ghcr.io/catalogfi/virtual-balance:latest"
+    image: "ghcr.io/hashiraio/virtual-balance:latest"
     container_name: virtual-balance
     ports:
       - "3008:3008"
@@ -220,7 +220,7 @@ services:
       - "./config/virtual-balance/config.json:/app/config.json"
     restart: unless-stopped
   garden-evm-watcher:
-    image: "ghcr.io/catalogfi/garden-evm-watcher:latest"
+    image: "ghcr.io/hashiraio/garden-evm-watcher:latest"
     container_name: garden-evm-watcher
     depends_on:
       - ethereum
@@ -235,7 +235,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   bit-ponder:
-    image: "ghcr.io/catalogfi/bit-ponder:latest"
+    image: "ghcr.io/hashiraio/bit-ponder:latest"
     container_name: bit-ponder
     depends_on:
       - garden-evm-watcher
@@ -245,7 +245,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   cobiv2:
-    image: "ghcr.io/catalogfi/cobiv2:latest"
+    image: "ghcr.io/hashiraio/cobiv2:latest"
     container_name: cobiv2
     depends_on:
       - garden-evm-watcher
@@ -255,7 +255,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   cosigner:
-    image: "ghcr.io/catalogfi/cosigner:latest"
+    image: "ghcr.io/hashiraio/cosigner:latest"
     container_name: cosigner
     ports:
       - "11818:11818"
@@ -294,7 +294,7 @@ services:
       - ./config/starknet-devnet/dump.json:/data/dump.json
     restart: unless-stopped
   garden-starknet-watcher:
-    image: ghcr.io/catalogfi/garden-starknet-watcher:latest
+    image: ghcr.io/hashiraio/garden-starknet-watcher:latest
     container_name: starknet-watcher
     depends_on:
       - starknet-devnet
@@ -303,7 +303,7 @@ services:
       - ./config/starknet/watcher_config.toml:/app/config.toml
     restart: unless-stopped
   starknet-relayer:
-    image: ghcr.io/catalogfi/starknet-relayer:latest
+    image: ghcr.io/hashiraio/starknet-relayer:latest
     container_name: starknet-relayer
     depends_on:
       - starknet-devnet
@@ -315,7 +315,7 @@ services:
       - "4436:4436"
     restart: unless-stopped
   starknet-executor:
-    image: ghcr.io/catalogfi/starknet-executor:latest
+    image: ghcr.io/hashiraio/starknet-executor:latest
     container_name: starknet-executor
     depends_on:
       - starknet-devnet
@@ -325,13 +325,13 @@ services:
       - ./config/starknet/executor_config.toml:/app/settings.toml
     restart: unless-stopped
   garden-kiosk:
-    image: ghcr.io/catalogfi/garden-kiosk:latest
+    image: ghcr.io/hashiraio/garden-kiosk:latest
     container_name: garden-kiosk
     ports:
       - "9898:80"
     restart: unless-stopped
   explorer:
-    image: ghcr.io/catalogfi/explorer:latest
+    image: ghcr.io/hashiraio/explorer:latest
     container_name: explorer
     ports:
       - "8989:80"
@@ -341,7 +341,7 @@ services:
       - info
   
   nginx-wrapper:
-    image: ghcr.io/catalogfi/nginx-wrapper:latest
+    image: ghcr.io/hashiraio/nginx-wrapper:latest
     container_name: nginx-wrapper
     environment:
       - ADMIN_PASSWORD=merry
@@ -366,7 +366,7 @@ services:
       - redis
       - cosigner
   solana-validator:
-    image: ghcr.io/catalogfi/solana-test-validator:latest
+    image: ghcr.io/hashiraio/solana-test-validator:latest
     container_name: solana-validator
     ports:
       - 8899:8899
@@ -374,7 +374,7 @@ services:
     restart: unless-stopped
 
   solana-watcher:
-    image: ghcr.io/catalogfi/solana-watcher:latest
+    image: ghcr.io/hashiraio/solana-watcher:latest
     container_name: solana-watcher
     depends_on:
       - solana-validator
@@ -385,7 +385,7 @@ services:
       - CONFIG=/usr/src/app/watcher-config.toml
   
   solana-executor:
-    image: ghcr.io/catalogfi/solana-executor:latest
+    image: ghcr.io/hashiraio/solana-executor:latest
     container_name: solana-executor
     depends_on:
       - solana-watcher
@@ -396,7 +396,7 @@ services:
       - FILLER_PRIVATE_KEY=5cpuymR6tCQKFDzKQ1beFVRqTf9MrzviyF1hwWRNhfAimEo1vgf99nCJ3sjbyc4pH953TG3XrxXi85JdaxZLhrfW
   
   solana-relayer:
-    image: ghcr.io/catalogfi/solana-relayer:latest
+    image: ghcr.io/hashiraio/solana-relayer:latest
     ports:
       - 5014:5014
     container_name: solana-relayer
@@ -410,7 +410,7 @@ services:
       - RELAYER_PRIVATE_KEY=CcRVvyujxa1MDBz9VRomHTe1pzLN7YyzeGs9GqBU2p1dCNeJjrHrEirAmmQyKcQS9nAqhcm1wWCeUBnwBhMTwor
 
   integrator-api:
-    image: "ghcr.io/catalogfi/integrator-api-key-manager:latest"
+    image: "ghcr.io/hashiraio/integrator-api-key-manager:latest"
     container_name: integrator-api
     volumes:
       - "./config/integrator-api/Settings.toml:/app/Settings.toml"
@@ -421,7 +421,7 @@ services:
       - garden-db
 
   evm-executor:
-    image: "ghcr.io/catalogfi/evm-executor:latest"
+    image: "ghcr.io/hashiraio/evm-executor:latest"
     container_name: evm-executor
     restart: unless-stopped
     volumes:
@@ -430,7 +430,7 @@ services:
       - solver-orders
 
   solver-orders:
-    image: "ghcr.io/catalogfi/solver-orders:latest"
+    image: "ghcr.io/hashiraio/solver-orders:latest"
     container_name: solver-orders
     ports:
       - "4596:4596"
@@ -449,7 +449,7 @@ services:
       - "./config/local-cdn:/usr/share/nginx/html:ro"
 
   sui-executor:
-    image: ghcr.io/catalogfi/sui-executor:latest
+    image: ghcr.io/hashiraio/sui-executor:latest
     container_name: sui-executor
     restart: unless-stopped
     environment:
@@ -460,14 +460,14 @@ services:
 
 
   sui-watcher:
-    image: ghcr.io/catalogfi/sui-watcher:latest
+    image: ghcr.io/hashiraio/sui-watcher:latest
     container_name: sui-watcher
     restart: unless-stopped
     volumes:
       - "./config/sui-watcher/Settings.toml:/app/Settings.toml"
 
   sui-relayer:
-    image: ghcr.io/catalogfi/sui-relayer:latest
+    image: ghcr.io/hashiraio/sui-relayer:latest
     container_name: sui-relayer
     restart: unless-stopped
     environment:
@@ -479,7 +479,7 @@ services:
       - "20000:20000"
 
   sui-node:
-    image: ghcr.io/catalogfi/sui-node:latest
+    image: ghcr.io/hashiraio/sui-node:latest
     container_name: sui-node
     restart: unless-stopped
     environment:
@@ -492,7 +492,7 @@ services:
 
 
   order-credentials:
-    image: ghcr.io/catalogfi/order-credentials:latest
+    image: ghcr.io/hashiraio/order-credentials:latest
     container_name: order-credentials
     ports:
       - "4575:4575"
